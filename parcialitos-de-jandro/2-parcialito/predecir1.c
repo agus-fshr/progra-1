@@ -11,7 +11,7 @@ int main(void) {
             break;
         putchar('C');
 
-    } while (a++ < 6); // el while corre 3 veces
+    } while (a++ < 6);
 
     return 0;
 }
