@@ -13,11 +13,13 @@ int main(){
         switch (c){
             case(' '):{
                 cell_state = DEAD;
+                M[row_counter][col_counter] = cell_state;
                 col_counter++;
                 break;
             }
             case('*'):{
                 cell_state = ALIVE;
+                M[row_counter][col_counter] = cell_state;
                 col_counter++;
                 break;
             }
@@ -25,8 +27,11 @@ int main(){
                 row_counter++;
                 break;
             }
+            default:{
+                break;
+            }
         }
-        M[row_counter][col_counter] = cell_state;
+        // M[row_counter][col_counter] = cell_state;
     }
 
     for (int i=0; i<=row_counter; i++){
