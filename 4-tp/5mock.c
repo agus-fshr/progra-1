@@ -64,3 +64,9 @@ void advance_generation(void) {
     }
     acá guardar next gen en el mundo actual
 }
+unsigned int read_num(void){
+    while (((c = getchar()) && c != '\n') && (c>='0' && c<='9'){
+    nro = nro*10.0;
+    nro += c - '0';
+    }
+}
