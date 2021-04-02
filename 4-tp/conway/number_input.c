@@ -2,14 +2,15 @@
 
 #define DEAD 0
 #define ALIVE 1
+#define MATRIX_SIZE 20
 
 int main(){
-    int M[8][8];
+    int M[MATRIX_SIZE][MATRIX_SIZE];
     char c;
     int cell_state;
     int row_counter = 0, col_counter = 0;
 
-    while((c = getchar()) != EOF) {
+    while((c = getchar()) != 'f') {
         switch (c){
             case(' '):{
                 cell_state = DEAD;
