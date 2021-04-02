@@ -52,21 +52,24 @@ int main(void){
 
 void advance_generation(void) {
     int i_col, i_fil;
-    next_gen
+    // next_gen
     for(i_col = 0; i_col < get_world_width(); i_col++) {
         for(i_fil = 0; i_fil < get_world_height(); i_fil++) {
             int adjacent_living = read_adjacent_cells(i_col, i_fil);
-            if(tal condicion)
-            else if(tal condicion)
-            etc etc
-            esto lo tiene que guardar en next_gen
+            // if(tal condicion)
+            // else if(tal condicion)
+            // etc etc
+            // esto lo tiene que guardar en next_gen
         }
     }
-    acá guardar next gen en el mundo actual
+    // acá guardar next gen en el mundo actual
 }
 unsigned int read_num(void){
-    while (((c = getchar()) && c != '\n') && (c>='0' && c<='9'){
+    char c;
+    int nro = 0;
+    while (((c = getchar()) && c != '\n') && (c>='0' && c<='9')){
     nro = nro*10.0;
     nro += c - '0';
+    return nro;
     }
 }
