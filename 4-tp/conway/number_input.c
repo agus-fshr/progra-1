@@ -24,7 +24,7 @@ int main(){
                 break;
             }
             case('\n'):{
-                row_counter++;
+                ++row_counter;
                 col_counter = 0;
                 break;
             }
@@ -35,19 +35,13 @@ int main(){
         // M[row_counter][col_counter] = cell_state;
     }
 
-    // for (int i=0; i<=row_counter; i++){
-        // for(int n=0; n<=col_counter; n++){
-            // printf("%d  ", M[i][n]);
-        // }
-        // printf("\n");
-    // }
-    for(int x = 0 ; x < row_counter ; x++) {
-            printf(" ");
-            for(int y = 0 ; y < col_counter ; y++){
-                printf("%d ", M[x][y]);
-            }
-            printf("\n");
+    int row, columns;
+        for (row=0; row<=row_counter; row++){
+        for(columns=0; columns<col_counter; columns++){
+            printf("%d  ", M[row][columns]);
         }
+        printf("\n");
+}
 
     return 0;
 }
