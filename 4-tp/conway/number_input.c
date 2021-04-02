@@ -9,6 +9,7 @@ int main(){
     char c;
     int cell_state;
     int row_counter = 0, col_counter = 0;
+    char testing_shit;
 
     while((c = getchar()) != 'f') {
         switch (c){
@@ -42,7 +43,12 @@ int main(){
             printf("%d  ", M[row][columns]);
         }
         printf("\n");
+
+    
 }
+    while((testing_shit = getchar()) != '\n'){
+        putchar(testing_shit);
+    }
 
     return 0;
 }
