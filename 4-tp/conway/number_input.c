@@ -4,7 +4,7 @@
 #define ALIVE 1
 #define MATRIX_SIZE 20
 
-int main(){
+int get_world(){
     int M[MATRIX_SIZE][MATRIX_SIZE];
     char c;
     int cell_state;
