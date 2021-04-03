@@ -44,33 +44,35 @@ unsigned int default_world[][WORLD_WIDTH]/* = {
     {},
     {},
     {}
-}*/;
+}*/; //TODO: acá poner un estado x defecto
 
 int main(void){
-    int exit_loop = 0;
+    int exit_loop_flag = 0;
     
-    world_from_file();
-    initialize_world();
+    world_from_file();      // carga en temporal el mapa del archivo
+    initialize_world();     // decide qué mapa se usará como estado inicial
     printf("\nGeneracion: %d\n", total_generations);
     print_world();
 
-    while(!exit_loop) {
-        printf("Ingrese el numero de generaciones que quiere avanzar o 'q' para salir: \n");
-        int next_generations = read_num();
-        if(next_generations == -1) {
-            exit_loop = 1;
-        }
+    while(!exit_loop_flag) {
         int i;
+
+        printf("Ingrese el numero de generaciones que quiere avanzar o 'q' para salir: \n");
+        int next_generations = read_num();      // lee un numero o salida
+        if(next_generations == -1) {      
+            exit_loop_flag = 1;
+        }
+
         for(i = 0; i < next_generations; i++) {
-            advance_generation();
-            clear_screen();
+            advance_generation();       // calcular una generación y pasarla al estado
+            clear_screen();             // limpiar pantalla
             printf("\n\nGeneracion: %d\n", ++total_generations);
             printf("Falta avanzar %d\n\n", next_generations-1-i);
 
             print_world();
-            if(i != (next_generations - 1)){
+            if(i != (next_generations - 1)){    // si no se está en la última gen a avanzar
                 printf("Presione enter para avanzar una gen\n");
-                getchar(); // para que muestre la generacion intermedia
+                getchar(); // para que muestre la generación intermedia
             }
         }
     }
@@ -86,6 +88,10 @@ int main(void){
  *     Helper functions     *
 *****************************/
 
+/*
+ * Función:
+ * 
+*/
 int get_cell_state(int x, int y) {
     return world[x][y];
 }
@@ -115,7 +121,6 @@ int read_num(void){
     }
     return nro;
 }
-
 
 void copy_world(unsigned int src[][WORLD_WIDTH], unsigned int tgt[][WORLD_WIDTH]) {
     for(int i = 0; i < get_world_height(); i++) {
