@@ -138,15 +138,15 @@ unsigned int read_adjacent_cells(int x, int y) {
 void initialize_world(void){
     printf("Bienvenido. Quiere importar el mapa desde el archivo? (y=si / n=no)\n");
     char c = getchar();
-    /*
+    
     if(c == 'y') {
         world_from_file();
     }
     else {
-        */
+        
         printf("Cargando mundo por defecto\n");
         load_default_world();
-    //}
+    }
 }
 
 void load_default_world(void){
