@@ -258,7 +258,38 @@ void initialize_world(void){
     }
     else {
         printf("Cargando mundo por defecto\n");
-        copy_world(default_world, world);
+        load_default_world();
+    }
+}
+
+void load_default_world(void){
+    int temp_world[][4] = {{0, 0, 0, 0}, {1, 0, 1, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    for(int i = 0; i < WORLD_HEIGHT; i++) {
+        for(int j = 0; j < WORLD_WIDTH; j++) {
+            world[i][j] = temp_world[i][j];
+        }
+    }
+}
+
+int get_cell_state(int x, int y) {
+    return world[x-1][y-1];
+}
+
+int get_world_height(void) {
+    return WORLD_HEIGHT;
+}
+
+int get_world_width(void) {
+    return WORLD_WIDTH;
+}
+
+void print_world(void) {
+    int row, columns;
+    for (row=0; row <= get_world_height(); row++){
+        for(columns=0; columns < get_world_width(); columns++){
+            printf("%d  ", world[row][columns]);
+        }
+        printf("\n");
     }
     getchar();
 }
