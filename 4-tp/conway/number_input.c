@@ -38,14 +38,13 @@ int get_world(){
     }
 
     int row, columns;
-        for (row=0; row<=row_counter; row++){
+    for (row=0; row<=row_counter; row++){
         for(columns=0; columns<col_counter; columns++){
             printf("%d  ", M[row][columns]);
         }
         printf("\n");
-
+    }
     
-}
     while((testing_shit = getchar()) != '\n'){
         putchar(testing_shit);
     }
