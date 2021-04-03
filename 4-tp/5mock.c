@@ -51,7 +51,7 @@ int main(void){
     
     world_from_file();      // carga en temporal el mapa del archivo
     initialize_world();     // decide qué mapa se usará como estado inicial
-    printf("\nGeneracion: %d\n", total_generations);
+    printf("Generacion: %d", total_generations);
     print_world();
 
     while(!exit_loop_flag) {
@@ -132,6 +132,7 @@ void copy_world(unsigned int src[][WORLD_WIDTH], unsigned int tgt[][WORLD_WIDTH]
 
 void print_world(void) {
     int row, columns;
+    putchar('\n');
     for (row=0; row < get_world_height(); row++){
         printf(" _");
     }
@@ -149,7 +150,6 @@ void print_world(void) {
         printf("\n");
     }
 }
-
 
 /****************************
  *      Game functions      *
@@ -207,7 +207,6 @@ unsigned int read_adjacent_cells(int x, int y) {
     return alive_neighbours;
 }
 
-
 /****************************
  *      Setup functions     *
 *****************************/
@@ -247,7 +246,7 @@ void initialize_world(void){
     char c;
     printf("Ingrese una 'i' para iniciar el programa\n");
     while((c = getchar()) != 'i'){}
-    getchar();
+    getchar();          // TODO
     printf("Bienvenido. Quiere importar el mapa desde el archivo? (y=si / n=no): \n");
     
     c = getchar();
@@ -258,38 +257,6 @@ void initialize_world(void){
     }
     else {
         printf("Cargando mundo por defecto\n");
-        load_default_world();
+        copy_world(default_world, world);
     }
-}
-
-void load_default_world(void){
-    int temp_world[][4] = {{0, 0, 0, 0}, {1, 0, 1, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
-    for(int i = 0; i < WORLD_HEIGHT; i++) {
-        for(int j = 0; j < WORLD_WIDTH; j++) {
-            world[i][j] = temp_world[i][j];
-        }
-    }
-}
-
-int get_cell_state(int x, int y) {
-    return world[x-1][y-1];
-}
-
-int get_world_height(void) {
-    return WORLD_HEIGHT;
-}
-
-int get_world_width(void) {
-    return WORLD_WIDTH;
-}
-
-void print_world(void) {
-    int row, columns;
-    for (row=0; row <= get_world_height(); row++){
-        for(columns=0; columns < get_world_width(); columns++){
-            printf("%d  ", world[row][columns]);
-        }
-        printf("\n");
-    }
-    getchar();
 }
