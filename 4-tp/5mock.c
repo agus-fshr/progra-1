@@ -57,6 +57,10 @@
 
 
 
+/******************************************
+ *           FUNCTION PROTOTYPES          *
+ *****************************************/
+
 /** Helper functions **/
 int get_cell_state(int, int);   // toma el estado de una celda
 int get_world_height(void);     // devuelve la altura del mapa
@@ -108,11 +112,17 @@ int main(void){
             advance_generation();       // pasa a la siguiente generación
         }
     }
-    
+
     printf("Nos vemos.\n");     // saluda amablemente
 
     return 0;
 }
+
+
+
+/******************************************
+ *          FUNCTION DEFINITIONS          *
+ *****************************************/
 
 
 /****************************
