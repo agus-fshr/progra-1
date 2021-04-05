@@ -468,15 +468,17 @@ void initialize_world(void){
     char c;
     int stdin_world[WORLD_HEIGHT][WORLD_WIDTH];
     
+    clear_screen();
+
     printf("Si esta leyendo esto, no cargo un archivo valido para jugar.\n");
-    printf("Si su intención era hacerlo, recuerde que debe ingresar el comando cat [archivo] - | ./5\n");
+    printf("Si su intencion era hacerlo, recuerde que debe ingresar el comando cat [archivo] - | ./[ejecutable]\n");
     printf("Quizas decidio ingresar manualmente el mundo de juego, en cuyo caso, felicidades!\n");
     printf("Debo avisarle, primero que nada, que haga lo posible por ingresar un mapa de ");
     printf("%d filas y %d columnas. Si se equivoca, no se preocupe, nada se va a incendiar.\n", get_world_height(), get_world_width());
     printf("Tenga en cuenta:\n");
     printf("\t- Un caracter '%c' representa una celda muerta\n", DEAD_CHAR);
     printf("\t- Un caracter '%c' representa una celda viva\n", ALIVE_CHAR);
-    printf(" utilizar el caracter que mas le guste para separar celdas, incluso puede no usar ninguno!\n");
+    printf("Puede utilizar el caracter que mas le guste para separar celdas, incluso puede no usar ninguno!\n");
     printf("Eso si, al terminar cada fila presione enter.\n"); // No es necesario, pero es más seguro
     printf("Si se encuentra contento con el resultado, ingrese una f al final de la ultima fila\n");
     printf("Si no, cierre el programa e intente otra vez. La siguiente sera la vencida.\n");
