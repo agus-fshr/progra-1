@@ -93,16 +93,16 @@ int main(void){
     int exit_loop_flag = 0;
 
     clear_screen();
-    printf("\n\n\tGeneracion: %d\n\n", total_generations);
+    printf("\n\nGeneracion: %d\n\n", total_generations);
     print_world();
 
     while(!exit_loop_flag) {
         int i;
 
-        printf("\tIngrese: \n");
-        printf("\t - Enter: para avanzar una generacion\n");
-        printf("\t - Un numero natural para avanzar esa cantidad de generaciones\n");
-        printf("\t - 'q' para salir\n");
+        printf("Ingrese: \n");
+        printf(" - Enter: para avanzar una generacion\n");
+        printf(" - Un numero natural para avanzar esa cantidad de generaciones\n");
+        printf(" - 'q' para salir\n");
 
         int next_generations = read_generations();      // lee un numero o salida
         
@@ -114,12 +114,12 @@ int main(void){
         for(i = 0; i < next_generations; i++) {
             advance_generation();       // calcular una generación y pasarla al estado
             clear_screen();             // limpiar pantalla
-            printf("\n\n\tGeneracion: %d\n\n", ++total_generations);
+            printf("\n\nGeneracion: %d\n\n", ++total_generations);
 
             if(i != (next_generations - 1)){    // si no se está en la última gen a avanzar
-                printf("\tFalta avanzar %d\n\n", next_generations-1-i);
+                printf("Falta avanzar %d\n\n", next_generations-1-i);
                 print_world();
-                printf("\tPresione enter para avanzar una gen\n");
+                printf("Presione enter para avanzar una gen\n");
                 getchar(); // para que muestre la generación intermedia
             }
             else {
@@ -129,6 +129,7 @@ int main(void){
     
     }
     */
+    
 
     int steps = 0;              // variable local: pasos a avanzar o si debe salir
     while(steps != -1) {        // si steps vale -1, debe abandonarse el juego
