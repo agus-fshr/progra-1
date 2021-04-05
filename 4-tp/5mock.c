@@ -31,7 +31,12 @@
         4) Bajo la categoría "parametrización" se encuentran los defines que establecen detalles del
             funcionamiento del programa. Esto permite personalizar tanto el funcionamiento del juego
             como la presentación del mismo
-        5) Organización: 
+
+    Instrucciones:
+    Puede cargar el mundo de manera manual o cargarlo en un archivo de texto con el formato adecuado.
+    Luego, compilar este programa y llamar al comando cat [archivo mapa] - | ./[ejecutable]
+    Alternativamente, si el archivo del mapa se denomina "mapa.txt" y el ejecutable más reciente tiene como nombre "5",
+    puede simplemente correr el ejecutable game-of-life, como ./game-of-life, que es un wrapper
 
 */
 
@@ -76,7 +81,7 @@ void copy_world(int[][WORLD_WIDTH], int[][WORLD_WIDTH]);
 void print_world(void);         // imprime mundo
 
 /** Setup functions **/
-void world_from_stdin(int[][WORLD_WIDTH]);  // toma mundo desde stdin
+void parse_world_from_stdin(int[][WORLD_WIDTH]);  // toma mundo desde stdin
 void seed_world(int[][WORLD_WIDTH]);        // genera mundo
 void initialize_world(void);                // inicializa juego
 
@@ -385,7 +390,7 @@ void print_world(void) {
 *****************************/
 
 /*
- * Función world_from_stdin
+ * Función parse_world_from_stdin
  * Argumentos:
  *      - world_to_save: matriz en la que almacenar el mundo
  * 
@@ -397,7 +402,7 @@ void print_world(void) {
  * Si se pasa de columnas, lo incluirá en la siguiente de la matriz.
  * (efecto colateral del funcionamiento interno de matrices)
 */
-void world_from_stdin(int world_to_save[][WORLD_WIDTH]) {
+void parse_world_from_stdin(int world_to_save[][WORLD_WIDTH]) {
     char c;
     int row_counter = 0, col_counter = 0;
     int cell_counter = 0;           // contador de celdas detectadas
@@ -484,7 +489,7 @@ void initialize_world(void){
     printf("Si no, cierre el programa e intente otra vez. La siguiente sera la vencida.\n");
     printf("Si no quiere cargar un mapa y quiere pasar al juego,\ningrese una 'f' y luego pida cargar el mundo por defecto.\n");
     
-    world_from_stdin(stdin_world);  // carga en var local el mapa desde stdio
+    parse_world_from_stdin(stdin_world);  // carga en var local el mapa desde stdio
     clear_screen();
     
     printf("Ingrese una 'i' para iniciar el juego\n");
