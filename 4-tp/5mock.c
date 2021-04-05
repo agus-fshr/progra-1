@@ -90,10 +90,10 @@ int world[WORLD_HEIGHT][WORLD_WIDTH]; //  variable global que almacena el estado
 
 int main(void){
     int total_generations = 0;
+    int steps = 0;              // variable local: pasos a avanzar o si debe salir
     
     initialize_world();   // decide qué mapa se usará como estado inicial
 
-    int steps = 0;              // variable local: pasos a avanzar o si debe salir
     while(steps != -1) {        // si steps vale -1, debe abandonarse el juego
 
         clear_screen();
@@ -168,18 +168,13 @@ int get_world_width(void) {
  * Descripción:
  * Limpia stdout
  * 
- * Peligro! Esta implementación es linux-specific
- * Para que el programa funcione en windows, debe
- * reemplazarse por system("CLS"), y haciendo include
- * a Windows.h
+ * Peligro! Esta implementación es os-specific
  * 
- * Nota: hay otras formas de resolver esto con caracteres especiales 
- * de printf:
- * printf("\e[1;1H\e[2J");
+ * Nota: hay otras formas de resolver esto con caracteres
+ * especiales escapados enprintf
 */
 void clear_screen(void) {
-    system("clear");        // Pasa el comando clear a la consola (LINUX)
-    //system("CLS");        // Pasa el comando CLS a la consola (Windows.h)
+    system("cls || clear");
 }
 
 /*
