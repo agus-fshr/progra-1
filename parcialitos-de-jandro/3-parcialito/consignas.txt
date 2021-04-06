@@ -1,0 +1,23 @@
+1) En una sola linea, definir una matriz de 3x3 de enteros e inicializarla con la matriz identidad.
+
+2) Crear una macro parametrizada que calcule la distancia entre dos numeros. (Este no entra)
+
+3) Dado la siguiente parte de un codigo, indicar cuales de las siguientes afirmaciones son correctas y cuales incorrectas. En caso de que sean incorrectas, corregirlas
+   modificando solamente la parte subrayada. Hacer las aclaraciones que crea convenientes.
+
+		int v1;
+		int * v2, v3;
+		double * v4;
+
+4) Escribir una funcion para determinar cual vector tiene mayor norma 1. Los vectores se encuentran en una matriz de nxM, dondecadauna de las n filas corresponde a un vector con M valores
+   reales (siendo M una constante declarada previamente). La funcion recibe 2 parametros; la matriz y el valor de n,y debe devolver el indice de la fila con el vector de norma 1. No se
+   permite el uso de ninguna libreria.
+
+   Nota: la norma 1 de un vector se define como la suma de los valores absolutos de los elementos del vector.
+
+5) Sea un programa que imprima la cantidad de renglones que tiene un archivo de texto. Se pide:
+	a) Escribir el programa
+	b) Compilar el programa, es decir, escribir los comandos en una terminal de Linux para compilar el programa.
+	c) Ejecutar el programa, es decir, escribir los comandos en una terminal de Linux para ejecutar el programa compilado en el punto anterior y que imprima la cantidad de renglones.
+
+6) Explicar que son los errores de compilacion y los errores de ejecucion, indicando la diferencia entre ambos. Dar un ejemplo de codigo (breve) para cada caso.
