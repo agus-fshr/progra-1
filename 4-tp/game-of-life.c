@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
+int main(void) {
 	system("cat mapa.txt - | ./5");
+	return 0;
 }
