@@ -1,0 +1,10 @@
+Nota: 10
+- El programa compila sin errores ni warnings
+- El programa funciona correctamente
+- Se puede editar el tamaño del mundo cambiando las constantes y recompilando
+- El programa detecta y rechaza entradas incorrectas
+- Muy buena división en funciones
+- Función main corta y prolija
+- Código excelentemente documentado
+- Muy bueno el cargador de mapas que hicieron!
+

@@ -1,0 +1,14 @@
+Nota: 10
+Ej6
+- El programa compila sin errores ni warnings
+- El programa funciona correctamente
+- Programa bien comentado
+- Es buena practica no usar un break; para salir del for, en vez de eso sería mejor modificar la condición del for. Por ejemplo, "i < numero/2+1 && primo != 0".
+- Un comentario adicional: 1 no es un número primo!
+
+Ej7
+- El programa compila sin errores ni warnings
+- El programa funciona correctamente
+- Programa bien comentado
+- En vez de comparar n+m-2<10 en cada bucle del for, yo hubiera hecho una variable adiciona uso_tabs = n+m-2>=10, y hubiera hecho if(uso_tabs) dentro del for. Es un detalle mínimo igual, pero me parece que sería mas claro.
+

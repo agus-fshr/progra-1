@@ -1,0 +1,15 @@
+Nota: 10
+Ej6
+
+- El programa compila sin errores ni warnings
+- Código escrito correctamente
+- Código bien comentado
+- Buen uso de #define para las máscaras
+
+Ej8
+
+- El programa compila sin errores ni warnings
+- Código escrito correctamente
+- Código bien comentado
+- Buen uso de variables auxiliares
+
