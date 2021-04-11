@@ -100,6 +100,7 @@ void strInput(char str[]) {
 int sanitize_input(char arr[], int len){
   int len_error = 0;
   int character_error = 0;
+  int error_at = 0;
   if (len > 24){
     len_error = LEN_ERROR;
   }
@@ -113,11 +114,12 @@ int sanitize_input(char arr[], int len){
     }
     else{
       character_error = CHAR_ERROR;
+      error_at = i;
       break;
     }
   }
 
-  error_code = character_error + len_error;
+  int error_code = character_error + len_error;
 
   switch (error_code) {
     case (LEN_ERROR): {
@@ -125,11 +127,11 @@ int sanitize_input(char arr[], int len){
       break;
     }
     case (CHAR_ERROR): {
-      printf("CHAR_ERROR: there is an invalid character in your input. See: %c\n", arr[i]);
+      printf("CHAR_ERROR: there is an invalid character in your input. See: %c\n", arr[error_at]);
       break;
     }
     case (CHAR_ERROR + LEN_ERROR): {
-      printf("There are both length and character errors in your entry. See: %c\n", arr[i]);
+      printf("There are both length and character errors in your entry. See: %c\n", arr[error_at]);
       break;
     }
   }
