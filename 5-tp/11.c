@@ -113,7 +113,7 @@ void validate_word(char arr[]) {
   int character_error = 0;
   int error_at = 0;
 
-  while (arr[i++]) {
+  while (arr[i]) {
     int is_lowcase_letter = (arr[i] >= 'a') && (arr[i] <= 'z');
     int is_upper_letter = (arr[i] >= 'A') && (arr[i] <= 'Z');
     
@@ -121,7 +121,8 @@ void validate_word(char arr[]) {
       character_error = CHAR_ERROR;
       error_at = i;
       break; 
-    }   
+    }
+    i++;
   }
 
   if (character_error == CHAR_ERROR) {
