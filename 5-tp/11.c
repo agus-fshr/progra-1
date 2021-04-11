@@ -142,12 +142,7 @@ int validate_word(char arr[]) {
     
     if (!(is_lowcase_letter || is_upper_letter || arr[i] == '\n')){
       character_error = CHAR_ERROR;
-<<<<<<< HEAD
       return i;
-=======
-      error_at = i;
-      break; 
->>>>>>> fc9775f4a34c594b7167bc8fa3da2743fd4ea264
     }
     i++;
   }
