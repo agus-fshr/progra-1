@@ -1,6 +1,6 @@
 
 // Implementar un programa que reciba del usuario dos palabras y
-// determine si la segunda de ellas puede formarse completamente con letras
+// determine si la segunda de ellas puede formarse completamente con letters
 // contenidas en la primera. Por ejemplo, morsa/rosa, japoneses/esponja.
 
 
@@ -15,138 +15,80 @@
 
 #include <stdio.h>
 
-// La palabra mas larga de la lengua espanola es electroencefalografista,
-// que tiene 23 caracteres
+// The longest word in the spanish language is "electroencefalografista",
+// which has a length of 23 characters.
 #define MAX_LENGTH 23
 
 // Constant definitions
-#define 🤌 ((ch = getchar()) != '\n' && ch != EOF) && ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) && (i <= 23)
 #define LEN_ERROR 10
 #define CHAR_ERROR 20
 
 // Function prototypes
 int str_input(char *);
 void flush_stdin(char);
-void print_str(void);
-int contar_len(char arr[]);
 int sanitize_input(char arr[], int);
+void validate_word(char arr[]);
 
-char palabra1[MAX_LENGTH + 1] = "cammila"; 
-char palabra2[MAX_LENGTH + 1] = "mama";
-int cont = 0;
 
 int main(void) {
+
+  // Declaration of both word input arrays
+  char word1[MAX_LENGTH + 1]; 
+  char word2[MAX_LENGTH + 1];
+
   // Input
-  printf("Ingrese una palabra: ");
-  str_input(palabra1);
-  // Acá habría que validarla
+  printf("Enter word 1: ");
+  str_input(word1);
+  validate_word(word1);
 
-  printf("Ingrese otra palabra: ");
-  str_input(palabra2);
-  // Acá habría que validarla
+  printf("Enter word 2: ");
+  str_input(word2);
+  validate_word(word2);
 
-   
+  // Creation of word pointers and counters
+  char *pw1 = word1;
+  char *pw2 = word2;
+  int matched_letters = 0;
+  int flag_letter_match = 0;
+  int letters_w2 = 0;
 
-  // Lo que había
+  while(*pw2){    // Loops until a \0 char is found, marking the end of the input word
+    letters_w2++; // Counter usedto iterate through each element of w2
 
-
-  print_str();
-  int len1 = contar_len(palabra1);
-  int len2 = contar_len(palabra2);
-  int irasig = 0;
-
-  // Iterates over each char in palabra2 and looks for an unused match in palabra1
-  for(int i=0; i < len2 - 1; i++){
-      irasig = 0;
-      for(int j=0; (j < len1 - 1) && !irasig; j++){
-          if(palabra2[i] == palabra1[j]){
-              cont++;
-              palabra1[j] = -1;
-              irasig = 1;
-          }
-      }
-  }
-  // Prints the outcome of the program
-  if(cont == len2 - 1){
-    printf("si, %d, %d\n", cont, len2);                                 // TODAVIA HAY QUE DEJAR LINDO ESTO
-  }
-  else{
-    printf("no, %d, %d\n", cont, len2);
-  }
-//      printf("LEN_ERROR: the string entered exceeds the 23 character limit.\n");
-//      printf("There are both length and character errors in your entry. See: %c\n", arr[error_at]);
-
-
-
-
-
-  // Lo de Juan
-
-
-  char *pp1 = palabra1;
-  char *pp2 = palabra2;
-  int letras_encontradas = 0;
-  int flag_letra_encontrada = 0;
-  int letras_p2 = 0;
-  while(*pp2){
-    letras_p2++;
-
-    flag_letra_encontrada = 0;
+    flag_letter_match = 0;
     
-    pp1 = palabra1;
-    while(*pp1 && !flag_letra_encontrada) {
-      //printf("Comparando %c con %c\n", *(pp1), *(pp2));
-      if(*pp1 == *pp2){
-        flag_letra_encontrada = 1;
-        letras_encontradas++;
-        *pp1 = '_';
+    pw1 = word1;
+    while(*pw1 && !flag_letter_match) { // While the current element is a letter of w1 and the letters do not match
+    
+      if(*pw1 == *pw2){                 // This condition checks if the letters match
+        flag_letter_match = 1;          // Sets the matching letter flag to 1
+        matched_letters++;              // Increases the matched letter count
+        *pw1 = '_';                     // Replaces that element of w1 for a '_', as to not count it more than once
       }
-      pp1++;
+      pw1++;
     }
-    //printf("\n");
-    pp2++;
+
+    pw2++;                              // Moves to the next letter of w2
   }
-  if(letras_encontradas == letras_p2){
-    printf("Nice!");
+  if(matched_letters == letters_w2){    // If the number of letters that match between w2 and w1, that means that 
+    printf("Nice!");                    // w2 can be formed using only letters found in w1.
   } else {
-    printf("No nice¡ :c");
+    printf("Not nice! :c");
   }
 
 }
 
-// Prints out the two input strings
-void print_str(void){
-  int n = 0;
-    while (palabra1[n] != '\0') {
-        printf("%c", palabra1[n++]);
-    }
-    printf("\n");
-    n=0;
-
-    // strInput(palabra2);
-    while (palabra2[n] != '\0') {
-        printf("%c", palabra2[n++]);
-    }
-    printf("\n");
-}
-
-// Counts the length of each input string
-int contar_len(char arr[]){
-  int i = 0;
-  int len = 0;
-  while (arr[i++] != '\0'){
-    len++;
-  }
-  return len;
-}
+// Function Definitions
 
 
+// Flushes the stdin input buffer
 void flush_stdin(char limit) {
     char c;
-    // Hasta que se llegue al caracter especificado, vacía stdin
+    // Flushes each character until the desired terminator is found
     while((c=getchar()) != limit) {}
 }
 
+// Takes a string as input from the command line and saves it in an array
 int str_input(char *str) {
   char ch;
   char *p = str;
@@ -165,7 +107,7 @@ int str_input(char *str) {
   return 0;
 }
 
-
+// Checks if an entered string is valid for the program or not
 void validate_word(char arr[]) {
   int i = 0;
   int character_error = 0;
