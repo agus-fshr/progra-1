@@ -44,17 +44,12 @@ int main(void) {
   printf("Enter word 2: ");
   take_word(word2);
 
-
-
-
   // Creation of word pointers and counters
   char *pw1 = word1;
   char *pw2 = word2;
   int matched_letters = 0;
   int flag_letter_match = 0;
   int letters_w2 = 0;
-
-
 
   while(*pw2){    // Loops until a \0 char is found, marking the 
                   // end of the input word
@@ -155,6 +150,6 @@ void validate_word(char arr[]) {
 }
 
 void take_word(char word[]) {
-    str_input(word);
-    validate_word(word);
-  }
+  str_input(word);
+  validate_word(word);
+}
