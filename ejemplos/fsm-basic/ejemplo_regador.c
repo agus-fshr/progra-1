@@ -4,8 +4,6 @@
 
 #define TIEMPO_RIEGO 60*20 // 20 min
 
-
-
 #define ON 1
 #define OFF 0
 
