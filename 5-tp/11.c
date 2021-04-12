@@ -28,6 +28,7 @@ int str_input(char *);
 void flush_stdin(char);
 int sanitize_input(char arr[], int);
 void validate_word(char arr[]);
+void take_word(char *);
 
 
 int main(void) {
@@ -38,12 +39,13 @@ int main(void) {
 
   // Input
   printf("Enter word 1: ");
-  str_input(word1);
-  validate_word(word1);
+  take_word(word1);
 
   printf("Enter word 2: ");
-  str_input(word2);
-  validate_word(word2);
+  take_word(word2);
+
+
+
 
   // Creation of word pointers and counters
   char *pw1 = word1;
@@ -52,26 +54,47 @@ int main(void) {
   int flag_letter_match = 0;
   int letters_w2 = 0;
 
-  while(*pw2){    // Loops until a \0 char is found, marking the end of the input word
-    letters_w2++; // Counter usedto iterate through each element of w2
+
+
+  while(*pw2){    // Loops until a \0 char is found, marking the 
+                  // end of the input word
+
+    letters_w2++; // Counter used to iterate through each element of w2
 
     flag_letter_match = 0;
     
     pw1 = word1;
-    while(*pw1 && !flag_letter_match) { // While the current element is a letter of w1 and the letters do not match
+
+    // While the current element is a letter of w1 and the 
+    // letters do not match
+    while(*pw1 && !flag_letter_match) {
     
-      if(*pw1 == *pw2){                 // This condition checks if the letters match
-        flag_letter_match = 1;          // Sets the matching letter flag to 1
-        matched_letters++;              // Increases the matched letter count
-        *pw1 = '_';                     // Replaces that element of w1 for a '_', as to not count it more than once
+      // This condition checks if the letters match
+      if(*pw1 == *pw2){
+
+        // Sets the matching letter flag to 1
+        flag_letter_match = 1;
+
+        // Increases the matched letter count
+        matched_letters++;
+
+        // Replaces element of w1 for '_', as to not count it more than once
+        *pw1 = '_';
       }
+
+      // Increment pw1 to move to the next letter
       pw1++;
     }
 
-    pw2++;                              // Moves to the next letter of w2
+    // Moves to the next letter of w2
+    pw2++;
   }
-  if(matched_letters == letters_w2){    // If the number of letters that match between w2 and w1, that means that 
-    printf("Nice!");                    // w2 can be formed using only letters found in w1.
+
+
+  // If the number of letters that match between w2 and w1, that means that 
+  // w2 can be formed using only letters found in w1.
+  if(matched_letters == letters_w2){
+    printf("Nice!");
   } else {
     printf("Not nice! :c");
   }
@@ -99,6 +122,7 @@ int str_input(char *str) {
     *(p++) = ch;
     length_error = (str - p) == (MAX_LENGTH + 1);
   }
+  
   if(length_error){
     return LEN_ERROR;
   }
@@ -129,3 +153,8 @@ void validate_word(char arr[]) {
     printf("CHAR_ERROR: there is an invalid character in your input. See: %c\n", arr[error_at]);
   }
 }
+
+void take_word(char word[]) {
+    str_input(word);
+    validate_word(word);
+  }
