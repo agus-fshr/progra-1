@@ -19,22 +19,16 @@
 // which has a length of 23 characters.
 #define MAX_LENGTH 23
 
-// Constant definitions
-#define LEN_ERROR 10
-#define CHAR_ERROR 20
-
 // Function prototypes
-int str_input(char *);
+int str_input(char*);
 void flush_stdin(char);
-int sanitize_input(char arr[], int);
-void validate_word(char arr[]);
-void take_word(char *);
+int validate_word(char*);
+void take_word(char*);
 
 
 int main(void) {
-
   // Declaration of both word input arrays
-  char word1[MAX_LENGTH + 1]; 
+  char word1[MAX_LENGTH + 1];
   char word2[MAX_LENGTH + 1];
 
   // Input
@@ -115,11 +109,12 @@ int str_input(char *str) {
 
   while(!length_error && ((ch = getchar()) != '\n')) {
     *(p++) = ch;
-    length_error = (str - p) == (MAX_LENGTH + 1);
+    length_error = (p - str) == (MAX_LENGTH + 1);
   }
   
   if(length_error){
-    return LEN_ERROR;
+    flush_stdin('\n');
+    return 1;
   }
 
   *p = '\0';
@@ -127,29 +122,33 @@ int str_input(char *str) {
 }
 
 // Checks if an entered string is valid for the program or not
-void validate_word(char arr[]) {
+int validate_word(char arr[]) {
   int i = 0;
-  int character_error = 0;
-  int error_at = 0;
 
   while (arr[i]) {
     int is_lowcase_letter = (arr[i] >= 'a') && (arr[i] <= 'z');
     int is_upper_letter = (arr[i] >= 'A') && (arr[i] <= 'Z');
     
     if (!(is_lowcase_letter || is_upper_letter || arr[i] == '\n')){
-      character_error = CHAR_ERROR;
-      error_at = i;
-      break; 
+      return i;
     }
     i++;
   }
-
-  if (character_error == CHAR_ERROR) {
-    printf("CHAR_ERROR: there is an invalid character in your input. See: %c\n", arr[error_at]);
-  }
+  return -1;
 }
 
 void take_word(char word[]) {
-  str_input(word);
-  validate_word(word);
+  int valid_word = 0;
+  while(!valid_word) {
+    valid_word = str_input(word) == 0;
+    if(!valid_word) {
+      printf("LENGTH ERROR: that spanish word doesn't exist, try again\n");
+    } else {
+      int error_index = -1;
+      if((error_index = validate_word(word)) != -1) {
+        printf("CHAR_ERROR: there is an invalid character in your input. See: '%c'\n", word[error_index]);
+        valid_word = 0;
+      }
+    }
+  }
 }
