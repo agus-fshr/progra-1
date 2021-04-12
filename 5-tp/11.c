@@ -31,9 +31,9 @@
 // which has a length of 23 characters.
 #define MAX_LENGTH 23
 
-/********************
- * Func. prototypes *
- ********************/
+/***********************
+ * Function prototypes *
+ ***********************/
 
 void flush_stdin(char);
 void string_to_lowercase(char*);
@@ -77,9 +77,9 @@ int main(void) {
 }
 
 
-/*********************
- * Func. definitions *
- *********************/
+/************************
+ * Function definitions *
+ ************************/
 
 /* Function flush_stdin
  * Flushes the stdin input buffer
@@ -115,12 +115,12 @@ unsigned int string_length(char *word){
  * - word: where the resulting string will be saved
  */
 void string_to_lowercase(char* word) {
-  char *p =  word;      // temporal pointer
-  while(*p) {           // While the letter isn't the terminator '\0'
-    if(*p >= 'A' && *p <= 'Z') {  // If it's uppercase
-      *p -= 'A' - 'a';            // Make it lowercase
+  char *pword =  word;      // temporal pointer
+  while(*pword) {           // While the letter isn't the terminator '\0'
+    if(*pword >= 'A' && *pword <= 'Z') {  // If it's uppercase
+      *pword -= 'A' - 'a';            // Make it lowercase
     }
-    p++;                // Check next char
+    pword++;                // Check next char
   }
 }
 
