@@ -140,6 +140,8 @@ int input_string_to(char *str, unsigned int max_chars) {
   while((ch = getchar()) != '\n') {
     *(p++) = ch;                // Assign input to word
     if((p - str) == (int) (max_chars + 1)){
+      // (the cast is needed because max_chars is uint but the
+      // substraction p-str is a signed int)
       // If the next letter should be the terminator
       *p = '\0';                // Add the terminator
       flush_stdin('\n');        // Empty stdin
