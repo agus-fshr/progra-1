@@ -68,9 +68,9 @@ int main(void) {
   // w2 can be formed using only letters found in w1.
   unsigned int shared_letters = common_letters_count(first_word, second_word);
   if(shared_letters == string_length(second_word)){
-    printf("The second word can be formed using the letters from the first one\n");
+    printf("The second word can be formed using the letters from the first one.\n");
   } else {
-    printf("The second word can't be formed using the letters from the first one\n");
+    printf("The second word can't be formed using the letters from the first one.\n");
   }
 
   return 0;
@@ -130,7 +130,7 @@ void string_to_lowercase(char* word) {
  * - str: pointer where string is saved
  * - max_chars: maximum chars to read (not counting the terminator)
  * Returns an integer:
- * - ERROR if the maximum chars were exceded.
+ * - ERROR if the maximum chars were exceded or the length is 0
  * - NO_ERROR if the length of the string is ok.
  */
 int input_string_to(char *str, unsigned int max_chars) {
@@ -149,7 +149,12 @@ int input_string_to(char *str, unsigned int max_chars) {
     }
   }
 
-  *p = '\0';
+  *p = '\0';      // Add the terminator after the last char
+
+  if(string_length(str) == 0) {   // If the string is empty it's not a word
+    return ERROR;                 // consider it invalid
+  }
+
   return NO_ERROR;
 }
 
@@ -171,6 +176,7 @@ int validate_word(char *arr) {
     
     if (!(is_lowcase_letter || is_uppercase_letter)){
       return i;       // If the condition was met, the current char isn't a letter
+                      // and the function returns the index of the error
     }
     i++;              // Check next char
   }
@@ -184,18 +190,19 @@ int validate_word(char *arr) {
  * - word: where the resulting string will be saved
  */
 void handle_word_input(char *word) {
-  int valid_word = 0;
-  while(!valid_word) {
-    if(input_string_to(word, MAX_LENGTH) == ERROR) {
-      printf("LENGTH ERROR: that spanish word doesn't exist.\n");
+  int valid_word = 0;                 // Validity flag
+  while(!valid_word) {                // Ask the user to retry until the word is valid
+    if(input_string_to(word, MAX_LENGTH) == ERROR) {    // This saves a string into "word"
+      printf("LENGTH ERROR: your input is longer than %d chars, or has no letters.\n", MAX_LENGTH);      // There was a length error
       printf("Try again: ");
     } else {
-      int error_index = -1;
+      int error_index = -1;           // Save the position of the char error
       if((error_index = validate_word(word)) != NO_ERROR) {
-        printf("CHAR_ERROR: there is an invalid character ('%c') in your input.\n", word[error_index]);
+        // There was a char error
+        printf("CHAR ERROR: there is an invalid character ('%c') in your input.\n", word[error_index]);
         printf("Try again: ");
       } else {
-        valid_word = 1;
+        valid_word = 1;       // No char error, no length error => the word is valid
       }
     }
   }
