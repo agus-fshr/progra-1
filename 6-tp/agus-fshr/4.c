@@ -5,24 +5,26 @@
 #include <stdio.h>
 
 #define FILLER '*'
-#define SPACER '.'
+#define SPACER ' '
+
+int abs(int);
 
 int main(){
 
-    int lado = 3;
+    int lado = 50;
     int line_number = 1;
 
     int lines_to_print = 2*lado - 1;
     int columns_to_print = 2*lado - 1;
 
-    int spaces_to_print = lado - line_number;
-    int fills_to_print = 2*line_number - 1;
+    int spaces_to_print = abs(lado - line_number);
+    int fills_to_print = columns_to_print - 2*spaces_to_print;
 
 
     for (int i=0; i < lines_to_print; i++){
 
-        spaces_to_print = lado - line_number;
-        fills_to_print = 2*line_number - 1;
+        spaces_to_print = abs(lado - line_number);
+        fills_to_print = columns_to_print - 2*spaces_to_print;
 
         // print spacers
         for (int c=0; c < spaces_to_print; c++) {
@@ -46,13 +48,22 @@ int main(){
     return 0;
 }
 
+int abs(int x){
+    if (x>=0){
+        return x;
+    }
+    else{
+        return -x;
+    }
+}
+
 /*
 
 Amount of lines to print = 2n-1
 Amount of columns to print = 2n-1
 
 Offset for the first * = n-1
-Offset for each line where the line number is t = n-t
+Offset for each line where the line number is t = |n-t|
 
 lado 2
 
