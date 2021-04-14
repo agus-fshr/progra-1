@@ -1,0 +1,20 @@
+En una terminal de Linux se desea:
+
+    a.  Compilar un programa guardado en el archivo ejercicio.c, con el compilador
+        mostrando todos los warnings, creando el archivo ejecutable programa y
+        generando la información para poder "debuggearlo".
+    b.  Ejecutar el archivo compilado.
+    c.  "Debuggear" el programa.
+
+Escribir los comandos para realizar dichas acciones.
+
+
+
+a.
+gcc ejercicio.c -Wall -g -o programa
+
+b.
+./programa
+
+c.
+gdb programa
