@@ -11,7 +11,7 @@ int abs(int);
 
 int main(){
 
-    int lado = 50;
+    int lado = 20;
     int line_number = 1;
 
     int lines_to_print = 2*lado - 1;
