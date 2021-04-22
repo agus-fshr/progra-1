@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define relleno 42                              //código ASCII del *
+
 void rombo (int);
 
 int main (void)
@@ -21,7 +23,7 @@ void rombo (int n)
         cantidad = (2 * (fila++));                       //defino la cantidad de * que va a tener cada fila 
         for (cantidad; cantidad >= 0; cantidad--)        //por la ecuacion: cantidad = numero_de_fila + 2
         {
-            printf ("*");
+            printf ("%c",relleno);
         }
         printf ("\n");
     }    
@@ -30,7 +32,7 @@ void rombo (int n)
         cantidad = (2 * (--fila));                  //decremento el contador de filas para hacer la 
         for (cantidad; cantidad > 1; cantidad--)    //parte inferior del rombo
         {
-            printf ("*");
+            printf ("%c",relleno);
         }
         printf ("\n");
     }    
