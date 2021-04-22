@@ -1,0 +1,97 @@
+Ventajas de C:
+- Portabilidad
+- Programación Estructurada
+- Economía en las expresiones
+- Abundancia en operadores y tipos de datos
+- Codificación de Alto y Bajo nivel simultáneamente
+- Reemplaza ventajosamente la programación en
+- ensamblador
+- Utilización natural de las funciones primitivas del
+- sistema
+- No está orientado a ningún área en especial
+- Producción de código objeto altamente optimizado
+
+Tipos de datos:
+- Enteros: uchar, char, uint, short, int, ulong, long
+- Punto flotante: float, double, long double
+- Punteros
+- Tipos agregados
+
+Propiedades de las variables:
+- Nombre
+- Valor
+- Tipo
+- Ubicación
+- Persistencia
+- Visibilidad
+
+Constantes:
+- Hexa: 0x... o 0X...
+- Octal: 0...
+- Entero terminando en ul/UL/uL/Ul es unsigned long
+- Entero rerminando en l o L es long
+- Enteros así nomás (0x..., 0..., 321412) se ponen
+    en el tipo entero más chico (a partir de int)
+- Decimales así nomás son double
+- Decimales terminados en l o L son long double
+- Decimales terminados en f o F son float
+- Caracter: 'a'
+- Cadenas: "dmsaldmlksa". Se auto terminan en '\0'
+- Enums: enum \identif, opcional\ {o1, o2, o3, ...}.
+    Le puedo poner un = a algún coso del medio y cuenta
+    desde ese num a partir de esa posición
+
+Conversiones:
+- Punto flotante a entero: se descartan los decimales.
+- Si uno de los 2 operandos es flotante, se convierte el otro a flotante
+    (siempre priorizando los tipos más grandes)
+- char y short siempre se transforman en int al operar
+- float siempre se transforma a double al operar
+- Los tipos de datos más grandes, si se fuerzan a un tipo de dato
+    menor, se recortan los bits más significativos.
+
+* Nunca comparar igualdad de números reales.
+
+* Los operadores lógicos && y || se evalúan de izq a der, pero
+    una vez que se llega a un valor absorbente deja de analizarse
+
+* Los operadores bitwise ~,>>,<<,&,|,^ devuelven un entero
+
+* sizeof devuelve uint
+* int y uint es siempre del tamaño de la ALU
+* char, uchar, signed char tienen siempre sizeof = 1
+
+SWITCH:
+- El switch no puede tener un número real. Acordate que
+    no se está bien comparar igualdad de números reales.
+- En el switch, los cases tienen que determinarse en tiempo de compilación.
+- Si no se ponen breaks en cada case, sigue con las expresiones
+    del siguiente bloque.
+
+Break:
+- Evitar
+- Rompe el ciclo más interno.
+
+Continue:
+- Salta al final del ciclo más interno y reevalúa
+
+Funciones:
+- Armar prototipos
+- Los parámetros del prototipo no requieren nombres
+
+Variables globales:
+- Las ven (y pueden modificar) todas las funciones,
+    existen en toda la ejecución
+- Se definen fuera de cualquier función
+- Si no se inicializan, arrancan en 0 (aplica para arreglos tb)
+- Ocupan un lugar fijo en memoria, fuera del stack frame
+- Con conflicto de nombres, la local oculta a la global
+
+Variables estáticas:
+- Solo se ven dentro de una función pero permanecen activas
+    durante toda la ejecución (mantienen su valor)
+- Se inicializan una sola vez, en la primera ejecución de la función
+- Si no se inicializan, arrancan en 0
+- Ocupan un lugar fijo de memoria, fuera del stack frame
+
+
