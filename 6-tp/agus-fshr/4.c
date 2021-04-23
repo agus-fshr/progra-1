@@ -7,11 +7,27 @@
 #define FILLER '*'
 #define SPACER ' '
 
+#ifndef LADO
+#error "No hay una longitud de lado especificada"
+#else
+int lado = LADO;
+#endif
+
+
 int abs(int);
 
 int main(){
 
-    int lado = 20;
+    printf("Compiled on ");
+    printf(__DATE__);
+    printf(" at ");
+    printf(__TIME__);
+    printf("\n");
+    #ifdef LADO
+    printf("with LADO = %d\n", LADO);
+    #endif
+
+    // int lado = LADO;
     int line_number = 1;
 
     int lines_to_print = 2*lado - 1;
