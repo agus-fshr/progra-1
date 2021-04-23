@@ -60,6 +60,9 @@ Conversiones:
 * sizeof devuelve uint
 * int y uint es siempre del tamaño de la ALU
 * char, uchar, signed char tienen siempre sizeof = 1
+* sizeof de un array devuelve su tamaño en bytes, si es visible.
+    Ojo, si es un array pasado como parámetro a una función,
+    se devuelve el tamaño del puntero.
 
 SWITCH:
 - El switch no puede tener un número real. Acordate que
