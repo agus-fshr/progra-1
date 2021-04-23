@@ -1,0 +1,25 @@
+Definicion de macros
+---------------------------------------------------------------
+
+#define identifier replacement-list
+(sin punto y coma)
+
+Tambien se pueden definir constantes con expresiones logicas
+y que dependan de las anteriores
+
+
+Macros Parametrizadas
+---------------------------------------------------------------
+
+Las definiciones parametrizadas tienen parametros que van a
+ser reemplazdos al ser usadas. Tiene la sintaxis:
+
+#define IDENTIFIER(param1, param2, ...) replacement-list
+
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+#define TOUPPER(c) (('a' <= (c) && (c)<='z') ? (c)-'a'+'A' : (c))
+
+Es crucial tener parentesis alrededor de la definicion de las
+macros parametrizadas, porque si no se prestan a problemas de
+precedencia muy dificiles de ver
+
