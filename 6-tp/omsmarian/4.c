@@ -36,8 +36,7 @@ void rombo (int n)
         }
         printf ("\n");
     }
-    fila--;                                      //resto la el total de filas ya que termina defasado    
-    for (inf; inf > 0; inf--) 
+    for (fila-- , inf; inf > 0; inf--) 
     {
         cant_re = (2 * ((fila--) -1));                      //decremento el contador de filas para hacer la 
         for (cant_esp = (n-(fila)); cant_esp>0; cant_esp--) //parte inferior del rombo
