@@ -14,6 +14,11 @@
  * Nota: hay otras formas de resolver esto con caracteres
  * especiales escapados enprintf
 */
+
+/*
+ * @brief Flushes the stdout in an os-specific implementation
+ *
+ * */
 void clear_screen(void);        // limpia la pantalla
 
 /*
@@ -25,6 +30,11 @@ void clear_screen(void);        // limpia la pantalla
  * Toma caracteres de stdin hasta llegar
  * al caracter especificado
 */
+
+/*
+ * @brief Flushes the stdin buffer. Takes characters from stdin until limit.
+ * @param limit character that indicates where to stop flushing
+ * */
 void flush_stdin(char);
 
 #endif

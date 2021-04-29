@@ -28,6 +28,12 @@
  * Descipción:
  * Devuelve el estado de una celda
 */
+
+/*
+ * @brief TODO: 
+ *
+ * 
+*/
 static int get_cell_state(int, int, int[][WORLD_WIDTH]);   // toma el estado de una celda
 
 
@@ -37,6 +43,12 @@ static int get_cell_state(int, int, int[][WORLD_WIDTH]);   // toma el estado de 
  * Descipción:
  * Devuelve la altura del mapa
 */
+
+/*
+ * @brief TODO: returns the world height
+ * 
+ * @return returns the world height
+*/
 static int get_world_height(void);     // devuelve la altura del mapa
 
 
@@ -45,6 +57,12 @@ static int get_world_height(void);     // devuelve la altura del mapa
  * 
  * Descipción:
  * Devuelve el ancho del mapa
+*/
+
+/*
+ * @brief TODO: returns the world width
+ * 
+ * @return returns the int value of the world width
 */
 static int get_world_width(void);      // devuelve el ancho del mapa
 
@@ -62,6 +80,17 @@ static int get_world_width(void);      // devuelve el ancho del mapa
  * deseada que se encuentran vivas.
  * 
 */
+
+/*
+ * @brief Returns the number of 
+ * live neighboring cells to the specified cell.
+ * 
+ * @param x row of the target cell
+ * @param y column of the target cell
+ * 
+ * @return  The number of 
+ * live neighboring cells to the specified cell.
+*/
 static unsigned int count_adjacent_cells(int, int, int[][WORLD_WIDTH]); // cuenta celdas colindantes vivas
 
 
@@ -74,6 +103,15 @@ static unsigned int count_adjacent_cells(int, int, int[][WORLD_WIDTH]); // cuent
  * Descripción:
  * Copia una matriz (del tamaño especificado por la parametrización)
  * pasada como parámetro, a la variable indicada.
+*/
+
+/*
+ * @brief Copies a matrix recieved as a parameter
+ * to the target matrix
+ * 
+ * @param src origin matrix
+ * @param tgt target matrix 
+ *
 */
 static void copy_world(int[][WORLD_WIDTH], int[][WORLD_WIDTH]);
 
@@ -90,6 +128,16 @@ static void copy_world(int[][WORLD_WIDTH], int[][WORLD_WIDTH]);
  * No es necesario un separador en especial entre valores.
  * Si se pasa de columnas, lo incluirá en la siguiente de la matriz.
  * (efecto colateral del funcionamiento interno de matrices)
+*/
+
+/*
+ * @brief Reads a map of size specified previously. 
+ * It can be entered by hand o piping a .txt file. Input must end with the character
+ * f. It is not necessary to have a separator between values. If the length of a column
+ * is exceeded, it will be included in the next one.
+ * 
+ * @param world_to_save A matrix to store the world map in.
+ *
 */
 static void parse_world_from_stdin(int[][WORLD_WIDTH]);  // toma mundo desde stdin
 

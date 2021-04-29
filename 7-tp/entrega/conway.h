@@ -43,6 +43,10 @@
  * Sin embargo, si se incluye una q en algún lugar de la entrada, 
  * la salida será -1, marcando error.
 */
+
+/*
+ * @brief Reads an unsigned number from stdin. 
+*/
 int read_generations(void);     // lee num de generaciones a avanzar
 
 
@@ -59,6 +63,16 @@ int read_generations(void);     // lee num de generaciones a avanzar
  *  - Una celda viva con exactamente dos o tres vecinos sobrevive;
  *  - Una celda muerta con exactamente tres vecinos obtiene vida.
  * En el resto de los casos, morirá (o seguirá muerta).
+*/
+
+/*
+ * @brief Advances the current generation, analyzing the future state
+ * of all cells. Before ending, it saves the calculated generation
+ * in the current state.
+ * 
+ * This function implements John Conway'advance_generas Game of Life rules
+ *  - A live cell with exactly two or three live neighbors stays alive
+ *  - A dead cell with exactly three live neighbors becomes alive
 */
 void advance_generation(int[][WORLD_WIDTH]);  // avanza una generación
 
