@@ -45,7 +45,9 @@
 */
 
 /*
- * @brief Reads an unsigned number from stdin. 
+ * @brief Reads an unsigned number from stdin. Any non numerical character
+ * other than q and \n in the first position, returns 0. However, if it is
+ * included in the middle of input, it returns -1, indicating an error.
 */
 int read_generations(void);     // lee num de generaciones a avanzar
 
@@ -84,6 +86,11 @@ void advance_generation(int[][WORLD_WIDTH]);  // avanza una generación
  * Imprime a stdout el estado actual del mundo,
  * con formato embellecido.
 */
+
+/*
+ * @brief Prints the current world state to stdout
+ * in a polished format.
+*/
 void print_world(int[][WORLD_WIDTH]);         // imprime mundo
 
 
@@ -96,6 +103,12 @@ void print_world(int[][WORLD_WIDTH]);         // imprime mundo
  * para personalizar el mundo en el que jugará.
  * Incluye instrucciones sobre cómo se realiza la carga manual de un mapa.
  * Apto para mayores de 12 años.
+*/
+
+/*
+ * @brief Handles world initialization. Allows the user to select
+ * different input methods to customize the world to load. Includes
+ * instructions on how to manually load a world file. For yeards 12 and up.
 */
 void initialize_world(int[][WORLD_WIDTH]);                // inicializa juego
 
