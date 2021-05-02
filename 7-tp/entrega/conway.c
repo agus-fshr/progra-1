@@ -1,10 +1,8 @@
-/***************************************************************************//**
+/** *************************************************************************//**
   @file     conway.c
-  @brief    +Descripcion del archivo+
+  @brief    Implements Conway's game of life
   @author   Grupo 7
  ******************************************************************************/
-
-
 
 
 /******************************************
@@ -19,138 +17,74 @@
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE *
  *******************************************************************/
 
-/*
- * Función get_cell_state
- * Argumentos (cuidado!):
- *      - x: la FILA de la celda
- *      - y: la COLUMNA de la celda
- * 
- * Descipción:
- * Devuelve el estado de una celda
-*/
 
-/*
- * @brief TODO: 
- *
+/**
+ * @brief Reads a cell state
  * 
-*/
+ * @param x Row coordinate
+ * @param y Column coordinate
+ * @param world Matrix where the cell lookup happens.
+ * 
+ * @return The cell value
+ */
 static int get_cell_state(int, int, int[][WORLD_WIDTH]);   // toma el estado de una celda
 
 
-/*
- * Función get_world_height
+/**
+ * @brief Returns the world height
  * 
- * Descipción:
- * Devuelve la altura del mapa
-*/
-
-/*
- * @brief TODO: returns the world height
- * 
- * @return returns the world height
+ * @return World height
 */
 static int get_world_height(void);     // devuelve la altura del mapa
 
 
-/*
- * Función get_world_width
+/**
+ * @brief Returns the world width
  * 
- * Descipción:
- * Devuelve el ancho del mapa
-*/
-
-/*
- * @brief TODO: returns the world width
- * 
- * @return returns the int value of the world width
+ * @return World width
 */
 static int get_world_width(void);      // devuelve el ancho del mapa
 
 
-/*
- * Función count_adjacent_cells
- * Argumentos (Cuidado!):
- *      - x: FILA de la celda a analizar
- *      - y: COLUMNA de la celda a analizar
- * Salida:
- *      - El número de celdas colindantes vivas.
- *
- * Descripción:
- * Calcula el número de celdas colindantes con la
- * deseada que se encuentran vivas.
+/**
+ * @brief Analyzes the number of 
+ * living neighboring cells to the specified cell.
  * 
+ * @param x Row of the target cell
+ * @param y Column of the target cell
+ * @param world World analyzed
+ * 
+ * @return  The number of alive neighboring cells to the specified cell.
 */
-
-/*
- * @brief Returns the number of 
- * live neighboring cells to the specified cell.
- * 
- * @param x row of the target cell
- * @param y column of the target cell
- * 
- * @return  The number of 
- * live neighboring cells to the specified cell.
-*/
-static unsigned int count_adjacent_cells(int, int, int[][WORLD_WIDTH]); // cuenta celdas colindantes vivas
+static unsigned int count_adjacent_cells(int x, int y, int world[][WORLD_WIDTH]);
 
 
-/*
- * Función copy_world
- * Argumentos:
- *      - src: matriz de origen
- *      - tgt: matriz de destino
- * 
- * Descripción:
- * Copia una matriz (del tamaño especificado por la parametrización)
- * pasada como parámetro, a la variable indicada.
-*/
-
-/*
- * @brief Copies a matrix recieved as a parameter
- * to the target matrix
+/**
+ * @brief Copies a matrix recieved as a parameter to the target matrix
  * 
  * @param src origin matrix
  * @param tgt target matrix 
- *
 */
-static void copy_world(int[][WORLD_WIDTH], int[][WORLD_WIDTH]);
+static void copy_world(int src[][WORLD_WIDTH], int tgt[][WORLD_WIDTH]);
 
 
-/*
- * Función parse_world_from_stdin
- * Argumentos:
- *      - world_to_save: matriz en la que almacenar el mundo
- * 
- * Descripción:
- * Lee un mapa del tamaño especificado por la parametrización
- * del programa. Se puede ingresar a mano o pipeando un .txt
- * Es un REQUISITO que al terminar, se ingrese una f.
- * No es necesario un separador en especial entre valores.
- * Si se pasa de columnas, lo incluirá en la siguiente de la matriz.
- * (efecto colateral del funcionamiento interno de matrices)
-*/
-
-/*
+/**
  * @brief Reads a map of size specified previously. 
- * It can be entered by hand o piping a .txt file. Input must end with the character
- * f. It is not necessary to have a separator between values. If the length of a column
+ * It can be entered either by hand or by piping a .txt file. Input must end with the character
+ * 'f'. It is not necessary to have a separator between values. If the length of a column
  * is exceeded, it will be included in the next one.
  * 
  * @param world_to_save A matrix to store the world map in.
- *
 */
-static void parse_world_from_stdin(int[][WORLD_WIDTH]);  // toma mundo desde stdin
+static void parse_world_from_stdin(int world_to_save[][WORLD_WIDTH]);
 
 
-/*
- * Función seed_world
- * Argumentos:
- *      - world_to_seed: matriz en la que almacenar el mundo
+/**
+ * @brief Generates pseudorandom world.
  * 
- * Descripción:
- * Genera un mapa pseudoaleatorio.
-*/
-static void seed_world(int[][WORLD_WIDTH]);        // genera mundo
+ * @param world_to_seed Where the generated world is saved
+ */
+static void seed_world(int world_to_seed[][WORLD_WIDTH]);        // genera mundo
 
 
 
@@ -161,6 +95,7 @@ static void seed_world(int[][WORLD_WIDTH]);        // genera mundo
 
 void initialize_world(int world[][WORLD_WIDTH]){
     char c;
+    // Temporary world used if map was input using piping
     int stdin_world[WORLD_HEIGHT][WORLD_WIDTH];
     
     clear_screen();
@@ -208,9 +143,12 @@ void initialize_world(int world[][WORLD_WIDTH]){
 
 
 void advance_generation(int world_to_advance[][WORLD_WIDTH]) {
+    // Iterators
     int i_col, i_fil;
+    
+    // Temporary world state
     int next_world[WORLD_HEIGHT][WORLD_WIDTH];
-    // En next_world se almacena el estado futuro temporalmente
+
     for(i_col = 0; i_col < get_world_width(); i_col++) {
         for(i_fil = 0; i_fil < get_world_height(); i_fil++) {
             int adjacent_living = count_adjacent_cells(i_fil, i_col, world_to_advance);
@@ -241,9 +179,11 @@ void advance_generation(int world_to_advance[][WORLD_WIDTH]) {
 }
 
 
-
 int read_generations(void) {
+    // Where each read char is saved
     char c = getchar();
+    
+    // Temporary output
     int salida = 0;
 
     if(c == 'q') {          
@@ -274,9 +214,9 @@ int read_generations(void) {
 }
 
 
-
 void print_world(int world[][WORLD_WIDTH]) {
-    int row, col;       // contadores de filas y columnas, respectivamente
+    // Iterators
+    int row, col;
     putchar('\n');
     for (row=0; row < get_world_height(); row++){   // itera sobre las filas
         printf("\t%c", SEPARATOR);
@@ -314,10 +254,17 @@ static int get_world_width(void) {
 
 
 static unsigned int count_adjacent_cells(int x, int y, int world[][WORLD_WIDTH]) {
-    int alive_neighbours = 0;   // acumulador de vecinos vivos
-    int row, col;               // iteradores para filas y columnas, respectivamente
-    int out_of_map_rows;        // condición de overflow de borde en fila
-    int out_of_map_cols;        // condición de overflow de borde en columna
+    // Alive neighbours acummulator
+    int alive_neighbours = 0;
+    
+    // Iterators
+    int row, col;
+
+    // Row overflow condition
+    int out_of_map_rows;
+
+    // Column overflow condition
+    int out_of_map_cols;
     
     for(row = x-1; row <= x+1; row++){    // itera por 3 filas centradas en x
         // calcula condición: si se quiere analizar la fila -1 o
@@ -361,12 +308,20 @@ static void copy_world(int src[][WORLD_WIDTH], int tgt[][WORLD_WIDTH]) {
 
 
 static void parse_world_from_stdin(int world_to_save[][WORLD_WIDTH]) {
+    // Where each read char is saved
     char c;
+
+    // Iterators
     int row_counter = 0, col_counter = 0;
-    int cell_counter = 0;           // contador de celdas detectadas
-    // total_cells: número total de celdas posibles en el tamaño de mapa actual
+
+    // Detected cell counter
+    int cell_counter = 0;
+
+    // Maximum possible cells
     int total_cells = get_world_width() * get_world_height();
-    int valid_position = 1;         // para no irse de la matriz
+
+    // Valid position flag (prevents matrix overflow)
+    int valid_position = 1;
     
     //Cuidado: es necesaria la condición cell_counter < total_cells
     // esto se debe a que si no se limita, estaríamos permitiendo
@@ -399,7 +354,7 @@ static void parse_world_from_stdin(int world_to_save[][WORLD_WIDTH]) {
 }
 
 
-static seed_world(int world_to_seed[][WORLD_WIDTH]){
+static void seed_world(int world_to_seed[][WORLD_WIDTH]){
     for(int i = 0; i < get_world_height(); i++) {
         for(int j = 0; j < get_world_width(); j++) {
             // rand() genera un entero aleatorio

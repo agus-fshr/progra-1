@@ -1,0 +1,171 @@
+.TH "conway.h" 3 "Sun May 2 2021" "Conway" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+conway.h \- Implements Conway's game of life\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWORLD_WIDTH\fP   25"
+.br
+.RI "Ancho del mundo\&. Número de columnas\&. "
+.ti -1c
+.RI "#define \fBWORLD_HEIGHT\fP   15"
+.br
+.RI "Altura del mundo\&. Número de filas\&. "
+.ti -1c
+.RI "#define \fBOUTSIDE_STATE\fP   \fBDEAD\fP"
+.br
+.RI "Estado de las celdas del borde externo\&. "
+.ti -1c
+.RI "#define \fBALIVE_CHAR\fP   '*'"
+.br
+.RI "Caracter que representa una celda viva\&. "
+.ti -1c
+.RI "#define \fBDEAD_CHAR\fP   ' '"
+.br
+.RI "Caracter que representa una celda muerta\&. "
+.ti -1c
+.RI "#define \fBSEPARATOR\fP   '|'"
+.br
+.RI "Separador de columnas\&. "
+.ti -1c
+.RI "#define \fBALIVE\fP   1"
+.br
+.RI "Valor interno de una celda viva\&. "
+.ti -1c
+.RI "#define \fBDEAD\fP   0"
+.br
+.RI "Valor interno de una celda muerta\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBread_generations\fP (void)"
+.br
+.RI "Reads an unsigned number from stdin\&. "
+.ti -1c
+.RI "void \fBadvance_generation\fP (int world_to_advance[][\fBWORLD_WIDTH\fP])"
+.br
+.RI "Advances the current generation, analyzing the future state of all cells\&. "
+.ti -1c
+.RI "void \fBprint_world\fP (int world[][\fBWORLD_WIDTH\fP])"
+.br
+.RI "Prints the world state to stdout in a polished format\&. "
+.ti -1c
+.RI "void \fBinitialize_world\fP (int world[][\fBWORLD_WIDTH\fP])"
+.br
+.RI "Handles world initialization\&. Allows the user to select different input methods to customize the world to load\&. Includes instructions on how to manually load a world file\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements Conway's game of life\&. 
+
+
+.PP
+.PP
+\fBAuthor\fP
+.RS 4
+Grupo 7 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ALIVE   1"
+
+.PP
+Valor interno de una celda viva\&. 
+.SS "#define ALIVE_CHAR   '*'"
+
+.PP
+Caracter que representa una celda viva\&. 
+.SS "#define DEAD   0"
+
+.PP
+Valor interno de una celda muerta\&. 
+.SS "#define DEAD_CHAR   ' '"
+
+.PP
+Caracter que representa una celda muerta\&. 
+.SS "#define OUTSIDE_STATE   \fBDEAD\fP"
+
+.PP
+Estado de las celdas del borde externo\&. 
+.SS "#define SEPARATOR   '|'"
+
+.PP
+Separador de columnas\&. 
+.SS "#define WORLD_HEIGHT   15"
+
+.PP
+Altura del mundo\&. Número de filas\&. 
+.SS "#define WORLD_WIDTH   25"
+
+.PP
+Ancho del mundo\&. Número de columnas\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void advance_generation (int world_to_advance[][WORLD_WIDTH])"
+
+.PP
+Advances the current generation, analyzing the future state of all cells\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIworld_to_advance\fP world matrix where the current state is and the future state will be saved before returning\&.
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function implements John Conway's Game of Life rules
+.IP "\(bu" 2
+A living cell with exactly two or three living neighbors stays alive
+.IP "\(bu" 2
+A dead cell with exactly three living neighbors becomes alive 
+.PP
+.RE
+.PP
+
+.SS "void initialize_world (int world[][WORLD_WIDTH])"
+
+.PP
+Handles world initialization\&. Allows the user to select different input methods to customize the world to load\&. Includes instructions on how to manually load a world file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIworld\fP matrix where the initial world state is saved\&. 
+.RE
+.PP
+
+.SS "void print_world (int world[][WORLD_WIDTH])"
+
+.PP
+Prints the world state to stdout in a polished format\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIworld\fP world to print to stdout 
+.RE
+.PP
+
+.SS "int read_generations (void)"
+
+.PP
+Reads an unsigned number from stdin\&. 
+.PP
+\fBReturns\fP
+.RS 4
+1 if the first char is '\\n', -1 if it's 'q', the input number if it's valid, 0 otherwise\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Conway from the source code\&.

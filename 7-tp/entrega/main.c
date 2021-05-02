@@ -1,3 +1,9 @@
+/******************************************************************************
+  @file     main.c
+  @brief    Plays Conway's Game of Life.
+  @author   Grupo 7
+ ******************************************************************************/
+
 /*
     TP4 - Ejercicio 5 - Grupo 7 (FISHER, MARTINEZ TANOIRA, SBRUZZI, OMS)
     Consigna:
@@ -54,7 +60,9 @@
  *                MAIN                    *
  *****************************************/
 
-
+/**
+ * @brief Main function
+ */
 int main(void){
     int myworld[WORLD_HEIGHT][WORLD_WIDTH]; //  variable global que almacena el estado actual del mundo
     int total_generations = 0;

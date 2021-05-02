@@ -1,3 +1,9 @@
+/******************************************************************************
+  @file     helper_functions.c
+  @brief    Group 7 helper functions
+  @author   Grupo 7
+ ******************************************************************************/
+
 #include <stdio.h>
 #include "helper_functions.h"
 

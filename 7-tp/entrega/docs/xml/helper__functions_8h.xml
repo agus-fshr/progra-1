@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="helper__functions_8h" kind="file" language="C++">
+    <compoundname>helper_functions.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="conway_8c" local="yes">conway.c</includedby>
+    <includedby refid="helper__functions_8c" local="yes">helper_functions.c</includedby>
+    <includedby refid="main_8c" local="yes">main.c</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>helper_functions.h</label>
+        <link refid="helper__functions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>helper_functions.c</label>
+        <link refid="helper__functions_8c"/>
+      </node>
+      <node id="1">
+        <label>helper_functions.h</label>
+        <link refid="helper__functions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>conway.c</label>
+        <link refid="conway_8c"/>
+      </node>
+      <node id="4">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="helper__functions_8h_1abc40cd622f423abf44084c8f8595f57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear_screen</definition>
+        <argsstring>(void)</argsstring>
+        <name>clear_screen</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clears terminal in an OS-specific basis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helper_functions.h" line="15" column="6" bodyfile="helper_functions.c" bodystart="10" bodyend="12" declfile="helper_functions.h" declline="15" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="helper__functions_8h_1ad28147e4bdcc806db622550f264e57d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flush_stdin</definition>
+        <argsstring>(char limit)</argsstring>
+        <name>flush_stdin</name>
+        <param>
+          <type>char</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+<para>Flushes the stdin buffer. Takes characters from stdin until limit is found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character that indicates where to stop flushing </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="helper_functions.h" line="23" column="6" bodyfile="helper_functions.c" bodystart="14" bodyend="18" declfile="helper_functions.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Group 7 helper functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para>
+<para><simplesect kind="author"><para>Grupo 7 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>HELPER_FUNCTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HELPER_FUNCTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="helper__functions_8h_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="helper__functions_8h_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>limit);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="helper_functions.h"/>
+  </compounddef>
+</doxygen>

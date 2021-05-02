@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_conway_8c" xml:lang="en-US">
+<title>conway.c File Reference</title>
+<indexterm><primary>conway.c</primary></indexterm>
+<para>
+
+<para>Implements Conway&apos;s game of life. </para>
+ 
+</para>
+<programlisting>#include &quot;conway.h&quot;
+#include &quot;helper_functions.h&quot;
+#include &lt;stdio.h&gt;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_conway_8c_1a074462a8321d858de6373a66bbb74219">initialize_world</link> (int world[][<link linkend="_conway_8h_1a16d30947295d26898d1b13f10fb9b2ec">WORLD_WIDTH</link>])</para>
+
+<para>Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. </para>
+</listitem>
+            <listitem><para>void <link linkend="_conway_8c_1ae098375d965c6fc2c275a913904adbac">advance_generation</link> (int world_to_advance[][<link linkend="_conway_8h_1a16d30947295d26898d1b13f10fb9b2ec">WORLD_WIDTH</link>])</para>
+
+<para>Advances the current generation, analyzing the future state of all cells. </para>
+</listitem>
+            <listitem><para>int <link linkend="_conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a">read_generations</link> (void)</para>
+
+<para>Reads an unsigned number from stdin. </para>
+</listitem>
+            <listitem><para>void <link linkend="_conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c">print_world</link> (int world[][<link linkend="_conway_8h_1a16d30947295d26898d1b13f10fb9b2ec">WORLD_WIDTH</link>])</para>
+
+<para>Prints the world state to stdout in a polished format. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Implements Conway&apos;s game of life. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Grupo 7 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_conway_8c_1ae098375d965c6fc2c275a913904adbac"/>    <section>
+    <title>advance_generation()</title>
+<indexterm><primary>advance_generation</primary><secondary>conway.c</secondary></indexterm>
+<indexterm><primary>conway.c</primary><secondary>advance_generation</secondary></indexterm>
+<para><computeroutput>void advance_generation (int world_to_advance[][WORLD_WIDTH])</computeroutput></para><para>
+
+<para>Advances the current generation, analyzing the future state of all cells. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>world_to_advance</entry>
+                                <entry>
+<para>world matrix where the current state is and the future state will be saved before returning.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>This function implements John Conway&apos;s Game of Life rules<itemizedlist>
+<listitem>
+<para>A living cell with exactly two or three living neighbors stays alive</para>
+</listitem><listitem>
+<para>A dead cell with exactly three living neighbors becomes alive </para>
+</listitem></itemizedlist>
+</para>
+</note>
+</para>
+    </section><anchor xml:id="_conway_8c_1a074462a8321d858de6373a66bbb74219"/>    <section>
+    <title>initialize_world()</title>
+<indexterm><primary>initialize_world</primary><secondary>conway.c</secondary></indexterm>
+<indexterm><primary>conway.c</primary><secondary>initialize_world</secondary></indexterm>
+<para><computeroutput>void initialize_world (int world[][WORLD_WIDTH])</computeroutput></para><para>
+
+<para>Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>world</entry>
+                                <entry>
+<para>matrix where the initial world state is saved. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c"/>    <section>
+    <title>print_world()</title>
+<indexterm><primary>print_world</primary><secondary>conway.c</secondary></indexterm>
+<indexterm><primary>conway.c</primary><secondary>print_world</secondary></indexterm>
+<para><computeroutput>void print_world (int world[][WORLD_WIDTH])</computeroutput></para><para>
+
+<para>Prints the world state to stdout in a polished format. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>world</entry>
+                                <entry>
+<para>world to print to stdout </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a"/>    <section>
+    <title>read_generations()</title>
+<indexterm><primary>read_generations</primary><secondary>conway.c</secondary></indexterm>
+<indexterm><primary>conway.c</primary><secondary>read_generations</secondary></indexterm>
+<para><computeroutput>int read_generations (void )</computeroutput></para><para>
+
+<para>Reads an unsigned number from stdin. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>1 if the first char is &apos;\n&apos;, -1 if it&apos;s &apos;q&apos;, the input number if it&apos;s valid, 0 otherwise. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

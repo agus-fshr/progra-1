@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="conway_8h" kind="file" language="C++">
+    <compoundname>conway.h</compoundname>
+    <includedby refid="conway_8c" local="yes">conway.c</includedby>
+    <includedby refid="main_8c" local="yes">main.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>conway.c</label>
+        <link refid="conway_8c"/>
+      </node>
+      <node id="1">
+        <label>conway.h</label>
+        <link refid="conway_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" prot="public" static="no">
+        <name>WORLD_WIDTH</name>
+        <initializer>25</initializer>
+        <briefdescription>
+<para>Ancho del mundo. Número de columnas. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="16" column="9" bodyfile="conway.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1a7745e192058dc5174a4cbf59392603d4" prot="public" static="no">
+        <name>WORLD_HEIGHT</name>
+        <initializer>15</initializer>
+        <briefdescription>
+<para>Altura del mundo. Número de filas. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="17" column="9" bodyfile="conway.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1ae2fe5fdcfc827edaf0ec166503046852" prot="public" static="no">
+        <name>OUTSIDE_STATE</name>
+        <initializer><ref refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" kindref="member">DEAD</ref></initializer>
+        <briefdescription>
+<para>Estado de las celdas del borde externo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="18" column="9" bodyfile="conway.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1af389ca69162561df905b9ed23fa1b439" prot="public" static="no">
+        <name>ALIVE_CHAR</name>
+        <initializer>&apos;*&apos;</initializer>
+        <briefdescription>
+<para>Caracter que representa una celda viva. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="21" column="9" bodyfile="conway.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" prot="public" static="no">
+        <name>DEAD_CHAR</name>
+        <initializer>&apos; &apos;</initializer>
+        <briefdescription>
+<para>Caracter que representa una celda muerta. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="22" column="9" bodyfile="conway.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1af68c3a5ad6ffce6c97fff154856a823d" prot="public" static="no">
+        <name>SEPARATOR</name>
+        <initializer>&apos;|&apos;</initializer>
+        <briefdescription>
+<para>Separador de columnas. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="23" column="9" bodyfile="conway.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1ad8beef706da0344be19d59438fcdab6d" prot="public" static="no">
+        <name>ALIVE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Valor interno de una celda viva. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="26" column="9" bodyfile="conway.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" prot="public" static="no">
+        <name>DEAD</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Valor interno de una celda muerta. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="27" column="9" bodyfile="conway.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="conway_8h_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int read_generations</definition>
+        <argsstring>(void)</argsstring>
+        <name>read_generations</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned number from stdin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>1 if the first char is &apos;\n&apos;, -1 if it&apos;s &apos;q&apos;, the input number if it&apos;s valid, 0 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="40" column="5" bodyfile="conway.c" bodystart="182" bodyend="214" declfile="conway.h" declline="40" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8h_1ae098375d965c6fc2c275a913904adbac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advance_generation</definition>
+        <argsstring>(int world_to_advance[][WORLD_WIDTH])</argsstring>
+        <name>advance_generation</name>
+        <param>
+          <type>int</type>
+          <declname>world_to_advance</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Advances the current generation, analyzing the future state of all cells. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world_to_advance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world matrix where the current state is and the future state will be saved before returning.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This function implements John Conway&apos;s Game of Life rules<itemizedlist>
+<listitem><para>A living cell with exactly two or three living neighbors stays alive</para>
+</listitem><listitem><para>A dead cell with exactly three living neighbors becomes alive </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="54" column="6" bodyfile="conway.c" bodystart="145" bodyend="179" declfile="conway.h" declline="54" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8h_1aa0d80137c67f1a8738fb48390dbf1b2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_world</definition>
+        <argsstring>(int world[][WORLD_WIDTH])</argsstring>
+        <name>print_world</name>
+        <param>
+          <type>int</type>
+          <declname>world</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Prints the world state to stdout in a polished format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world to print to stdout </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="63" column="6" bodyfile="conway.c" bodystart="217" bodyend="234" declfile="conway.h" declline="63" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8h_1a074462a8321d858de6373a66bbb74219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialize_world</definition>
+        <argsstring>(int world[][WORLD_WIDTH])</argsstring>
+        <name>initialize_world</name>
+        <param>
+          <type>int</type>
+          <declname>world</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matrix where the initial world state is saved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.h" line="73" column="6" bodyfile="conway.c" bodystart="96" bodyend="141" declfile="conway.h" declline="73" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements Conway&apos;s game of life. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para>
+<para><simplesect kind="author"><para>Grupo 7 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CONWAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONWAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/************************************************</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>CONSTANT<sp/>AND<sp/>MACRO<sp/>DEFINITIONS<sp/>USING<sp/>#DEFINE<sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Parametrización<sp/>funcional<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WORLD_WIDTH<sp/>25<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WORLD_HEIGHT<sp/>15<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="conway_8h_1ae2fe5fdcfc827edaf0ec166503046852" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OUTSIDE_STATE<sp/>DEAD<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Parametrización<sp/>estética<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="conway_8h_1af389ca69162561df905b9ed23fa1b439" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ALIVE_CHAR<sp/>&apos;*&apos;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEAD_CHAR<sp/>&apos;<sp/>&apos;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="conway_8h_1af68c3a5ad6ffce6c97fff154856a823d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SEPARATOR<sp/>&apos;|&apos;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Funcionamiento<sp/>interno<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ALIVE<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEAD<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLOBAL<sp/>FUNCTION<sp/>PROTOTYPES<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" kindref="member">read_generations</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lee<sp/>num<sp/>de<sp/>generaciones<sp/>a<sp/>avanzar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1ae098375d965c6fc2c275a913904adbac" kindref="member">advance_generation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_advance[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1aa0d80137c67f1a8738fb48390dbf1b2c" kindref="member">print_world</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1a074462a8321d858de6373a66bbb74219" kindref="member">initialize_world</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="conway.h"/>
+  </compounddef>
+</doxygen>

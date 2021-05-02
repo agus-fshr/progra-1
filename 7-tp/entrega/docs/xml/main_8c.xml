@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main_8c" kind="file" language="C++">
+    <compoundname>main.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="helper__functions_8h" local="yes">helper_functions.h</includes>
+    <includes refid="conway_8h" local="yes">conway.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>helper_functions.h</label>
+        <link refid="helper__functions_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>conway.h</label>
+        <link refid="conway_8h"/>
+      </node>
+      <node id="1">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Main function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main.c" line="66" column="5" bodyfile="main.c" bodystart="66" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Plays Conway&apos;s Game of Life. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><hruler/>
+</para>
+<para><simplesect kind="author"><para>Grupo 7 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/><sp/>TP4<sp/>-<sp/>Ejercicio<sp/>5<sp/>-<sp/>Grupo<sp/>7<sp/>(FISHER,<sp/>MARTINEZ<sp/>TANOIRA,<sp/>SBRUZZI,<sp/>OMS)</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>Consigna:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Implementar<sp/>el<sp/>Juego<sp/>de<sp/>la<sp/>Vida,<sp/>de<sp/>James<sp/>Conway.<sp/>Reglas:</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a)<sp/>Una<sp/>célula<sp/>viva<sp/>con<sp/>menos<sp/>de<sp/>dos<sp/>vecinos<sp/>muere;</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b)<sp/>una<sp/>célula<sp/>con<sp/>más<sp/>de<sp/>tres<sp/>vecinos<sp/>también<sp/>muere;</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c)<sp/>una<sp/>célula<sp/>viva<sp/>con<sp/>exactamente<sp/>dos<sp/>o<sp/>tres<sp/>vecinos<sp/>sobrevive;</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d)<sp/>una<sp/>célula<sp/>muerta<sp/>con<sp/>exactamente<sp/>tres<sp/>vecinos<sp/>obtiene<sp/>vida<sp/>nuevamente.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/><sp/>Requisitos:</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a)<sp/>El<sp/>tamaño<sp/>del<sp/>mundo<sp/>debe<sp/>encontrarse<sp/>en<sp/>dos<sp/>constantes,<sp/>por<sp/>ejemplo,<sp/>ANCHO</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y<sp/>ALTO.<sp/>Debe<sp/>poder<sp/>cambiarse<sp/>el<sp/>valor<sp/>de<sp/>las<sp/>mismas<sp/>y<sp/>recompilar<sp/>el<sp/>código,<sp/>y</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>el<sp/>mismo<sp/>debe<sp/>funcionar.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b)<sp/>El<sp/>programa<sp/>debe<sp/>mostrar<sp/>el<sp/>estado<sp/>actual<sp/>del<sp/>mundo<sp/>en<sp/>pantalla,<sp/>y<sp/>luego</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preguntar<sp/>al<sp/>usuario<sp/>cuantas<sp/>generaciones<sp/>desea<sp/>avanzar.<sp/>Cuando<sp/>el<sp/>usuario</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ingresa<sp/>un<sp/>número<sp/>y<sp/>presiona<sp/>enter,<sp/>se<sp/>calcula<sp/>el<sp/>nuevo<sp/>estado<sp/>del<sp/>mundo,<sp/>se</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>presenta<sp/>en<sp/>pantalla,<sp/>y<sp/>se<sp/>vuelve<sp/>a<sp/>preguntar.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c)<sp/>Si<sp/>el<sp/>usuario<sp/>presiona<sp/>enter<sp/>sin<sp/>ingresar<sp/>ningún<sp/>número,<sp/>se<sp/>debe<sp/>avanzar<sp/>una</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>generación.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d)<sp/>Si<sp/>el<sp/>usuario<sp/>ingresa<sp/>el<sp/>carácter<sp/>‘q’,<sp/>se<sp/>debe<sp/>salir<sp/>del<sp/>programa.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>e)<sp/>Cualquier<sp/>funcionalidad<sp/>extra<sp/>que<sp/>deseen<sp/>agregar<sp/>se<sp/>tomará<sp/>en<sp/>cuenta<sp/>en<sp/>la</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nota<sp/>del<sp/>trabajo<sp/>práctico.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>Descripción<sp/>de<sp/>la<sp/>implementación:</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1)<sp/>El<sp/>estado<sp/>de<sp/>cada<sp/>celda<sp/>no<sp/>es<sp/>un<sp/>número,<sp/>sino<sp/>un<sp/>define.<sp/>Esto<sp/>se<sp/>tiene<sp/>en<sp/>cuenta<sp/>en<sp/>todo<sp/>el<sp/>código.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2)<sp/>Hay<sp/>3<sp/>formas<sp/>de<sp/>ingresar<sp/>un<sp/>mapa:</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>Manualmente,<sp/>con<sp/>las<sp/>instrucciones<sp/>correspondientes</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>A<sp/>través<sp/>de<sp/>un<sp/>.txt<sp/>que<sp/>tenga<sp/>un<sp/>mapa<sp/>formateado<sp/>correctamente</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>A<sp/>través<sp/>de<sp/>la<sp/>generación<sp/>pseudoaleatoria</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3)<sp/>Se<sp/>sanitizan<sp/>el<sp/>input<sp/>del<sp/>usuario<sp/>en<sp/>la<sp/>medida<sp/>de<sp/>lo<sp/>posible:<sp/>se<sp/>cuida<sp/>que<sp/>no<sp/>queden<sp/>caracteres</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pendientes<sp/>en<sp/>stdin<sp/>cuando<sp/>ello<sp/>podría<sp/>arruinar<sp/>el<sp/>funcionamiento<sp/>correcto<sp/>del<sp/>programa.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4)<sp/>Bajo<sp/>la<sp/>categoría<sp/>&quot;parametrización&quot;<sp/>se<sp/>encuentran<sp/>los<sp/>defines<sp/>que<sp/>establecen<sp/>detalles<sp/>del</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>funcionamiento<sp/>del<sp/>programa.<sp/>Esto<sp/>permite<sp/>personalizar<sp/>tanto<sp/>el<sp/>funcionamiento<sp/>del<sp/>juego</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>como<sp/>la<sp/>presentación<sp/>del<sp/>mismo</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>Instrucciones:</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/>Puede<sp/>cargar<sp/>el<sp/>mundo<sp/>de<sp/>manera<sp/>manual<sp/>o<sp/>cargarlo<sp/>en<sp/>un<sp/>archivo<sp/>de<sp/>texto<sp/>con<sp/>el<sp/>formato<sp/>adecuado.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/>Luego,<sp/>compilar<sp/>este<sp/>programa<sp/>y<sp/>llamar<sp/>al<sp/>comando<sp/>cat<sp/>[archivo<sp/>mapa]<sp/>-<sp/>|<sp/>./[ejecutable]</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>Alternativamente,<sp/>si<sp/>el<sp/>archivo<sp/>del<sp/>mapa<sp/>se<sp/>denomina<sp/>&quot;mapa.txt&quot;<sp/>y<sp/>el<sp/>ejecutable<sp/>más<sp/>reciente<sp/>tiene<sp/>como<sp/>nombre<sp/>&quot;5&quot;,</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/>puede<sp/>simplemente<sp/>correr<sp/>el<sp/>ejecutable<sp/>game-of-life,<sp/>como<sp/>./game-of-life,<sp/>que<sp/>es<sp/>un<sp/>wrapper</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INCLUDE<sp/>HEADER<sp/>FILES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="helper__functions_8h" kindref="compound">helper_functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="conway_8h" kindref="compound">conway.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAIN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>myworld[<ref refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" kindref="member">WORLD_HEIGHT</ref>][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>];<sp/></highlight><highlight class="comment">//<sp/><sp/>variable<sp/>global<sp/>que<sp/>almacena<sp/>el<sp/>estado<sp/>actual<sp/>del<sp/>mundo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>total_generations<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>steps<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>variable<sp/>local:<sp/>pasos<sp/>a<sp/>avanzar<sp/>o<sp/>si<sp/>debe<sp/>salir</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="conway_8c_1a074462a8321d858de6373a66bbb74219" kindref="member">initialize_world</ref>(myworld);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>decide<sp/>qué<sp/>mapa<sp/>se<sp/>usará<sp/>como<sp/>estado<sp/>inicial</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(steps<sp/>!=<sp/>-1)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>si<sp/>steps<sp/>vale<sp/>-1,<sp/>debe<sp/>abandonarse<sp/>el<sp/>juego</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\tGeneracion:<sp/>%d\n\n&quot;</highlight><highlight class="normal">,<sp/>total_generations);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c" kindref="member">print_world</ref>(myworld);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\tIngrese:<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t<sp/>-<sp/>Enter:<sp/>para<sp/>avanzar<sp/>una<sp/>generacion\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t<sp/>-<sp/>Un<sp/>numero<sp/>natural<sp/>para<sp/>avanzar<sp/>esa<sp/>cantidad<sp/>de<sp/>generaciones\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t<sp/>-<sp/>&apos;q&apos;<sp/>para<sp/>salir\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>steps<sp/>=<sp/><ref refid="conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" kindref="member">read_generations</ref>();<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>lee<sp/>generaciones<sp/>a<sp/>avanzar<sp/>o<sp/>salida</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total_generations<sp/>+=<sp/>steps;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>steps;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="conway_8c_1ae098375d965c6fc2c275a913904adbac" kindref="member">advance_generation</ref>(myworld);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>pasa<sp/>a<sp/>la<sp/>siguiente<sp/>generación</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Nos<sp/>vemos.\n&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>saluda<sp/>amablemente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="main.c"/>
+  </compounddef>
+</doxygen>
