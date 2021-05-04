@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_helper__functions_8h" xml:lang="en-US">
+<title>helper_functions.h File Reference</title>
+<indexterm><primary>helper_functions.h</primary></indexterm>
+<para>
+
+<para>Group 7 helper functions. </para>
+ 
+</para>
+<programlisting>#include &lt;stdlib.h&gt;
+</programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_helper__functions_8h_1abc40cd622f423abf44084c8f8595f57f">clear_screen</link> (void)</para>
+
+<para>Clears terminal in an OS-specific basis. </para>
+</listitem>
+            <listitem><para>void <link linkend="_helper__functions_8h_1ad28147e4bdcc806db622550f264e57d5">flush_stdin</link> (char limit)</para>
+
+<para>Flushes the stdin buffer. Takes characters from stdin until limit is found. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Group 7 helper functions. </para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Grupo 7 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_helper__functions_8h_1abc40cd622f423abf44084c8f8595f57f"/>    <section>
+    <title>clear_screen()</title>
+<indexterm><primary>clear_screen</primary><secondary>helper_functions.h</secondary></indexterm>
+<indexterm><primary>helper_functions.h</primary><secondary>clear_screen</secondary></indexterm>
+<para><computeroutput>void clear_screen (void )</computeroutput></para><para>
+
+<para>Clears terminal in an OS-specific basis. </para>
+</para>
+    </section><anchor xml:id="_helper__functions_8h_1ad28147e4bdcc806db622550f264e57d5"/>    <section>
+    <title>flush_stdin()</title>
+<indexterm><primary>flush_stdin</primary><secondary>helper_functions.h</secondary></indexterm>
+<indexterm><primary>helper_functions.h</primary><secondary>flush_stdin</secondary></indexterm>
+<para><computeroutput>void flush_stdin (char limit)</computeroutput></para><para>
+
+<para>Flushes the stdin buffer. Takes characters from stdin until limit is found. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>limit</entry>
+                                <entry>
+<para>Character that indicates where to stop flushing </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

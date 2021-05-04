@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="conway_8c" kind="file" language="C++">
+    <compoundname>conway.c</compoundname>
+    <includes refid="conway_8h" local="yes">conway.h</includes>
+    <includes refid="helper__functions_8h" local="yes">helper_functions.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>helper_functions.h</label>
+        <link refid="helper__functions_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>conway.c</label>
+        <link refid="conway_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>conway.h</label>
+        <link refid="conway_8h"/>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="conway_8c_1abc21d289f41a7933583cc3f4a66ab952" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_cell_state</definition>
+        <argsstring>(int, int, int[][WORLD_WIDTH])</argsstring>
+        <name>get_cell_state</name>
+        <param>
+          <type>int</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>world</defname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Reads a cell state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Column coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix where the cell lookup happens.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The cell value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="243" column="12" bodyfile="conway.c" bodystart="243" bodyend="245" declfile="conway.c" declline="30" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1a260d089a313a86efadcd48f7710b121a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_world_height</definition>
+        <argsstring>(void)</argsstring>
+        <name>get_world_height</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the world height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>World height </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="247" column="12" bodyfile="conway.c" bodystart="247" bodyend="249" declfile="conway.c" declline="38" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1ab5c46a62309252a51f28a3bd832fe56f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int get_world_width</definition>
+        <argsstring>(void)</argsstring>
+        <name>get_world_width</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the world width. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>World width </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="251" column="12" bodyfile="conway.c" bodystart="251" bodyend="253" declfile="conway.c" declline="46" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1a9006198445ec02d32950cb7cc1908269" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>static unsigned int count_adjacent_cells</definition>
+        <argsstring>(int x, int y, int world[][WORLD_WIDTH])</argsstring>
+        <name>count_adjacent_cells</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>world</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Analyzes the number of alive neighboring cells to the specified cell. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row of the target cell </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Column of the target cell </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>World analyzed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of alive neighboring cells to the specified cell. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="256" column="21" bodyfile="conway.c" bodystart="256" bodyend="298" declfile="conway.c" declline="59" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1adf9f96b26c5a999b07f184742f346ee4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void copy_world</definition>
+        <argsstring>(int src[][WORLD_WIDTH], int tgt[][WORLD_WIDTH])</argsstring>
+        <name>copy_world</name>
+        <param>
+          <type>int</type>
+          <declname>src</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tgt</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Copies a matrix recieved as a parameter to the target matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>origin matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tgt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>target matrix </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="301" column="13" bodyfile="conway.c" bodystart="301" bodyend="307" declfile="conway.c" declline="68" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1ab7b8183d17b4be02450b41062a0f4bd8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void parse_world_from_stdin</definition>
+        <argsstring>(int world_to_save[][WORLD_WIDTH])</argsstring>
+        <name>parse_world_from_stdin</name>
+        <param>
+          <type>int</type>
+          <declname>world_to_save</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Reads a map of size specified previously. It can be entered either by hand or by piping a .txt file. Input must end with the character &apos;f&apos;. It is not necessary to have a separator between values. If the length of a column is exceeded, it will be included in the next one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world_to_save</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A matrix to store the world map in. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="310" column="13" bodyfile="conway.c" bodystart="310" bodyend="354" declfile="conway.c" declline="79" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1a51670f600ab8879ecbdc2fe2bac025c9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void seed_world</definition>
+        <argsstring>(int world_to_seed[][WORLD_WIDTH])</argsstring>
+        <name>seed_world</name>
+        <param>
+          <type>int</type>
+          <declname>world_to_seed</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Generates pseudorandom world. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world_to_seed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the generated world is saved </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="357" column="13" bodyfile="conway.c" bodystart="357" bodyend="366" declfile="conway.c" declline="87" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1a074462a8321d858de6373a66bbb74219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialize_world</definition>
+        <argsstring>(int world[][WORLD_WIDTH])</argsstring>
+        <name>initialize_world</name>
+        <param>
+          <type>int</type>
+          <declname>world</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matrix where the initial world state is saved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="96" column="6" bodyfile="conway.c" bodystart="96" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1ae098375d965c6fc2c275a913904adbac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advance_generation</definition>
+        <argsstring>(int world_to_advance[][WORLD_WIDTH])</argsstring>
+        <name>advance_generation</name>
+        <param>
+          <type>int</type>
+          <declname>world_to_advance</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Advances the current generation, analyzing the future state of all cells. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world_to_advance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world matrix where the current state is and the future state will be saved before returning.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This function implements John Conway&apos;s Game of Life rules<itemizedlist>
+<listitem><para>A living cell with exactly two or three living neighbors stays alive</para>
+</listitem><listitem><para>A dead cell with exactly three living neighbors becomes alive </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="145" column="6" bodyfile="conway.c" bodystart="145" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int read_generations</definition>
+        <argsstring>(void)</argsstring>
+        <name>read_generations</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned number from stdin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>1 if the first char is &apos;\n&apos;, -1 if it&apos;s &apos;q&apos;, the input number if it&apos;s valid, 0 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="182" column="5" bodyfile="conway.c" bodystart="182" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_world</definition>
+        <argsstring>(int world[][WORLD_WIDTH])</argsstring>
+        <name>print_world</name>
+        <param>
+          <type>int</type>
+          <declname>world</declname>
+          <array>[][WORLD_WIDTH]</array>
+        </param>
+        <briefdescription>
+<para>Prints the world state to stdout in a polished format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>world</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>world to print to stdout </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="conway.c" line="217" column="6" bodyfile="conway.c" bodystart="217" bodyend="234"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements Conway&apos;s game of life. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Grupo 7 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>INCLUDE<sp/>HEADER<sp/>FILES<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="conway_8h" kindref="compound">conway.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="helper__functions_8h" kindref="compound">helper_functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>FUNCTION<sp/>PROTOTYPES<sp/>FOR<sp/>PRIVATE<sp/>FUNCTIONS<sp/>WITH<sp/>FILE<sp/>LEVEL<sp/>SCOPE<sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*******************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_cell_state(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>toma<sp/>el<sp/>estado<sp/>de<sp/>una<sp/>celda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_world_height(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>devuelve<sp/>la<sp/>altura<sp/>del<sp/>mapa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_world_width(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>devuelve<sp/>el<sp/>ancho<sp/>del<sp/>mapa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count_adjacent_cells(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>copy_world(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>src[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tgt[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>parse_world_from_stdin(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_save[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>seed_world(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_seed[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>genera<sp/>mundo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>GLOBAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8c_1a074462a8321d858de6373a66bbb74219" kindref="member">initialize_world</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]){</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>world<sp/>used<sp/>if<sp/>map<sp/>was<sp/>input<sp/>using<sp/>piping</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stdin_world[<ref refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" kindref="member">WORLD_HEIGHT</ref>][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Si<sp/>esta<sp/>leyendo<sp/>esto,<sp/>no<sp/>cargo<sp/>un<sp/>archivo<sp/>valido<sp/>para<sp/>jugar.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Si<sp/>su<sp/>intencion<sp/>era<sp/>hacerlo,<sp/>recuerde<sp/>que<sp/>debe<sp/>ingresar<sp/>el<sp/>comando<sp/>cat<sp/>[archivo]<sp/>-<sp/>|<sp/>./[ejecutable]\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Quizas<sp/>decidio<sp/>ingresar<sp/>manualmente<sp/>el<sp/>mundo<sp/>de<sp/>juego,<sp/>en<sp/>cuyo<sp/>caso,<sp/>felicidades!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Debo<sp/>avisarle,<sp/>primero<sp/>que<sp/>nada,<sp/>que<sp/>haga<sp/>lo<sp/>posible<sp/>por<sp/>ingresar<sp/>un<sp/>mapa<sp/>de<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%d<sp/>filas<sp/>y<sp/>%d<sp/>columnas.<sp/>Si<sp/>se<sp/>equivoca,<sp/>no<sp/>se<sp/>preocupe,<sp/>nada<sp/>se<sp/>va<sp/>a<sp/>incendiar.\n&quot;</highlight><highlight class="normal">,<sp/>get_world_height(),<sp/>get_world_width());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Tenga<sp/>en<sp/>cuenta:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-<sp/>Un<sp/>caracter<sp/>&apos;%c&apos;<sp/>representa<sp/>una<sp/>celda<sp/>muerta\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" kindref="member">DEAD_CHAR</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-<sp/>Un<sp/>caracter<sp/>&apos;%c&apos;<sp/>representa<sp/>una<sp/>celda<sp/>viva\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="conway_8h_1af389ca69162561df905b9ed23fa1b439" kindref="member">ALIVE_CHAR</ref>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Puede<sp/>utilizar<sp/>el<sp/>caracter<sp/>que<sp/>mas<sp/>le<sp/>guste<sp/>para<sp/>separar<sp/>celdas,<sp/>incluso<sp/>puede<sp/>no<sp/>usar<sp/>ninguno!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Eso<sp/>si,<sp/>al<sp/>terminar<sp/>cada<sp/>fila<sp/>presione<sp/>enter.\n&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>No<sp/>es<sp/>necesario,<sp/>pero<sp/>es<sp/>más<sp/>seguro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Si<sp/>se<sp/>encuentra<sp/>contento<sp/>con<sp/>el<sp/>resultado,<sp/>ingrese<sp/>una<sp/>f<sp/>al<sp/>final<sp/>de<sp/>la<sp/>ultima<sp/>fila\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Si<sp/>no,<sp/>cierre<sp/>el<sp/>programa<sp/>e<sp/>intente<sp/>otra<sp/>vez.<sp/>La<sp/>siguiente<sp/>sera<sp/>la<sp/>vencida.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Si<sp/>no<sp/>quiere<sp/>cargar<sp/>un<sp/>mapa<sp/>y<sp/>quiere<sp/>pasar<sp/>al<sp/>juego,\ningrese<sp/>una<sp/>&apos;f&apos;<sp/>y<sp/>luego<sp/>pida<sp/>cargar<sp/>el<sp/>mundo<sp/>por<sp/>defecto.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>parse_world_from_stdin(stdin_world);<sp/><sp/></highlight><highlight class="comment">//<sp/>carga<sp/>en<sp/>var<sp/>local<sp/>el<sp/>mapa<sp/>desde<sp/>stdio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Ingrese<sp/>una<sp/>&apos;i&apos;<sp/>para<sp/>iniciar<sp/>el<sp/>juego\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;i&apos;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vaciar<sp/>stdin<sp/>hasta<sp/>llegar<sp/>a<sp/>una<sp/>&apos;i&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>si<sp/>se<sp/>ingresa<sp/>algo<sp/>además<sp/>de<sp/>la<sp/>i,<sp/>vaciará<sp/>hasta<sp/>el<sp/>enter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Nota:<sp/>de<sp/>por<sp/>si,<sp/>debería<sp/>haber<sp/>un<sp/>solo<sp/>\n<sp/>luego<sp/>de<sp/>la<sp/>i.<sp/>Si<sp/>se<sp/>presionan<sp/>2<sp/>teclas<sp/>sin<sp/>querer,<sp/>por<sp/>ejemplo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>se<sp/>debe<sp/>vaciar<sp/>stdin<sp/>del<sp/>todo<sp/>también,<sp/>para<sp/>evitar<sp/>problemas<sp/>en<sp/>las<sp/>siguientes<sp/>porciones<sp/>del<sp/>programa.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Bienvenido<sp/>al<sp/>Juego<sp/>de<sp/>la<sp/>Vida,<sp/>de<sp/>James<sp/>Conway.\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Presione<sp/>&apos;s&apos;<sp/>para<sp/>inciar<sp/>el<sp/>mapa<sp/>cargado<sp/>manualmente<sp/>o<sp/>desde<sp/>archivo.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Cualquier<sp/>otra<sp/>tecla,<sp/>como<sp/>&apos;n&apos;<sp/>le<sp/>generara<sp/>un<sp/>mapa<sp/>automaticamente.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>c<sp/>=<sp/>getchar();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>toma<sp/>la<sp/>tecla<sp/>de<sp/>accion<sp/>del<sp/>usuario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;s&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>si<sp/>la<sp/>misma<sp/>es<sp/>&apos;s&apos;,<sp/>se<sp/>debe<sp/>copiar<sp/>el<sp/>mundo<sp/>de<sp/>stdin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>copy_world(stdin_world,<sp/>world);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>si<sp/>no<sp/>es<sp/>&apos;s&apos;,<sp/>debe<sp/>copiarse<sp/>el<sp/>mundo<sp/>generado</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>seed_world(world);<sp/><sp/></highlight><highlight class="comment">//<sp/>genera<sp/>el<sp/>mundo<sp/>sobre<sp/>la<sp/>variable<sp/>global</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vacía<sp/>el<sp/>stdin,<sp/>si<sp/>se<sp/>ingresó<sp/>más<sp/>de<sp/>un<sp/>char<sp/>como<sp/>acción</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8c_1ae098375d965c6fc2c275a913904adbac" kindref="member">advance_generation</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_advance[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i_col,<sp/>i_fil;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>world<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>next_world[<ref refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" kindref="member">WORLD_HEIGHT</ref>][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i_col<sp/>=<sp/>0;<sp/>i_col<sp/>&lt;<sp/>get_world_width();<sp/>i_col++)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i_fil<sp/>=<sp/>0;<sp/>i_fil<sp/>&lt;<sp/>get_world_height();<sp/>i_fil++)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>adjacent_living<sp/>=<sp/>count_adjacent_cells(i_fil,<sp/>i_col,<sp/>world_to_advance);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>adjacent_living<sp/>almacena<sp/>el<sp/>número<sp/>de<sp/>las<sp/>celdas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vivas<sp/>que<sp/>se<sp/>encuentran<sp/>próximas<sp/>a<sp/>la<sp/>celda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cell_state<sp/>=<sp/>get_cell_state(i_fil,<sp/>i_col,<sp/>world_to_advance);<sp/></highlight><highlight class="comment">//<sp/>estado<sp/>actual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>next_state<sp/>=<sp/><ref refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" kindref="member">DEAD</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(cell_state<sp/>==<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(adjacent_living<sp/>==<sp/>2<sp/>||<sp/>adjacent_living<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>está<sp/>viva<sp/>y<sp/>tiene<sp/>2<sp/>o<sp/>3<sp/>células<sp/>vivas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>próximas,<sp/>debe<sp/>seguir<sp/>viva.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next_state<sp/>=<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(adjacent_living<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>está<sp/>muerta<sp/>y<sp/>tiene<sp/>3<sp/>celdas<sp/>vivas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>próximas,<sp/>debe<sp/>vivir.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next_state<sp/>=<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>guarda<sp/>en<sp/>la<sp/>var<sp/>temporal<sp/>el<sp/>estado<sp/>calculado<sp/>de<sp/>la<sp/>celda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next_world[i_fil][i_col]<sp/>=<sp/>next_state;<sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>copy_world(next_world,<sp/>world_to_advance);<sp/></highlight><highlight class="comment">//<sp/>copia<sp/>el<sp/>mundo<sp/>calculado<sp/>al<sp/>estado<sp/>actual</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" kindref="member">read_generations</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Where<sp/>each<sp/>read<sp/>char<sp/>is<sp/>saved</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>getchar();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>salida<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;q&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>ingresa<sp/>una<sp/>&apos;q&apos;<sp/>primero,<sp/>devuelve<sp/>señal<sp/>de<sp/>salida</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>ingresa<sp/>un<sp/>&apos;\n&apos;<sp/>primero,<sp/>avanzar<sp/>una<sp/>generación</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>c<sp/>&lt;<sp/>&apos;0&apos;<sp/>||<sp/>c<sp/>&gt;<sp/></highlight><highlight class="charliteral">&apos;9&apos;</highlight><highlight class="normal">)<sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>ingresa<sp/>otra<sp/>cosa,<sp/>ignora<sp/>y<sp/>no<sp/>avanza</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>El<sp/>siguiente<sp/>while<sp/>tomará<sp/>caracteres<sp/>numéricos<sp/>válidos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>conformará<sp/>un<sp/>número<sp/>entero<sp/>positivo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((c<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>(c<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;9&apos;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>salida<sp/>*=<sp/>10;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Desplaza<sp/>el<sp/>orden<sp/>del<sp/>número<sp/>almacenado<sp/>(*10<sp/>por<sp/>ser<sp/>sistema<sp/>decimal)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>salida<sp/>+=<sp/>c<sp/>-<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Quita<sp/>el<sp/>offset<sp/>de<sp/>los<sp/>números<sp/>en<sp/>ASCII</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/>getchar();<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>toma<sp/>el<sp/>siguiente<sp/>caracter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>el<sp/>caracter<sp/>leído<sp/>no<sp/>era<sp/>el<sp/>fin,<sp/>sino<sp/>algo<sp/>raro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>vacía<sp/>stdin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>y<sp/>no<sp/>avanza<sp/>ninguna<sp/>generación</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>salida;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c" kindref="member">print_world</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/>col;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>putchar(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(row=0;<sp/>row<sp/>&lt;<sp/>get_world_height();<sp/>row++){<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>itera<sp/>sobre<sp/>las<sp/>filas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="conway_8h_1af68c3a5ad6ffce6c97fff154856a823d" kindref="member">SEPARATOR</ref>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(col=0;<sp/>col<sp/>&lt;<sp/>get_world_width();<sp/>col++){<sp/></highlight><highlight class="comment">//<sp/>itera<sp/>sobre<sp/>las<sp/>columnas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(get_cell_state(row,<sp/>col,<sp/>world)<sp/>==<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(<ref refid="conway_8h_1af389ca69162561df905b9ed23fa1b439" kindref="member">ALIVE_CHAR</ref>);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(<ref refid="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" kindref="member">DEAD_CHAR</ref>);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>putchar(<ref refid="conway_8h_1af68c3a5ad6ffce6c97fff154856a823d" kindref="member">SEPARATOR</ref>);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>imprime<sp/>separador<sp/>de<sp/>columnas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>LOCAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_cell_state(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>world[x][y];</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_world_height(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" kindref="member">WORLD_HEIGHT</ref>;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_world_width(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count_adjacent_cells(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Alive<sp/>neighbours<sp/>acummulator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>alive_neighbours<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row,<sp/>col;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Row<sp/>overflow<sp/>condition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_of_map_rows;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Column<sp/>overflow<sp/>condition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_of_map_cols;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(row<sp/>=<sp/>x-1;<sp/>row<sp/>&lt;=<sp/>x+1;<sp/>row++){<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>itera<sp/>por<sp/>3<sp/>filas<sp/>centradas<sp/>en<sp/>x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calcula<sp/>condición:<sp/>si<sp/>se<sp/>quiere<sp/>analizar<sp/>la<sp/>fila<sp/>-1<sp/>o</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>la<sp/>fila<sp/>que<sp/>coincida<sp/>con<sp/>la<sp/>altura<sp/>del<sp/>mapa,<sp/>no<sp/>debe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>intentar<sp/>acceder<sp/>a<sp/>la<sp/>matriz</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out_of_map_rows<sp/>=<sp/>(row<sp/>==<sp/>-1)<sp/>||<sp/>(row<sp/>==<sp/>get_world_height());</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!out_of_map_rows){</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(col<sp/>=<sp/>y-1;<sp/>col<sp/>&lt;=<sp/>y+1;<sp/>col++){<sp/></highlight><highlight class="comment">//<sp/>itera<sp/>por<sp/>3<sp/>filas<sp/>centradas<sp/>en<sp/>y</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calcula<sp/>condición:<sp/>si<sp/>se<sp/>quiere<sp/>analizar<sp/>la<sp/>columna<sp/>-1<sp/>o</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>la<sp/>fila<sp/>que<sp/>coincida<sp/>con<sp/>el<sp/>ancho<sp/>del<sp/>mapa,<sp/>no<sp/>debe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>intentar<sp/>acceder<sp/>a<sp/>la<sp/>matriz</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>out_of_map_cols<sp/>=<sp/>(col<sp/>==<sp/>-1)<sp/>||<sp/>(col<sp/>==<sp/>get_world_width());</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>la<sp/>columna<sp/>está<sp/>fuera<sp/>del<sp/>mapa,<sp/>cuenta<sp/>un<sp/>OUTSIDE_STATE<sp/>(configurable)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>mientras<sp/>que<sp/>si<sp/>no,<sp/>recupera<sp/>el<sp/>estado<sp/>de<sp/>esa<sp/>celda</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alive_neighbours<sp/>+=<sp/>out_of_map_cols<sp/>?<sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="conway_8h_1ae2fe5fdcfc827edaf0ec166503046852" kindref="member">OUTSIDE_STATE</ref><sp/>:<sp/>get_cell_state(row,<sp/>col,<sp/>world)<sp/>==<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Es<sp/>configurable<sp/>el<sp/>comportamiento<sp/>de<sp/>las<sp/>celdas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>del<sp/>borde<sp/>externo<sp/>del<sp/>mapa,<sp/>por<sp/>lo<sp/>que<sp/>si<sp/>se</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>quiere<sp/>analizar<sp/>una<sp/>fila<sp/>que<sp/>está<sp/>fuera<sp/>del<sp/>mapa</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>se<sp/>deben<sp/>contar<sp/>3<sp/>celdas<sp/>en<sp/>ese<sp/>estado.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>alive_neighbours<sp/>+=<sp/>3*<ref refid="conway_8h_1ae2fe5fdcfc827edaf0ec166503046852" kindref="member">OUTSIDE_STATE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>magic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>está<sp/>viva,<sp/>se<sp/>debe<sp/>restar<sp/>el<sp/>valor<sp/>sumado<sp/>por<sp/>contar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>la<sp/>celda<sp/>del<sp/>medio<sp/>(solo<sp/>se<sp/>quiere<sp/>el<sp/>número<sp/>de<sp/>vecinos)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>alive_neighbours<sp/>-=<sp/>get_cell_state(x,<sp/>y,<sp/>world)<sp/>==<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>;<sp/></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>alive_neighbours;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>copy_world(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>src[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tgt[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>get_world_height();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>get_world_width();<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tgt[i][j]<sp/>=<sp/>src[i][j];</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>parse_world_from_stdin(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_save[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>])<sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Where<sp/>each<sp/>read<sp/>char<sp/>is<sp/>saved</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>row_counter<sp/>=<sp/>0,<sp/>col_counter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Detected<sp/>cell<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cell_counter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Maximum<sp/>possible<sp/>cells</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>total_cells<sp/>=<sp/>get_world_width()<sp/>*<sp/>get_world_height();</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Valid<sp/>position<sp/>flag<sp/>(prevents<sp/>matrix<sp/>overflow)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>valid_position<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Cuidado:<sp/>es<sp/>necesaria<sp/>la<sp/>condición<sp/>cell_counter<sp/>&lt;<sp/>total_cells</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>esto<sp/>se<sp/>debe<sp/>a<sp/>que<sp/>si<sp/>no<sp/>se<sp/>limita,<sp/>estaríamos<sp/>permitiendo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sobreescribir<sp/>lugares<sp/>que<sp/>no<sp/>le<sp/>pertenecen<sp/>a<sp/>la<sp/>variable<sp/>world_to_save</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(((c<sp/>=<sp/>getchar())<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;f&apos;</highlight><highlight class="normal">)<sp/>&amp;&amp;<sp/>cell_counter<sp/>&lt;<sp/>total_cells<sp/>&amp;&amp;<sp/>valid_position)<sp/>{</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(c){</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(<ref refid="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" kindref="member">DEAD_CHAR</ref>):{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>lee<sp/>el<sp/>caracter<sp/>que<sp/>indica<sp/>celda<sp/>muerta,<sp/>lo<sp/>almacena</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world_to_save[row_counter][col_counter++]<sp/>=<sp/><ref refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" kindref="member">DEAD</ref>;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell_counter++;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(<ref refid="conway_8h_1af389ca69162561df905b9ed23fa1b439" kindref="member">ALIVE_CHAR</ref>):{<sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>lee<sp/>el<sp/>caracter<sp/>que<sp/>indica<sp/>celda<sp/>viva,<sp/>lo<sp/>almacena</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world_to_save[row_counter][col_counter++]<sp/>=<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref>;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell_counter++;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">):{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Si<sp/>se<sp/>lee<sp/>el<sp/>caracter<sp/>de<sp/>enter,<sp/>pasa<sp/>a<sp/>la<sp/>siguiente<sp/>fila</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++row_counter;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>col_counter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:{</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Una<sp/>posición<sp/>válida<sp/>debe<sp/>no<sp/>sobrepasar<sp/>los<sp/>límites<sp/>de<sp/>la<sp/>matriz</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>valid_position<sp/>=<sp/>row_counter<sp/>&lt;<sp/>get_world_height()<sp/>&amp;&amp;<sp/>col_counter<sp/>&lt;<sp/>get_world_width();</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="354"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>seed_world(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>world_to_seed[][<ref refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kindref="member">WORLD_WIDTH</ref>]){</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>get_world_height();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>get_world_width();<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rand()<sp/>genera<sp/>un<sp/>entero<sp/>aleatorio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>al<sp/>pedir<sp/>el<sp/>resto<sp/>de<sp/>la<sp/>división<sp/>por<sp/>2,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>se<sp/>obtendrá<sp/>1<sp/>o<sp/>0<sp/>de<sp/>manera<sp/>pseudoaleatoria</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world_to_seed[i][j]<sp/>=<sp/>(rand()<sp/>%<sp/>2)<sp/>==<sp/>0<sp/>?<sp/><ref refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kindref="member">ALIVE</ref><sp/>:<sp/><ref refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" kindref="member">DEAD</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="366"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="conway.c"/>
+  </compounddef>
+</doxygen>

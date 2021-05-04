@@ -1,0 +1,97 @@
+\hypertarget{conway_8c}{}\doxysection{conway.\+c File Reference}
+\label{conway_8c}\index{conway.c@{conway.c}}
+
+
+Implements Conway\textquotesingle{}s game of life.  
+
+
+{\ttfamily \#include \char`\"{}conway.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}helper\+\_\+functions.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{conway_8c_a074462a8321d858de6373a66bbb74219}{initialize\+\_\+world}} (int world\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{conway_8c_ae098375d965c6fc2c275a913904adbac}{advance\+\_\+generation}} (int world\+\_\+to\+\_\+advance\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Advances the current generation, analyzing the future state of all cells. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{conway_8c_a01e6a6d0941ab0d3c7f5888f9c86ca8a}{read\+\_\+generations}} (void)
+\begin{DoxyCompactList}\small\item\em Reads an unsigned number from stdin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{conway_8c_aa0d80137c67f1a8738fb48390dbf1b2c}{print\+\_\+world}} (int world\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Prints the world state to stdout in a polished format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements Conway\textquotesingle{}s game of life. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 7 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{conway_8c_ae098375d965c6fc2c275a913904adbac}\label{conway_8c_ae098375d965c6fc2c275a913904adbac}} 
+\index{conway.c@{conway.c}!advance\_generation@{advance\_generation}}
+\index{advance\_generation@{advance\_generation}!conway.c@{conway.c}}
+\doxysubsubsection{\texorpdfstring{advance\_generation()}{advance\_generation()}}
+{\footnotesize\ttfamily void advance\+\_\+generation (\begin{DoxyParamCaption}\item[{int}]{world\+\_\+to\+\_\+advance\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Advances the current generation, analyzing the future state of all cells. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+\_\+to\+\_\+advance} & world matrix where the current state is and the future state will be saved before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function implements John Conway\textquotesingle{}s Game of Life rules
+\begin{DoxyItemize}
+\item A living cell with exactly two or three living neighbors stays alive
+\item A dead cell with exactly three living neighbors becomes alive 
+\end{DoxyItemize}
+\end{DoxyNote}
+\mbox{\Hypertarget{conway_8c_a074462a8321d858de6373a66bbb74219}\label{conway_8c_a074462a8321d858de6373a66bbb74219}} 
+\index{conway.c@{conway.c}!initialize\_world@{initialize\_world}}
+\index{initialize\_world@{initialize\_world}!conway.c@{conway.c}}
+\doxysubsubsection{\texorpdfstring{initialize\_world()}{initialize\_world()}}
+{\footnotesize\ttfamily void initialize\+\_\+world (\begin{DoxyParamCaption}\item[{int}]{world\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & matrix where the initial world state is saved. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{conway_8c_aa0d80137c67f1a8738fb48390dbf1b2c}\label{conway_8c_aa0d80137c67f1a8738fb48390dbf1b2c}} 
+\index{conway.c@{conway.c}!print\_world@{print\_world}}
+\index{print\_world@{print\_world}!conway.c@{conway.c}}
+\doxysubsubsection{\texorpdfstring{print\_world()}{print\_world()}}
+{\footnotesize\ttfamily void print\+\_\+world (\begin{DoxyParamCaption}\item[{int}]{world\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Prints the world state to stdout in a polished format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & world to print to stdout \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{conway_8c_a01e6a6d0941ab0d3c7f5888f9c86ca8a}\label{conway_8c_a01e6a6d0941ab0d3c7f5888f9c86ca8a}} 
+\index{conway.c@{conway.c}!read\_generations@{read\_generations}}
+\index{read\_generations@{read\_generations}!conway.c@{conway.c}}
+\doxysubsubsection{\texorpdfstring{read\_generations()}{read\_generations()}}
+{\footnotesize\ttfamily int read\+\_\+generations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads an unsigned number from stdin. 
+
+\begin{DoxyReturn}{Returns}
+1 if the first char is \textquotesingle{}\textbackslash{}n\textquotesingle{}, -\/1 if it\textquotesingle{}s \textquotesingle{}q\textquotesingle{}, the input number if it\textquotesingle{}s valid, 0 otherwise. 
+\end{DoxyReturn}

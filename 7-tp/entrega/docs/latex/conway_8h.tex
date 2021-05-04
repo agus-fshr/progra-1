@@ -1,0 +1,199 @@
+\hypertarget{conway_8h}{}\doxysection{conway.\+h File Reference}
+\label{conway_8h}\index{conway.h@{conway.h}}
+
+
+Implements Conway\textquotesingle{}s game of life.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}~25
+\begin{DoxyCompactList}\small\item\em Ancho del mundo. Número de columnas. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_a7745e192058dc5174a4cbf59392603d4}{WORLD\+\_\+\+HEIGHT}}~15
+\begin{DoxyCompactList}\small\item\em Altura del mundo. Número de filas. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_ae2fe5fdcfc827edaf0ec166503046852}{OUTSIDE\+\_\+\+STATE}}~\mbox{\hyperlink{conway_8h_a3c8793c7acb4598d2ebcd8288f29ee69}{DEAD}}
+\begin{DoxyCompactList}\small\item\em Estado de las celdas del borde externo. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_af389ca69162561df905b9ed23fa1b439}{ALIVE\+\_\+\+CHAR}}~\textquotesingle{}$\ast$\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Caracter que representa una celda viva. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_a1e50cf7b88288775430bb0f360db5bf6}{DEAD\+\_\+\+CHAR}}~\textquotesingle{} \textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Caracter que representa una celda muerta. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_af68c3a5ad6ffce6c97fff154856a823d}{SEPARATOR}}~\textquotesingle{}$\vert$\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Separador de columnas. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_ad8beef706da0344be19d59438fcdab6d}{ALIVE}}~1
+\begin{DoxyCompactList}\small\item\em Valor interno de una celda viva. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{conway_8h_a3c8793c7acb4598d2ebcd8288f29ee69}{DEAD}}~0
+\begin{DoxyCompactList}\small\item\em Valor interno de una celda muerta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{conway_8h_a01e6a6d0941ab0d3c7f5888f9c86ca8a}{read\+\_\+generations}} (void)
+\begin{DoxyCompactList}\small\item\em Reads an unsigned number from stdin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{conway_8h_ae098375d965c6fc2c275a913904adbac}{advance\+\_\+generation}} (int world\+\_\+to\+\_\+advance\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Advances the current generation, analyzing the future state of all cells. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{conway_8h_aa0d80137c67f1a8738fb48390dbf1b2c}{print\+\_\+world}} (int world\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Prints the world state to stdout in a polished format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{conway_8h_a074462a8321d858de6373a66bbb74219}{initialize\+\_\+world}} (int world\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}{WORLD\+\_\+\+WIDTH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements Conway\textquotesingle{}s game of life. 
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyAuthor}{Author}
+Grupo 7 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{conway_8h_ad8beef706da0344be19d59438fcdab6d}\label{conway_8h_ad8beef706da0344be19d59438fcdab6d}} 
+\index{conway.h@{conway.h}!ALIVE@{ALIVE}}
+\index{ALIVE@{ALIVE}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{ALIVE}{ALIVE}}
+{\footnotesize\ttfamily \#define ALIVE~1}
+
+
+
+Valor interno de una celda viva. 
+
+\mbox{\Hypertarget{conway_8h_af389ca69162561df905b9ed23fa1b439}\label{conway_8h_af389ca69162561df905b9ed23fa1b439}} 
+\index{conway.h@{conway.h}!ALIVE\_CHAR@{ALIVE\_CHAR}}
+\index{ALIVE\_CHAR@{ALIVE\_CHAR}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{ALIVE\_CHAR}{ALIVE\_CHAR}}
+{\footnotesize\ttfamily \#define ALIVE\+\_\+\+CHAR~\textquotesingle{}$\ast$\textquotesingle{}}
+
+
+
+Caracter que representa una celda viva. 
+
+\mbox{\Hypertarget{conway_8h_a3c8793c7acb4598d2ebcd8288f29ee69}\label{conway_8h_a3c8793c7acb4598d2ebcd8288f29ee69}} 
+\index{conway.h@{conway.h}!DEAD@{DEAD}}
+\index{DEAD@{DEAD}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{DEAD}{DEAD}}
+{\footnotesize\ttfamily \#define DEAD~0}
+
+
+
+Valor interno de una celda muerta. 
+
+\mbox{\Hypertarget{conway_8h_a1e50cf7b88288775430bb0f360db5bf6}\label{conway_8h_a1e50cf7b88288775430bb0f360db5bf6}} 
+\index{conway.h@{conway.h}!DEAD\_CHAR@{DEAD\_CHAR}}
+\index{DEAD\_CHAR@{DEAD\_CHAR}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{DEAD\_CHAR}{DEAD\_CHAR}}
+{\footnotesize\ttfamily \#define DEAD\+\_\+\+CHAR~\textquotesingle{} \textquotesingle{}}
+
+
+
+Caracter que representa una celda muerta. 
+
+\mbox{\Hypertarget{conway_8h_ae2fe5fdcfc827edaf0ec166503046852}\label{conway_8h_ae2fe5fdcfc827edaf0ec166503046852}} 
+\index{conway.h@{conway.h}!OUTSIDE\_STATE@{OUTSIDE\_STATE}}
+\index{OUTSIDE\_STATE@{OUTSIDE\_STATE}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{OUTSIDE\_STATE}{OUTSIDE\_STATE}}
+{\footnotesize\ttfamily \#define OUTSIDE\+\_\+\+STATE~\mbox{\hyperlink{conway_8h_a3c8793c7acb4598d2ebcd8288f29ee69}{DEAD}}}
+
+
+
+Estado de las celdas del borde externo. 
+
+\mbox{\Hypertarget{conway_8h_af68c3a5ad6ffce6c97fff154856a823d}\label{conway_8h_af68c3a5ad6ffce6c97fff154856a823d}} 
+\index{conway.h@{conway.h}!SEPARATOR@{SEPARATOR}}
+\index{SEPARATOR@{SEPARATOR}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{SEPARATOR}{SEPARATOR}}
+{\footnotesize\ttfamily \#define SEPARATOR~\textquotesingle{}$\vert$\textquotesingle{}}
+
+
+
+Separador de columnas. 
+
+\mbox{\Hypertarget{conway_8h_a7745e192058dc5174a4cbf59392603d4}\label{conway_8h_a7745e192058dc5174a4cbf59392603d4}} 
+\index{conway.h@{conway.h}!WORLD\_HEIGHT@{WORLD\_HEIGHT}}
+\index{WORLD\_HEIGHT@{WORLD\_HEIGHT}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{WORLD\_HEIGHT}{WORLD\_HEIGHT}}
+{\footnotesize\ttfamily \#define WORLD\+\_\+\+HEIGHT~15}
+
+
+
+Altura del mundo. Número de filas. 
+
+\mbox{\Hypertarget{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}\label{conway_8h_a16d30947295d26898d1b13f10fb9b2ec}} 
+\index{conway.h@{conway.h}!WORLD\_WIDTH@{WORLD\_WIDTH}}
+\index{WORLD\_WIDTH@{WORLD\_WIDTH}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{WORLD\_WIDTH}{WORLD\_WIDTH}}
+{\footnotesize\ttfamily \#define WORLD\+\_\+\+WIDTH~25}
+
+
+
+Ancho del mundo. Número de columnas. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{conway_8h_ae098375d965c6fc2c275a913904adbac}\label{conway_8h_ae098375d965c6fc2c275a913904adbac}} 
+\index{conway.h@{conway.h}!advance\_generation@{advance\_generation}}
+\index{advance\_generation@{advance\_generation}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{advance\_generation()}{advance\_generation()}}
+{\footnotesize\ttfamily void advance\+\_\+generation (\begin{DoxyParamCaption}\item[{int}]{world\+\_\+to\+\_\+advance\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Advances the current generation, analyzing the future state of all cells. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+\_\+to\+\_\+advance} & world matrix where the current state is and the future state will be saved before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function implements John Conway\textquotesingle{}s Game of Life rules
+\begin{DoxyItemize}
+\item A living cell with exactly two or three living neighbors stays alive
+\item A dead cell with exactly three living neighbors becomes alive 
+\end{DoxyItemize}
+\end{DoxyNote}
+\mbox{\Hypertarget{conway_8h_a074462a8321d858de6373a66bbb74219}\label{conway_8h_a074462a8321d858de6373a66bbb74219}} 
+\index{conway.h@{conway.h}!initialize\_world@{initialize\_world}}
+\index{initialize\_world@{initialize\_world}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_world()}{initialize\_world()}}
+{\footnotesize\ttfamily void initialize\+\_\+world (\begin{DoxyParamCaption}\item[{int}]{world\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Handles world initialization. Allows the user to select different input methods to customize the world to load. Includes instructions on how to manually load a world file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & matrix where the initial world state is saved. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{conway_8h_aa0d80137c67f1a8738fb48390dbf1b2c}\label{conway_8h_aa0d80137c67f1a8738fb48390dbf1b2c}} 
+\index{conway.h@{conway.h}!print\_world@{print\_world}}
+\index{print\_world@{print\_world}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{print\_world()}{print\_world()}}
+{\footnotesize\ttfamily void print\+\_\+world (\begin{DoxyParamCaption}\item[{int}]{world\mbox{[}$\,$\mbox{]}\mbox{[}\+WORLD\+\_\+\+WIDTH\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Prints the world state to stdout in a polished format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & world to print to stdout \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{conway_8h_a01e6a6d0941ab0d3c7f5888f9c86ca8a}\label{conway_8h_a01e6a6d0941ab0d3c7f5888f9c86ca8a}} 
+\index{conway.h@{conway.h}!read\_generations@{read\_generations}}
+\index{read\_generations@{read\_generations}!conway.h@{conway.h}}
+\doxysubsubsection{\texorpdfstring{read\_generations()}{read\_generations()}}
+{\footnotesize\ttfamily int read\+\_\+generations (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads an unsigned number from stdin. 
+
+\begin{DoxyReturn}{Returns}
+1 if the first char is \textquotesingle{}\textbackslash{}n\textquotesingle{}, -\/1 if it\textquotesingle{}s \textquotesingle{}q\textquotesingle{}, the input number if it\textquotesingle{}s valid, 0 otherwise. 
+\end{DoxyReturn}

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="conway_8c" kind="file"><name>conway.c</name>
+    <member refid="conway_8c_1abc21d289f41a7933583cc3f4a66ab952" kind="function"><name>get_cell_state</name></member>
+    <member refid="conway_8c_1a260d089a313a86efadcd48f7710b121a" kind="function"><name>get_world_height</name></member>
+    <member refid="conway_8c_1ab5c46a62309252a51f28a3bd832fe56f" kind="function"><name>get_world_width</name></member>
+    <member refid="conway_8c_1a9006198445ec02d32950cb7cc1908269" kind="function"><name>count_adjacent_cells</name></member>
+    <member refid="conway_8c_1adf9f96b26c5a999b07f184742f346ee4" kind="function"><name>copy_world</name></member>
+    <member refid="conway_8c_1ab7b8183d17b4be02450b41062a0f4bd8" kind="function"><name>parse_world_from_stdin</name></member>
+    <member refid="conway_8c_1a51670f600ab8879ecbdc2fe2bac025c9" kind="function"><name>seed_world</name></member>
+    <member refid="conway_8c_1a074462a8321d858de6373a66bbb74219" kind="function"><name>initialize_world</name></member>
+    <member refid="conway_8c_1ae098375d965c6fc2c275a913904adbac" kind="function"><name>advance_generation</name></member>
+    <member refid="conway_8c_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" kind="function"><name>read_generations</name></member>
+    <member refid="conway_8c_1aa0d80137c67f1a8738fb48390dbf1b2c" kind="function"><name>print_world</name></member>
+  </compound>
+  <compound refid="conway_8h" kind="file"><name>conway.h</name>
+    <member refid="conway_8h_1a16d30947295d26898d1b13f10fb9b2ec" kind="define"><name>WORLD_WIDTH</name></member>
+    <member refid="conway_8h_1a7745e192058dc5174a4cbf59392603d4" kind="define"><name>WORLD_HEIGHT</name></member>
+    <member refid="conway_8h_1ae2fe5fdcfc827edaf0ec166503046852" kind="define"><name>OUTSIDE_STATE</name></member>
+    <member refid="conway_8h_1af389ca69162561df905b9ed23fa1b439" kind="define"><name>ALIVE_CHAR</name></member>
+    <member refid="conway_8h_1a1e50cf7b88288775430bb0f360db5bf6" kind="define"><name>DEAD_CHAR</name></member>
+    <member refid="conway_8h_1af68c3a5ad6ffce6c97fff154856a823d" kind="define"><name>SEPARATOR</name></member>
+    <member refid="conway_8h_1ad8beef706da0344be19d59438fcdab6d" kind="define"><name>ALIVE</name></member>
+    <member refid="conway_8h_1a3c8793c7acb4598d2ebcd8288f29ee69" kind="define"><name>DEAD</name></member>
+    <member refid="conway_8h_1a01e6a6d0941ab0d3c7f5888f9c86ca8a" kind="function"><name>read_generations</name></member>
+    <member refid="conway_8h_1ae098375d965c6fc2c275a913904adbac" kind="function"><name>advance_generation</name></member>
+    <member refid="conway_8h_1aa0d80137c67f1a8738fb48390dbf1b2c" kind="function"><name>print_world</name></member>
+    <member refid="conway_8h_1a074462a8321d858de6373a66bbb74219" kind="function"><name>initialize_world</name></member>
+  </compound>
+  <compound refid="helper__functions_8c" kind="file"><name>helper_functions.c</name>
+    <member refid="helper__functions_8c_1abc40cd622f423abf44084c8f8595f57f" kind="function"><name>clear_screen</name></member>
+    <member refid="helper__functions_8c_1ad28147e4bdcc806db622550f264e57d5" kind="function"><name>flush_stdin</name></member>
+  </compound>
+  <compound refid="helper__functions_8h" kind="file"><name>helper_functions.h</name>
+    <member refid="helper__functions_8h_1abc40cd622f423abf44084c8f8595f57f" kind="function"><name>clear_screen</name></member>
+    <member refid="helper__functions_8h_1ad28147e4bdcc806db622550f264e57d5" kind="function"><name>flush_stdin</name></member>
+  </compound>
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
+</doxygenindex>
