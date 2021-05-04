@@ -15,7 +15,7 @@ void normalizar (int*);
 
 void main (void)
 {
-    int jugador1[] = {rombo+3,corazon+3, picas+3,trebol+J, picas+2};
+    int jugador1[] = {rombo+2,corazon+3, picas+2,trebol+J, picas+2};
     printf("Si hay pierna devuelve 1, si no 0\n");
     printf("%d\n", pierna_poker(jugador1));
 }
