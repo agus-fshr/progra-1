@@ -1,0 +1,99 @@
+\begin{theindex}
+
+  \item {advance\_generation}
+    \subitem {conway.c}, \hyperpage{3}
+    \subitem {conway.h}, \hyperpage{6}
+  \item {ALIVE}
+    \subitem {conway.h}, \hyperpage{5}
+  \item {ALIVE\_CHAR}
+    \subitem {conway.h}, \hyperpage{5}
+
+  \indexspace
+
+  \item {clear\_screen}
+    \subitem {helper\_functions.c}, \hyperpage{8}
+    \subitem {helper\_functions.h}, \hyperpage{8}
+  \item {conway.c}, \hyperpage{3}
+    \subitem {advance\_generation}, \hyperpage{3}
+    \subitem {initialize\_world}, \hyperpage{4}
+    \subitem {print\_world}, \hyperpage{4}
+    \subitem {read\_generations}, \hyperpage{4}
+  \item {conway.h}, \hyperpage{5}
+    \subitem {advance\_generation}, \hyperpage{6}
+    \subitem {ALIVE}, \hyperpage{5}
+    \subitem {ALIVE\_CHAR}, \hyperpage{5}
+    \subitem {DEAD}, \hyperpage{6}
+    \subitem {DEAD\_CHAR}, \hyperpage{6}
+    \subitem {initialize\_world}, \hyperpage{7}
+    \subitem {OUTSIDE\_STATE}, \hyperpage{6}
+    \subitem {print\_world}, \hyperpage{7}
+    \subitem {read\_generations}, \hyperpage{7}
+    \subitem {SEPARATOR}, \hyperpage{6}
+    \subitem {WORLD\_HEIGHT}, \hyperpage{6}
+    \subitem {WORLD\_WIDTH}, \hyperpage{6}
+
+  \indexspace
+
+  \item {DEAD}
+    \subitem {conway.h}, \hyperpage{6}
+  \item {DEAD\_CHAR}
+    \subitem {conway.h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {flush\_stdin}
+    \subitem {helper\_functions.c}, \hyperpage{8}
+    \subitem {helper\_functions.h}, \hyperpage{8}
+
+  \indexspace
+
+  \item {helper\_functions.c}, \hyperpage{7}
+    \subitem {clear\_screen}, \hyperpage{8}
+    \subitem {flush\_stdin}, \hyperpage{8}
+  \item {helper\_functions.h}, \hyperpage{8}
+    \subitem {clear\_screen}, \hyperpage{8}
+    \subitem {flush\_stdin}, \hyperpage{8}
+
+  \indexspace
+
+  \item {initialize\_world}
+    \subitem {conway.c}, \hyperpage{4}
+    \subitem {conway.h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{9}
+  \item {main.c}, \hyperpage{9}
+    \subitem {main}, \hyperpage{9}
+
+  \indexspace
+
+  \item {OUTSIDE\_STATE}
+    \subitem {conway.h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {print\_world}
+    \subitem {conway.c}, \hyperpage{4}
+    \subitem {conway.h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {read\_generations}
+    \subitem {conway.c}, \hyperpage{4}
+    \subitem {conway.h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {SEPARATOR}
+    \subitem {conway.h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {WORLD\_HEIGHT}
+    \subitem {conway.h}, \hyperpage{6}
+  \item {WORLD\_WIDTH}
+    \subitem {conway.h}, \hyperpage{6}
+
+\end{theindex}
