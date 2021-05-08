@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include "operations.h"
 
 #define MAX_OPERATORS 3
 #define IS_NUM(c) ((c) >= '0' && (c) <= '9')
