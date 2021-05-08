@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define TAM 7
+#define TAM 10
 #define ESPACIO 32
 #define SNAKE '*'
 

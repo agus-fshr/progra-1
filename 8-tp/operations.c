@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef OPERATIONS_H
 #define OPERATIONS_H
 
@@ -51,3 +52,6 @@ float factorial(int a) {
 }
 
 #endif
+=======
+#include "operations.h"
+>>>>>>> 6294603f6902ca47b5322474806afc2117ee6986
