@@ -26,7 +26,7 @@ float potencia(float a, int b){
 }
 
 #define N_TERM 8
-float sin(float a){
+float sen(float a){
     float ans, termino;
     for (int i=0; i<N_TERM; i++) {
         int exp = 2*i + 1;                            //esto calcula el exponente y el argumento del factorial

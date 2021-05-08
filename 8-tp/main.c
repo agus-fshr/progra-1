@@ -64,7 +64,7 @@ int parse_input(int *op1, int *op2, char *operator) {
     }
     
     c = delete_spaces_stdin();
-    while(c != '\n'&& !operando) {
+    while((c != '\n') && (!operando)) {
         if(is_operator(c)) {
             operando = c;
         }

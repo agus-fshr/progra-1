@@ -52,7 +52,7 @@ float potencia(float a, int b);
  * @param a number to take the sine of.
  * @return sin(a).
  */
-float sin(float a);
+float sen(float a);
 
 /**
  * @brief Calculates a factorial.
