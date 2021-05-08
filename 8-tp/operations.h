@@ -36,8 +36,30 @@ float division(float a, float b);
  * @return the result of a times b.
  */
 float mutiplicacion(float a, float b);
+
+/**
+ * @brief Calculates a to the power b.
+ * 
+ * @param a base of the power.
+ * @param b exponent of the power.
+ * @return the result of a to the power b.
+ */
 float potencia(float a, int b);
+
+/**
+ * @brief Calculates sine of a.
+ * 
+ * @param a number to take the sine of.
+ * @return sin(a).
+ */
 float sin(float a);
+
+/**
+ * @brief Calculates a factorial.
+ * 
+ * @param a number to take the factorial of.
+ * @return a!
+ */
 float factorial(int a);
 
 
