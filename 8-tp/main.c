@@ -5,7 +5,6 @@
 #define IS_NUM(c) ((c) >= '0' && (c) <= '9')
 
 int add_operation(char o, float (*a) (float, float));
-double suma(double a, double b);
 int parse_input(int *op1, int *op2, char *operator);
 int is_operator(char c);
 double read_number_stdin(int *error);
@@ -13,7 +12,7 @@ char delete_spaces_stdin(void);
 
 //char operators[MAX_OPERATORS] = {'+', '-', '*'};
 //float (* actions[MAX_OPERATORS]) (float, float);
-double (*actions[MAX_OPERATORS]) (float, float);
+float (*actions[MAX_OPERATORS]) (float, float);
 char operators[MAX_OPERATORS];
 
 
@@ -26,10 +25,6 @@ int main(void) {
     add_operation('+', suma);
 
     return 0;
-}
-
-double suma(double a, double b) {
-    return a+b;
 }
 
 int add_operation(char o, float (*a) (float, float)){

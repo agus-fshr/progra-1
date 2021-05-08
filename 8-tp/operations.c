@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-#ifndef OPERATIONS_H
-#define OPERATIONS_H
+#include "operations.h"
 
-float suma (float a, float b){
+
+float suma(float a, float b){
 		return a+b;	
 }
 
-float resta (float a, float b){
+float resta(float a, float b){
 		return a-b;
 }
 
@@ -18,7 +17,7 @@ float mutiplicacion(float a, float b){
 		return a*b;
 }
 
-float potencia (float a, int b){
+float potencia(float a, int b){
 		int i, ans = 1;
 		for (i=0; i<b; i++){
 				ans *= a;
@@ -27,21 +26,22 @@ float potencia (float a, int b){
 }
 
 #define N_TERM 8
-float sin(float a) {
+float sin(float a){
+    float ans, termino;
     for (int i=0; i<N_TERM; i++) {
         int exp = 2*i + 1;                            //esto calcula el exponente y el argumento del factorial
         termino = potencia(a, exp) / factorial(exp);     //calcula el valor absoluto de cada termino
         if ((i%2) == 0){                              //los terminos pares suman
-            resultado += termino;
+            ans += termino;
         }
         else {                                        //los terminos impares restan
-            resultado -= termino;
+            ans -= termino;
         }
     }
-    return resultado;
+    return ans;
 }
 
-float factorial(int a) {
+float factorial(int a){
     int ans = 1;                                      //comienza ans en 1 por si quiere calcular 0!
     int term = a;
     while (term != 1){                                //evita mutiplicar por cero y se detiene en term == 1
@@ -51,7 +51,3 @@ float factorial(int a) {
     return ans;
 }
 
-#endif
-=======
-#include "operations.h"
->>>>>>> 6294603f6902ca47b5322474806afc2117ee6986
