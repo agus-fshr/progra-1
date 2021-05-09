@@ -23,6 +23,7 @@ int main(void) {
     // Implementar una función que parsee el input. Un número, un operador, un número
     //  dsp vemos cómo hace para devolver las cosas, pero que las lea por lo menos
     // add_operation('+', suma);
+    add_operation('+', suma);
     float *op1, *op2;
     char *operator;
     float a, b;
@@ -65,7 +66,7 @@ int parse_input(float *op1, float *op2, char *operator) {
     char c;
     int e = 0;
     int *error = &e;
-    char operando = '\0';
+    // char operando = '\0';
     
     *op1 = read_number_stdin(error);
     if(e) {
@@ -73,9 +74,9 @@ int parse_input(float *op1, float *op2, char *operator) {
     }
     
     c = delete_spaces_stdin();
-    while((c != '\n') && (!operando)) {
+    while(c != '\n') {
         if(is_operator(c)) {
-            operando = c;
+            *operator = c;
         }
         c = getchar();
     }
