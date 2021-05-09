@@ -1,34 +1,31 @@
 #include<stdio.h>
 #include "operations.h"
+#include "calculator_input.h"
 
-#define OPERATOR_NOT_FOUND -1
 #define MAX_OPERATORS 7
-#define IS_NUM(c) ((c) >= '0' && (c) <= '9')
 
-int add_operation(char o, float (*a) (float, float));
-int parse_input(float *op1, float *op2, int *operator);
-int is_operator(char c);
-double read_number_stdin(int *error);
-char delete_spaces_stdin(void);
 
+int find_operator(char c);
+int add_operation(char o, double (*a) (double, double));
 
 //char operators[MAX_OPERATORS] = {'+', '-', '*'};
-//float (* actions[MAX_OPERATORS]) (float, float);
-float (*actions[MAX_OPERATORS]) (float, float);
+//double (* actions[MAX_OPERATORS]) (double, double);
+double (*actions[MAX_OPERATORS]) (double, double);
 char operators[MAX_OPERATORS];
 
 /*
  * MENSAJE FUTURO:
  * Decidir qué hacer con las funciones que toman un solo
- * parámetro: hacer la adaptación a (float, float) en el main o
+ * parámetro: hacer la adaptación a (double, double) en el main o
  * en el módulo operations?
+ * Opinión de juan: va en el main pq el módulo operations solo tiene que
+ * tener operaciones matemáticas para ser del todo MoDUlAr.
  * 
  * MENSAJE FUTURO V2:
  * Con lo que solo toma enteros, qué se hace ante la falta de respeto
  * de que se presente un NUMERO CON COMA. A la hoguera? Mje de error?
  * Redondeo discretito?
  */
-
 
 int main(void) {
     printf("Buenas!\n");
@@ -45,19 +42,25 @@ int main(void) {
     add_operation('!', factorial);
     add_operation('s', sen);
 
-    float op1, op2;
-    int operation;
+    double op1, op2;
+    char operation_char;
+    int operation_index = OPERATOR_NOT_FOUND;
+    int valid_input = 0;
 
-    printf("Ingrese la operacion en formato \"xxxx operador yyyy\": \n");
-    while(!parse_input(&op1, &op2, &operation) || operation == OPERATOR_NOT_FOUND) {
+    //printf("Ingrese la operacion en formato \"xxxx operador yyyy\": \n");
+    while(!valid_input){
         printf("Ingrese una operacion valida en formato \"xxxx operador yyyy\":\n");
-        if(operation == OPERATOR_NOT_FOUND){
+        valid_input = parse_input(&op1, &op2, &operation_char);
+        printf("operation char es %c\n", operation_char);
+        if((operation_index = find_operator(operation_char)) == OPERATOR_NOT_FOUND) {
+            valid_input = 0;
             printf("Los operadores disponibles son:");
             int i;
             for(i = 0; i < MAX_OPERATORS; i++) {
                 printf(" %c", operators[i]);
             }
         }
+      
     }
     /*
     int i = 0;
@@ -65,15 +68,15 @@ int main(void) {
         i++;
     }
     */
-    printf("Se realizara la operacion %c sobre %f y %f\n", operators[operation], op1, op2);
-    printf("Resultado: %f", actions[operation](op1, op2));
+    printf("Se realizara la operacion %c sobre %f y %f\n", operators[operation_index], op1, op2);
+    printf("Resultado: %f", actions[operation_index](op1, op2));
 
-    // float result = (*actions[i]) (a,b);
+    // double result = (*actions[i]) (a,b);
     return 0;
 }
 
 
-int add_operation(char o, float (*a) (float, float)){
+int add_operation(char o, double (*a) (double, double)){
     int i;
     for(i = 0; i < MAX_OPERATORS; i++) {
         if(actions[i] == NULL) {
@@ -85,7 +88,7 @@ int add_operation(char o, float (*a) (float, float)){
     return 0;
 }
 
-int is_operator(char c) {
+int find_operator(char c) {
     int i;
     for (i = 0; i < MAX_OPERATORS; i++) {
         if(c == operators[i]) {
@@ -95,88 +98,3 @@ int is_operator(char c) {
     return OPERATOR_NOT_FOUND;
 }
 
-// ARREGLADO
-    // Teóricamente, esto toma bien algo tipo "    5.312         +123"
-    // NO FUNCIONA! Posible solución: leer todo en un string de, qcyo, 80 caracteres? y de ahí interpretar
-    // NO FUNCIONA! Posible solución: hacer que las funciones tomen el primer char o algo así
-    // NO FUNCIONA! Posible solución: encontrar una funcioón como getchar que no vacíe stdin!
-int parse_input(float *op1, float *op2, int *operator) {
-    char c = 0;
-    int error = 0;
-    int operator_found = 0;
-    *operator = OPERATOR_NOT_FOUND;
-    // char operando = '\0';
-    
-    *op1 = read_number_stdin(&error);
-    if(error) {
-        while(getchar() != '\n'){}
-        // TODO: poner todo a 0 aca
-        return 0;
-    }
-    
-    while(!operator_found && c != ' ') {
-        if(is_operator(c) != OPERATOR_NOT_FOUND) {
-            *operator = is_operator(c);
-            operator_found = 1;
-        } else {
-            c = getchar();
-        }
-    }
-    *op2 = read_number_stdin(&error);
-    if(error) {
-        return 0;
-    }
-    return 1;
-}
-
-double read_number_stdin(int *error) {              // error acá
-    char c;
-    double number = 0;
-    int is_decimal = 0;
-    int decimal_counter = 1;
-    int is_negative = 0;
-    int char_counter = 0;
-    *error = 0;
-    
-    while((((c = getchar()) != ' ') || (char_counter == 0)) && c != '\n') {
-        char_counter++;
-        if(c == ' ' && char_counter == 1) { // Elimina espacios al comienzo
-            char_counter--;
-        }
-        else if(c == '-' && char_counter == 1) {
-            is_negative = 1;
-        } 
-        else if(c >= '0' && c <= '9') {
-            if(is_decimal == 0) {
-                number *= 10.0;
-                number += c - '0';
-            } else {
-                int i;
-                double division = c - '0';
-                for(i = 0; i < decimal_counter; i++) {
-                    division /= 10.0;
-                }
-                decimal_counter++;
-                number += division;
-            }
-        } 
-        else if(c == '.' && is_decimal == 0) {
-            is_decimal = 1;
-        }
-        else {
-            *error = 1;
-        }
-    }
-    
-    if(is_negative) {
-        number *= -1;
-    }
-    
-    return number;
-}
-
-char delete_spaces_stdin(void) {
-    char c;
-    while((c = getchar()) == ' '){}
-    return c;
-}

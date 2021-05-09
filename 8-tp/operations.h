@@ -8,7 +8,7 @@
  * @param second number to be added.
  * @return the sum of both numbers a and b.
  */
-float suma(float a, float b);
+double suma(double a, double b);
 
 /**
  * @brief Substracts two numbers.
@@ -17,7 +17,7 @@ float suma(float a, float b);
  * @param b number to substract.
  * @return result of a minus b.
 */
-float resta(float a, float b);
+double resta(double a, double b);
 
 /**
  * @brief Divides two numbers.
@@ -26,7 +26,7 @@ float resta(float a, float b);
  * @param b number to divide by.
  * @return the result of a divided by b.
 */
-float division(float a, float b);
+double division(double a, double b);
 
 /**
  * @brief Calculates the product of two numbers.
@@ -35,7 +35,7 @@ float division(float a, float b);
  * @param b another factor.
  * @return the result of a times b.
  */
-float multiplicacion(float a, float b);
+double multiplicacion(double a, double b);
 
 /**
  * @brief Calculates a to the power b.
@@ -44,7 +44,7 @@ float multiplicacion(float a, float b);
  * @param b exponent of the power.
  * @return the result of a to the power b.
  */
-float potencia(float a, float b);
+double potencia(double a, double b);
 
 /**
  * @brief Calculates sine of a.
@@ -53,7 +53,7 @@ float potencia(float a, float b);
  * @param b nothing
  * @return sin(a).
  */
-float sen(float a, float b);
+double sen(double a, double b);
 
 /**
  * @brief Calculates a factorial.
@@ -62,7 +62,7 @@ float sen(float a, float b);
  * @param b nothing
  * @return a!
  */
-float factorial(float a, float b);
+double factorial(double a, double b);
 
 
 #endif
