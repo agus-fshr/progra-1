@@ -30,7 +30,7 @@ int main(void) {
     op2 = &b;
     char operation;
     operator = &operation;
-    parse_input(op1, op2, *operator);
+    parse_input(op1, op2, operator);
 
     return 0;
 }
@@ -63,11 +63,12 @@ int is_operator(char c) {
 // NO FUNCIONA! Posible solución: encontrar una funcioón como getchar que no vacíe stdin!
 int parse_input(float *op1, float *op2, char *operator) {
     char c;
-    int *error = 0;
+    int e = 0;
+    int *error = &e;
     char operando = '\0';
     
     *op1 = read_number_stdin(error);
-    if(error) {
+    if(e) {
         return 0;
     }
     
@@ -80,7 +81,7 @@ int parse_input(float *op1, float *op2, char *operator) {
     }
     
     *op2 = read_number_stdin(error);
-    if(error) {
+    if(e) {
         return 0;
     }
 }
