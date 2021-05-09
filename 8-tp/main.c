@@ -10,6 +10,7 @@ int is_operator(char c);
 double read_number_stdin(int *error);
 char delete_spaces_stdin(void);
 
+
 //char operators[MAX_OPERATORS] = {'+', '-', '*'};
 //float (* actions[MAX_OPERATORS]) (float, float);
 float (*actions[MAX_OPERATORS]) (float, float);
@@ -31,9 +32,15 @@ int main(void) {
     op2 = &b;
     char operation;
     operator = &operation;
+
     parse_input(op1, op2, operator);
 
-    return 0;
+    int i = 0;
+    while(operators[i] != operator){
+        i++;
+    }
+
+    float result = (*actions[i]) (a,b);
 }
 
 int add_operation(char o, float (*a) (float, float)){
