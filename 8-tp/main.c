@@ -36,11 +36,12 @@ int main(void) {
     parse_input(op1, op2, operator);
 
     int i = 0;
-    while(operators[i] != operator){
+    while(operators[i] != operation){
         i++;
     }
 
-    float result = (*actions[i]) (a,b);
+    // float result = (*actions[i]) (a,b);
+    return 0;
 }
 
 int add_operation(char o, float (*a) (float, float)){
@@ -76,12 +77,11 @@ int parse_input(float *op1, float *op2, char *operator) {
     // char operando = '\0';
     
     *op1 = read_number_stdin(error);
-    if(e) {
-        return 0;
-    }
-    
+    // if(e) {
+        // return 0;
+    // }
     c = delete_spaces_stdin();
-    while(c != '\n') {
+    while((c != '\n') && (c != ' ')) {                  
         if(is_operator(c)) {
             *operator = c;
         }
@@ -94,7 +94,7 @@ int parse_input(float *op1, float *op2, char *operator) {
     }
 }
 
-double read_number_stdin(int *error) {
+double read_number_stdin(int *error) {              // error acá
     char c;
     double number = 0;
     int is_decimal = 0;
@@ -129,8 +129,7 @@ double read_number_stdin(int *error) {
             is_decimal = 1;
         }
         else {
-            *error = 1;
-            return 0.0;
+            break;
         }
     }
     
