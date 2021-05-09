@@ -51,13 +51,14 @@ int main(void) {
     while(!valid_input){
         printf("Ingrese una operacion valida en formato \"xxxx operador yyyy\":\n");
         valid_input = parse_input(&op1, &op2, &operation_char);
-        printf("operation char es %c\n", operation_char);
         if((operation_index = find_operator(operation_char)) == OPERATOR_NOT_FOUND) {
             valid_input = 0;
-            printf("Los operadores disponibles son:");
-            int i;
-            for(i = 0; i < MAX_OPERATORS; i++) {
-                printf(" %c", operators[i]);
+            if(operation_char == '?'){
+                printf("Los operadores disponibles son:");
+                int i;
+                for(i = 0; i < MAX_OPERATORS; i++) {
+                    printf(" %c", operators[i]);
+                }
             }
         }
       
