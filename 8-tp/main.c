@@ -5,7 +5,7 @@
 #define IS_NUM(c) ((c) >= '0' && (c) <= '9')
 
 int add_operation(char o, float (*a) (float, float));
-int parse_input(int *op1, int *op2, char *operator);
+int parse_input(float *op1, float *op2, char *operator);
 int is_operator(char c);
 double read_number_stdin(int *error);
 char delete_spaces_stdin(void);
@@ -22,7 +22,15 @@ int main(void) {
     // Implementar add_operation, quizás que busque el primer índex vacío y ahí meta lo que se le mete
     // Implementar una función que parsee el input. Un número, un operador, un número
     //  dsp vemos cómo hace para devolver las cosas, pero que las lea por lo menos
-    add_operation('+', suma);
+    // add_operation('+', suma);
+    float *op1, *op2;
+    char *operator;
+    float a, b;
+    op1 = &a;
+    op2 = &b;
+    char operation;
+    operator = &operation;
+    parse_input(op1, op2, *operator);
 
     return 0;
 }
@@ -53,7 +61,7 @@ int is_operator(char c) {
 // NO FUNCIONA! Posible solución: leer todo en un string de, qcyo, 80 caracteres? y de ahí interpretar
 // NO FUNCIONA! Posible solución: hacer que las funciones tomen el primer char o algo así
 // NO FUNCIONA! Posible solución: encontrar una funcioón como getchar que no vacíe stdin!
-int parse_input(int *op1, int *op2, char *operator) {
+int parse_input(float *op1, float *op2, char *operator) {
     char c;
     int *error = 0;
     char operando = '\0';
