@@ -70,7 +70,7 @@ int main(void) {
     }
     */
     printf("Se realizara la operacion %c sobre %f y %f\n", operators[operation_index], op1, op2);
-    printf("Resultado: %f", actions[operation_index](op1, op2));
+    printf("Resultado: %f\n", actions[operation_index](op1, op2));
 
     // double result = (*actions[i]) (a,b);
     return 0;
