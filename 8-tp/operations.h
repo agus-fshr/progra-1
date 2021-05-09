@@ -35,7 +35,7 @@ float division(float a, float b);
  * @param b another factor.
  * @return the result of a times b.
  */
-float mutiplicacion(float a, float b);
+float multiplicacion(float a, float b);
 
 /**
  * @brief Calculates a to the power b.
@@ -44,23 +44,25 @@ float mutiplicacion(float a, float b);
  * @param b exponent of the power.
  * @return the result of a to the power b.
  */
-float potencia(float a, int b);
+float potencia(float a, float b);
 
 /**
  * @brief Calculates sine of a.
  * 
  * @param a number to take the sine of.
+ * @param b nothing
  * @return sin(a).
  */
-float sen(float a);
+float sen(float a, float b);
 
 /**
  * @brief Calculates a factorial.
  * 
  * @param a number to take the factorial of.
+ * @param b nothing
  * @return a!
  */
-float factorial(int a);
+float factorial(float a, float b);
 
 
 #endif
