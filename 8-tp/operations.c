@@ -1,18 +1,14 @@
 #include "operations.h"
+#include <stdio.h>
 
 
+static double grad_to_rad(double a);
 
-static double calc_sen(double a);
-static double calc_factorial(int a);
-static double calc_potencia(double a, int b);
-
-
-
-double suma(double a, double b){
+double sum(double a, double b){
     return a+b;	
 }
 
-double resta(double a, double b){
+double substraction(double a, double b){
     return a-b;
 }
 
@@ -20,48 +16,48 @@ double division(double a, double b){
     return a/b;
 }
 
-double multiplicacion(double a, double b){
+double product(double a, double b){
     return a*b;
 }
 
-double potencia(double a, double b) {
-    return calc_potencia(a, (int) b);
-}
-
-static double calc_potencia(double a, int b){
-    int i, ans = 1;
+double integer_power(double a, int b){
+    int i;
+    double ans = 1;
     for (i=0; i<b; i++){
         ans *= a;
     }
     return ans;
 }
 
-double sen(double a, double b) {
-    return calc_sen(a);
-}
-
-#define N_TERM 8
-static double calc_sen(double a){
-    double ans, termino;
-    for (int i=0; i<N_TERM; i++) {
+#define N_TERM 30
+double sin(double a){
+    double ans = 0, termino = 0;
+    double rad = grad_to_rad(a);
+    int i;
+    for (i=0; i<N_TERM; i++) {
         int exp = 2*i + 1;                            //esto calcula el exponente y el argumento del factorial
-        termino = calc_potencia(a, exp) / calc_factorial(exp);     //calcula el valor absoluto de cada termino
-        if ((i%2) == 0){                              //los terminos pares suman
-            ans += termino;
-        }
-        else {                                        //los terminos impares restan
-            ans -= termino;
-        }
+        int sign = i%2 == 0 ? 1 : -1;
+        termino = sign * integer_power(rad, exp) / factorial(exp);     //calcula el valor absoluto de cada termino
+        ans += termino;
     }
     return ans;
 }
 
-double factorial(double a, double b) {
-    return calc_factorial((int) a);
+double cos(double a){
+    double ans = 0, termino = 0;
+    double rad = grad_to_rad(a);
+    int i;
+    for (i=0; i<N_TERM; i++) {
+        int exp = 2*i;                            //esto calcula el exponente y el argumento del factorial
+        int sign = i%2 == 0 ? 1 : -1;
+        termino = sign * integer_power(rad, exp) / factorial(exp);     //calcula el valor absoluto de cada termino
+        ans += termino;
+    }
+    return ans;
 }
 
-static double calc_factorial(int a){
-    int ans = 1;                                      //comienza ans en 1 por si quiere calcular 0!
+double factorial(unsigned int a){
+    double ans = 1;                                      //comienza ans en 1 por si quiere calcular 0!
     int term = a;
     
     if(a < 0) {
@@ -73,4 +69,8 @@ static double calc_factorial(int a){
         term--;                                       //pasa al siguiente factor del factorial
     }
     return ans;
+}
+
+static double grad_to_rad(double a) {
+    return a*2.0*PI/360.0;
 }

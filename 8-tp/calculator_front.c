@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "calculator_input.h"
+#include "calculator_front.h"
 
 
 static double read_number_stdin(int *error); // Debería estar acá??

@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include "operations.h"
-#include "calculator_input.h"
+#include "calculator_front.h"
 
-#define MAX_OPERATORS 7
+#define MAX_OPERATORS 8
 
 
 int find_operator(char c);
@@ -27,6 +27,22 @@ char operators[MAX_OPERATORS];
  * Redondeo discretito?
  */
 
+double integer_power_wrapper(double a, double b) {
+    return integer_power(a, (int) b);
+}
+
+double factorial_wrapper(double a, double b) {
+    return factorial((int) a);
+}
+
+double sin_wrapper(double a, double b) {
+    return sin(a);
+}
+
+double cos_wrapper(double a, double b) {
+    return cos(a);
+}
+
 int main(void) {
     printf("Buenas!\n");
     // Hacer una función que, en base a un operador, ejecute la acción correspondiente
@@ -34,43 +50,52 @@ int main(void) {
     // Implementar una función que parsee el input. Un número, un operador, un número
     //  dsp vemos cómo hace para devolver las cosas, pero que las lea por lo menos
     // add_operation('+', suma);
-    add_operation('+', suma);
-    add_operation('-', resta);
+    add_operation('+', sum);
+    add_operation('-', substraction);
     add_operation('/', division);
-    add_operation('*', multiplicacion);
-    add_operation('^', potencia);
-    add_operation('!', factorial);
-    add_operation('s', sen);
+    add_operation('*', product);
+    add_operation('^', integer_power_wrapper);
+    add_operation('!', factorial_wrapper);
+    add_operation('s', sin_wrapper);
+    add_operation('c', cos_wrapper);
 
     double op1, op2;
     char operation_char;
     int operation_index = OPERATOR_NOT_FOUND;
     int valid_input = 0;
-
-    //printf("Ingrese la operacion en formato \"xxxx operador yyyy\": \n");
-    while(!valid_input){
-        printf("Ingrese una operacion valida en formato \"xxxx operador yyyy\":\n");
-        valid_input = parse_input(&op1, &op2, &operation_char);
-        if((operation_index = find_operator(operation_char)) == OPERATOR_NOT_FOUND) {
-            valid_input = 0;
-            if(operation_char == '?'){
-                printf("Los operadores disponibles son:");
-                int i;
-                for(i = 0; i < MAX_OPERATORS; i++) {
-                    printf(" %c", operators[i]);
+    int exit = 0;
+    
+    while(!exit) {
+        while(!valid_input){
+            printf("Ingrese una operacion valida en formato \"xxxx operador yyyy\", \"0 ? 0\" para ayuda o \"0 q 0\" para salir:\n");
+            valid_input = parse_input(&op1, &op2, &operation_char);
+            if((operation_index = find_operator(operation_char)) == OPERATOR_NOT_FOUND) {
+                valid_input = 0;
+                if(operation_char == '?'){
+                    printf("Los operadores disponibles son:");
+                    int i;
+                    for(i = 0; i < MAX_OPERATORS; i++) {
+                        printf(" %c", operators[i]);
+                    }
+                    putchar('\n');
+                    printf("Recuerde que los operadores trigonometricos operan en grados, no radianes.\n");
+                } else if (operation_char == 'q') {
+                    exit = 1;
                 }
             }
         }
-      
+        //printf("Se realizara la operacion %c sobre %f y %f\n", operators[operation_index], op1, op2);
+        printf("Resultado: %f\n", actions[operation_index](op1, op2));
+        valid_input = 0;
     }
+    printf("Hasta la proxima!");
     /*
     int i = 0;
     while(operators[i] != operation){
         i++;
     }
     */
-    printf("Se realizara la operacion %c sobre %f y %f\n", operators[operation_index], op1, op2);
-    printf("Resultado: %f\n", actions[operation_index](op1, op2));
+    
 
     // double result = (*actions[i]) (a,b);
     return 0;
