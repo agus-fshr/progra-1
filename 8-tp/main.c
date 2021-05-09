@@ -8,6 +8,11 @@
 int find_operator(char c);
 int add_operation(char o, double (*a) (double, double));
 
+double integer_power_wrapper(double a, double b);
+double factorial_wrapper(double a, double b);
+double sin_wrapper(double a, double b);
+double cos_wrapper(double a, double b);
+
 //char operators[MAX_OPERATORS] = {'+', '-', '*'};
 //double (* actions[MAX_OPERATORS]) (double, double);
 double (*actions[MAX_OPERATORS]) (double, double);
@@ -26,22 +31,6 @@ char operators[MAX_OPERATORS];
  * de que se presente un NUMERO CON COMA. A la hoguera? Mje de error?
  * Redondeo discretito?
  */
-
-double integer_power_wrapper(double a, double b) {
-    return integer_power(a, (int) b);
-}
-
-double factorial_wrapper(double a, double b) {
-    return factorial((int) a);
-}
-
-double sin_wrapper(double a, double b) {
-    return sin(a);
-}
-
-double cos_wrapper(double a, double b) {
-    return cos(a);
-}
 
 int main(void) {
     printf("Buenas!\n");
@@ -124,3 +113,18 @@ int find_operator(char c) {
     return OPERATOR_NOT_FOUND;
 }
 
+double integer_power_wrapper(double a, double b) {
+    return integer_power(a, (int) b);
+}
+
+double factorial_wrapper(double a, double b) {
+    return factorial((int) a);
+}
+
+double sin_wrapper(double a, double b) {
+    return sin(a);
+}
+
+double cos_wrapper(double a, double b) {
+    return cos(a);
+}
