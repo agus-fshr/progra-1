@@ -1,0 +1,317 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}operations.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}calculator\+\_\+front.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a30892ce590446910ea3159e79f2f31f3}{MAX\+\_\+\+OPERATORS}}~8
+\begin{DoxyCompactList}\small\item\em Number of operators. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a55ac6ef9c85525970be8095f53bb61e1}{EXIT\+\_\+\+CHAR}}~\textquotesingle{}q\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_ad953081808cd2157c3e3c2154c0028d0}{HELP\+\_\+\+CHAR}}~\textquotesingle{}?\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_a92ab67a2bd99b3a1f840258f0e39d6cc}{SUM\+\_\+\+CHAR}}~\textquotesingle{}+\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_ad076594cac1704aa54d7dec4ae0cdfa0}{SUBS\+\_\+\+CHAR}}~\textquotesingle{}-\/\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_a439522f32e6ae47ed931006e870ae829}{DIV\+\_\+\+CHAR}}~\textquotesingle{}/\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_a199270bd107c27fb585c3d1dc8bcd0eb}{PROD\+\_\+\+CHAR}}~\textquotesingle{}$\ast$\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_ac8bbff2acc59ee28d07e64115067653f}{POW\+\_\+\+CHAR}}~\textquotesingle{}$^\wedge$\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_ade3b7e0f1dfb9ff2a924b311e81c3978}{FACT\+\_\+\+CHAR}}~\textquotesingle{}!\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_a81468e975b731555b779e56ffd2ae4a3}{SIN\+\_\+\+CHAR}}~\textquotesingle{}s\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_ae3f20f389ec84487be54dbd4577eff4f}{COS\+\_\+\+CHAR}}~\textquotesingle{}c\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{main_8c_a9df18d35580a7d56e769717cc94bbf11}{TAN\+\_\+\+CHAR}}~\textquotesingle{}t\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em unused \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a81054e8cd529a75320b2fa9c55fde6d6}{ASIN\+\_\+\+CHAR}}~\textquotesingle{}a\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em unused \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a790b383129074e0e6d5c3a746926873c}{ACOS\+\_\+\+CHAR}}~\textquotesingle{}b\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em unused \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a91760d1ccad36dfafd8c2995ccacd7ca}{ATAN\+\_\+\+CHAR}}~\textquotesingle{}d\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em unused \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a8fb26976d3cfd2e8eaeff340ba9a2e46}{find\+\_\+operator}} (char c)
+\begin{DoxyCompactList}\small\item\em Finds the index of the operator represented by a char. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a965dd2a0135feedf149965b2fba5f861}{add\+\_\+operation}} (char operator\+\_\+char, double($\ast$callback)(double, double))
+\begin{DoxyCompactList}\small\item\em Adds an operator to the array. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8c_ac785bbcb0a916d38d0eea3cd64b9d174}{integer\+\_\+power\+\_\+wrapper}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Wraps power function due to formatting. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8c_aa738137b9ad5c17ecb204845fc2c591f}{factorial\+\_\+wrapper}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Wraps factorial function due to formatting. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8c_ae6271594ff3d328bc3eaca1d1dacbd8c}{sin\+\_\+wrapper}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Wraps sin function due to formatting. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8c_a56e3f777c97a79830170044350559f69}{cos\+\_\+wrapper}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Wraps cos function due to formatting. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double($\ast$ \mbox{\hyperlink{main_8c_a5278fef9d11d8adad50c93146ae9312b}{actions}} \mbox{[}\mbox{\hyperlink{main_8c_a30892ce590446910ea3159e79f2f31f3}{MAX\+\_\+\+OPERATORS}}\mbox{]})(double, double)
+\item 
+char \mbox{\hyperlink{main_8c_a72b1e1e4e69b91f15c2d5b9b09aedb43}{operators}} \mbox{[}\mbox{\hyperlink{main_8c_a30892ce590446910ea3159e79f2f31f3}{MAX\+\_\+\+OPERATORS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_a790b383129074e0e6d5c3a746926873c}\label{main_8c_a790b383129074e0e6d5c3a746926873c}} 
+\index{main.c@{main.c}!ACOS\_CHAR@{ACOS\_CHAR}}
+\index{ACOS\_CHAR@{ACOS\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ACOS\_CHAR}{ACOS\_CHAR}}
+{\footnotesize\ttfamily \#define ACOS\+\_\+\+CHAR~\textquotesingle{}b\textquotesingle{}}
+
+
+
+unused 
+
+\mbox{\Hypertarget{main_8c_a81054e8cd529a75320b2fa9c55fde6d6}\label{main_8c_a81054e8cd529a75320b2fa9c55fde6d6}} 
+\index{main.c@{main.c}!ASIN\_CHAR@{ASIN\_CHAR}}
+\index{ASIN\_CHAR@{ASIN\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ASIN\_CHAR}{ASIN\_CHAR}}
+{\footnotesize\ttfamily \#define ASIN\+\_\+\+CHAR~\textquotesingle{}a\textquotesingle{}}
+
+
+
+unused 
+
+\mbox{\Hypertarget{main_8c_a91760d1ccad36dfafd8c2995ccacd7ca}\label{main_8c_a91760d1ccad36dfafd8c2995ccacd7ca}} 
+\index{main.c@{main.c}!ATAN\_CHAR@{ATAN\_CHAR}}
+\index{ATAN\_CHAR@{ATAN\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ATAN\_CHAR}{ATAN\_CHAR}}
+{\footnotesize\ttfamily \#define ATAN\+\_\+\+CHAR~\textquotesingle{}d\textquotesingle{}}
+
+
+
+unused 
+
+\mbox{\Hypertarget{main_8c_ae3f20f389ec84487be54dbd4577eff4f}\label{main_8c_ae3f20f389ec84487be54dbd4577eff4f}} 
+\index{main.c@{main.c}!COS\_CHAR@{COS\_CHAR}}
+\index{COS\_CHAR@{COS\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{COS\_CHAR}{COS\_CHAR}}
+{\footnotesize\ttfamily \#define COS\+\_\+\+CHAR~\textquotesingle{}c\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a439522f32e6ae47ed931006e870ae829}\label{main_8c_a439522f32e6ae47ed931006e870ae829}} 
+\index{main.c@{main.c}!DIV\_CHAR@{DIV\_CHAR}}
+\index{DIV\_CHAR@{DIV\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{DIV\_CHAR}{DIV\_CHAR}}
+{\footnotesize\ttfamily \#define DIV\+\_\+\+CHAR~\textquotesingle{}/\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a55ac6ef9c85525970be8095f53bb61e1}\label{main_8c_a55ac6ef9c85525970be8095f53bb61e1}} 
+\index{main.c@{main.c}!EXIT\_CHAR@{EXIT\_CHAR}}
+\index{EXIT\_CHAR@{EXIT\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{EXIT\_CHAR}{EXIT\_CHAR}}
+{\footnotesize\ttfamily \#define EXIT\+\_\+\+CHAR~\textquotesingle{}q\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_ade3b7e0f1dfb9ff2a924b311e81c3978}\label{main_8c_ade3b7e0f1dfb9ff2a924b311e81c3978}} 
+\index{main.c@{main.c}!FACT\_CHAR@{FACT\_CHAR}}
+\index{FACT\_CHAR@{FACT\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{FACT\_CHAR}{FACT\_CHAR}}
+{\footnotesize\ttfamily \#define FACT\+\_\+\+CHAR~\textquotesingle{}!\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_ad953081808cd2157c3e3c2154c0028d0}\label{main_8c_ad953081808cd2157c3e3c2154c0028d0}} 
+\index{main.c@{main.c}!HELP\_CHAR@{HELP\_CHAR}}
+\index{HELP\_CHAR@{HELP\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HELP\_CHAR}{HELP\_CHAR}}
+{\footnotesize\ttfamily \#define HELP\+\_\+\+CHAR~\textquotesingle{}?\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a30892ce590446910ea3159e79f2f31f3}\label{main_8c_a30892ce590446910ea3159e79f2f31f3}} 
+\index{main.c@{main.c}!MAX\_OPERATORS@{MAX\_OPERATORS}}
+\index{MAX\_OPERATORS@{MAX\_OPERATORS}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_OPERATORS}{MAX\_OPERATORS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+OPERATORS~8}
+
+
+
+Number of operators. 
+
+\mbox{\Hypertarget{main_8c_ac8bbff2acc59ee28d07e64115067653f}\label{main_8c_ac8bbff2acc59ee28d07e64115067653f}} 
+\index{main.c@{main.c}!POW\_CHAR@{POW\_CHAR}}
+\index{POW\_CHAR@{POW\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{POW\_CHAR}{POW\_CHAR}}
+{\footnotesize\ttfamily \#define POW\+\_\+\+CHAR~\textquotesingle{}$^\wedge$\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a199270bd107c27fb585c3d1dc8bcd0eb}\label{main_8c_a199270bd107c27fb585c3d1dc8bcd0eb}} 
+\index{main.c@{main.c}!PROD\_CHAR@{PROD\_CHAR}}
+\index{PROD\_CHAR@{PROD\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{PROD\_CHAR}{PROD\_CHAR}}
+{\footnotesize\ttfamily \#define PROD\+\_\+\+CHAR~\textquotesingle{}$\ast$\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a81468e975b731555b779e56ffd2ae4a3}\label{main_8c_a81468e975b731555b779e56ffd2ae4a3}} 
+\index{main.c@{main.c}!SIN\_CHAR@{SIN\_CHAR}}
+\index{SIN\_CHAR@{SIN\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SIN\_CHAR}{SIN\_CHAR}}
+{\footnotesize\ttfamily \#define SIN\+\_\+\+CHAR~\textquotesingle{}s\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_ad076594cac1704aa54d7dec4ae0cdfa0}\label{main_8c_ad076594cac1704aa54d7dec4ae0cdfa0}} 
+\index{main.c@{main.c}!SUBS\_CHAR@{SUBS\_CHAR}}
+\index{SUBS\_CHAR@{SUBS\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SUBS\_CHAR}{SUBS\_CHAR}}
+{\footnotesize\ttfamily \#define SUBS\+\_\+\+CHAR~\textquotesingle{}-\/\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a92ab67a2bd99b3a1f840258f0e39d6cc}\label{main_8c_a92ab67a2bd99b3a1f840258f0e39d6cc}} 
+\index{main.c@{main.c}!SUM\_CHAR@{SUM\_CHAR}}
+\index{SUM\_CHAR@{SUM\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SUM\_CHAR}{SUM\_CHAR}}
+{\footnotesize\ttfamily \#define SUM\+\_\+\+CHAR~\textquotesingle{}+\textquotesingle{}}
+
+\mbox{\Hypertarget{main_8c_a9df18d35580a7d56e769717cc94bbf11}\label{main_8c_a9df18d35580a7d56e769717cc94bbf11}} 
+\index{main.c@{main.c}!TAN\_CHAR@{TAN\_CHAR}}
+\index{TAN\_CHAR@{TAN\_CHAR}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{TAN\_CHAR}{TAN\_CHAR}}
+{\footnotesize\ttfamily \#define TAN\+\_\+\+CHAR~\textquotesingle{}t\textquotesingle{}}
+
+
+
+unused 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a965dd2a0135feedf149965b2fba5f861}\label{main_8c_a965dd2a0135feedf149965b2fba5f861}} 
+\index{main.c@{main.c}!add\_operation@{add\_operation}}
+\index{add\_operation@{add\_operation}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{add\_operation()}{add\_operation()}}
+{\footnotesize\ttfamily int add\+\_\+operation (\begin{DoxyParamCaption}\item[{char}]{operator\+\_\+char,  }\item[{double($\ast$)(double, double)}]{callback }\end{DoxyParamCaption})}
+
+
+
+Adds an operator to the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operator\+\_\+char} & The char represeting the operation \\
+\hline
+{\em callback} & The function to associate to the operator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if succesful, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a56e3f777c97a79830170044350559f69}\label{main_8c_a56e3f777c97a79830170044350559f69}} 
+\index{main.c@{main.c}!cos\_wrapper@{cos\_wrapper}}
+\index{cos\_wrapper@{cos\_wrapper}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{cos\_wrapper()}{cos\_wrapper()}}
+{\footnotesize\ttfamily double cos\+\_\+wrapper (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Wraps cos function due to formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left operand (to calc cos of) \\
+\hline
+{\em b} & Right operand (nothing) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of cos(a) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_aa738137b9ad5c17ecb204845fc2c591f}\label{main_8c_aa738137b9ad5c17ecb204845fc2c591f}} 
+\index{main.c@{main.c}!factorial\_wrapper@{factorial\_wrapper}}
+\index{factorial\_wrapper@{factorial\_wrapper}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{factorial\_wrapper()}{factorial\_wrapper()}}
+{\footnotesize\ttfamily double factorial\+\_\+wrapper (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Wraps factorial function due to formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left operand (to take the factorial of) \\
+\hline
+{\em b} & Right operand (nothing) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of a! 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a8fb26976d3cfd2e8eaeff340ba9a2e46}\label{main_8c_a8fb26976d3cfd2e8eaeff340ba9a2e46}} 
+\index{main.c@{main.c}!find\_operator@{find\_operator}}
+\index{find\_operator@{find\_operator}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{find\_operator()}{find\_operator()}}
+{\footnotesize\ttfamily int find\+\_\+operator (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Finds the index of the operator represented by a char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The identifier of the operator to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The operation index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_ac785bbcb0a916d38d0eea3cd64b9d174}\label{main_8c_ac785bbcb0a916d38d0eea3cd64b9d174}} 
+\index{main.c@{main.c}!integer\_power\_wrapper@{integer\_power\_wrapper}}
+\index{integer\_power\_wrapper@{integer\_power\_wrapper}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{integer\_power\_wrapper()}{integer\_power\_wrapper()}}
+{\footnotesize\ttfamily double integer\+\_\+power\+\_\+wrapper (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Wraps power function due to formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left operand (base) \\
+\hline
+{\em b} & Right operand (exponent) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of a$^\wedge$b 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_ae6271594ff3d328bc3eaca1d1dacbd8c}\label{main_8c_ae6271594ff3d328bc3eaca1d1dacbd8c}} 
+\index{main.c@{main.c}!sin\_wrapper@{sin\_wrapper}}
+\index{sin\_wrapper@{sin\_wrapper}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{sin\_wrapper()}{sin\_wrapper()}}
+{\footnotesize\ttfamily double sin\+\_\+wrapper (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Wraps sin function due to formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Left operand (to calc sin of) \\
+\hline
+{\em b} & Right operand (nothing) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of sin(a) 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_a5278fef9d11d8adad50c93146ae9312b}\label{main_8c_a5278fef9d11d8adad50c93146ae9312b}} 
+\index{main.c@{main.c}!actions@{actions}}
+\index{actions@{actions}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{actions}{actions}}
+{\footnotesize\ttfamily double($\ast$ actions\mbox{[}\mbox{\hyperlink{main_8c_a30892ce590446910ea3159e79f2f31f3}{MAX\+\_\+\+OPERATORS}}\mbox{]})(double, double) (\begin{DoxyParamCaption}\item[{double}]{,  }\item[{double}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a72b1e1e4e69b91f15c2d5b9b09aedb43}\label{main_8c_a72b1e1e4e69b91f15c2d5b9b09aedb43}} 
+\index{main.c@{main.c}!operators@{operators}}
+\index{operators@{operators}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{operators}{operators}}
+{\footnotesize\ttfamily char operators\mbox{[}\mbox{\hyperlink{main_8c_a30892ce590446910ea3159e79f2f31f3}{MAX\+\_\+\+OPERATORS}}\mbox{]}}
+

@@ -1,0 +1,78 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}File Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}File List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Documentation}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}calculator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}front.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Macro Definition Documentation}{3}{subsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.1.1}ASCII\_TO\_NUM}{4}{subsubsection.2.1.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.1.2}IS\_NUM}{4}{subsubsection.2.1.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Function Documentation}{4}{subsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.2.1}clear\_screen()}{4}{subsubsection.2.1.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.2.2}flush\_stdin()}{4}{subsubsection.2.1.2.2}%
+\contentsline {subsubsection}{\numberline {2.1.2.3}parse\_input()}{4}{subsubsection.2.1.2.3}%
+\contentsline {subsubsection}{\numberline {2.1.2.4}print\_calculator\_tips()}{5}{subsubsection.2.1.2.4}%
+\contentsline {subsubsection}{\numberline {2.1.2.5}print\_operation\_result()}{5}{subsubsection.2.1.2.5}%
+\contentsline {subsubsection}{\numberline {2.1.2.6}print\_operators()}{5}{subsubsection.2.1.2.6}%
+\contentsline {section}{\numberline {2.2}calculator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}front.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Macro Definition Documentation}{6}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}OPERATOR\_NOT\_FOUND}{6}{subsubsection.2.2.1.1}%
+\contentsline {subsection}{\numberline {2.2.2}Function Documentation}{6}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}clear\_screen()}{6}{subsubsection.2.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2.2}flush\_stdin()}{6}{subsubsection.2.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.3}parse\_input()}{7}{subsubsection.2.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.2.4}print\_calculator\_tips()}{7}{subsubsection.2.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.2.5}print\_operation\_result()}{7}{subsubsection.2.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.2.6}print\_operators()}{8}{subsubsection.2.2.2.6}%
+\contentsline {section}{\numberline {2.3}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Macro Definition Documentation}{9}{subsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1.1}ACOS\_CHAR}{9}{subsubsection.2.3.1.1}%
+\contentsline {subsubsection}{\numberline {2.3.1.2}ASIN\_CHAR}{9}{subsubsection.2.3.1.2}%
+\contentsline {subsubsection}{\numberline {2.3.1.3}ATAN\_CHAR}{9}{subsubsection.2.3.1.3}%
+\contentsline {subsubsection}{\numberline {2.3.1.4}COS\_CHAR}{10}{subsubsection.2.3.1.4}%
+\contentsline {subsubsection}{\numberline {2.3.1.5}DIV\_CHAR}{10}{subsubsection.2.3.1.5}%
+\contentsline {subsubsection}{\numberline {2.3.1.6}EXIT\_CHAR}{10}{subsubsection.2.3.1.6}%
+\contentsline {subsubsection}{\numberline {2.3.1.7}FACT\_CHAR}{10}{subsubsection.2.3.1.7}%
+\contentsline {subsubsection}{\numberline {2.3.1.8}HELP\_CHAR}{10}{subsubsection.2.3.1.8}%
+\contentsline {subsubsection}{\numberline {2.3.1.9}MAX\_OPERATORS}{10}{subsubsection.2.3.1.9}%
+\contentsline {subsubsection}{\numberline {2.3.1.10}POW\_CHAR}{10}{subsubsection.2.3.1.10}%
+\contentsline {subsubsection}{\numberline {2.3.1.11}PROD\_CHAR}{11}{subsubsection.2.3.1.11}%
+\contentsline {subsubsection}{\numberline {2.3.1.12}SIN\_CHAR}{11}{subsubsection.2.3.1.12}%
+\contentsline {subsubsection}{\numberline {2.3.1.13}SUBS\_CHAR}{11}{subsubsection.2.3.1.13}%
+\contentsline {subsubsection}{\numberline {2.3.1.14}SUM\_CHAR}{11}{subsubsection.2.3.1.14}%
+\contentsline {subsubsection}{\numberline {2.3.1.15}TAN\_CHAR}{11}{subsubsection.2.3.1.15}%
+\contentsline {subsection}{\numberline {2.3.2}Function Documentation}{11}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}add\_operation()}{11}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {2.3.2.2}cos\_wrapper()}{12}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.3}factorial\_wrapper()}{12}{subsubsection.2.3.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.2.4}find\_operator()}{12}{subsubsection.2.3.2.4}%
+\contentsline {subsubsection}{\numberline {2.3.2.5}integer\_power\_wrapper()}{13}{subsubsection.2.3.2.5}%
+\contentsline {subsubsection}{\numberline {2.3.2.6}main()}{13}{subsubsection.2.3.2.6}%
+\contentsline {subsubsection}{\numberline {2.3.2.7}sin\_wrapper()}{13}{subsubsection.2.3.2.7}%
+\contentsline {subsection}{\numberline {2.3.3}Variable Documentation}{14}{subsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3.1}actions}{14}{subsubsection.2.3.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.3.2}operators}{14}{subsubsection.2.3.3.2}%
+\contentsline {section}{\numberline {2.4}operations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}c File Reference}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Macro Definition Documentation}{15}{subsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.1.1}TAYLOR\_TERMS}{15}{subsubsection.2.4.1.1}%
+\contentsline {subsection}{\numberline {2.4.2}Function Documentation}{15}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}cos()}{15}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {2.4.2.2}division()}{15}{subsubsection.2.4.2.2}%
+\contentsline {subsubsection}{\numberline {2.4.2.3}factorial()}{16}{subsubsection.2.4.2.3}%
+\contentsline {subsubsection}{\numberline {2.4.2.4}integer\_power()}{16}{subsubsection.2.4.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.2.5}product()}{16}{subsubsection.2.4.2.5}%
+\contentsline {subsubsection}{\numberline {2.4.2.6}sin()}{17}{subsubsection.2.4.2.6}%
+\contentsline {subsubsection}{\numberline {2.4.2.7}substraction()}{17}{subsubsection.2.4.2.7}%
+\contentsline {subsubsection}{\numberline {2.4.2.8}sum()}{18}{subsubsection.2.4.2.8}%
+\contentsline {section}{\numberline {2.5}operations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{18}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Macro Definition Documentation}{18}{subsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.1.1}PI}{19}{subsubsection.2.5.1.1}%
+\contentsline {subsection}{\numberline {2.5.2}Function Documentation}{19}{subsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.2.1}cos()}{19}{subsubsection.2.5.2.1}%
+\contentsline {subsubsection}{\numberline {2.5.2.2}division()}{19}{subsubsection.2.5.2.2}%
+\contentsline {subsubsection}{\numberline {2.5.2.3}factorial()}{19}{subsubsection.2.5.2.3}%
+\contentsline {subsubsection}{\numberline {2.5.2.4}integer\_power()}{21}{subsubsection.2.5.2.4}%
+\contentsline {subsubsection}{\numberline {2.5.2.5}product()}{21}{subsubsection.2.5.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.2.6}sin()}{22}{subsubsection.2.5.2.6}%
+\contentsline {subsubsection}{\numberline {2.5.2.7}substraction()}{22}{subsubsection.2.5.2.7}%
+\contentsline {subsubsection}{\numberline {2.5.2.8}sum()}{22}{subsubsection.2.5.2.8}%
+\contentsline {chapter}{Index}{25}{section*.12}%

@@ -1,0 +1,198 @@
+.TH "operations.h" 3 "Mon May 10 2021" "Calculator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+operations.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPI\fP   3\&.141592653589793238"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBsum\fP (double a, double b)"
+.br
+.RI "Adds two numbers together\&. "
+.ti -1c
+.RI "double \fBsubstraction\fP (double a, double b)"
+.br
+.RI "Substracts two numbers\&. "
+.ti -1c
+.RI "double \fBdivision\fP (double a, double b)"
+.br
+.RI "Divides two numbers\&. "
+.ti -1c
+.RI "double \fBproduct\fP (double a, double b)"
+.br
+.RI "Calculates the product of two numbers\&. "
+.ti -1c
+.RI "double \fBinteger_power\fP (double a, int b)"
+.br
+.RI "Calculates base to the integer power exp\&. "
+.ti -1c
+.RI "double \fBsin\fP (double a)"
+.br
+.RI "Calculates the sine of a\&. "
+.ti -1c
+.RI "double \fBcos\fP (double a)"
+.br
+.RI "Calculates the cosine of a\&. "
+.ti -1c
+.RI "double \fBfactorial\fP (unsigned int b)"
+.br
+.RI "Calculates the factorial of a number\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PI   3\&.141592653589793238"
+
+.SH "Function Documentation"
+.PP 
+.SS "double cos (double a)"
+
+.PP
+Calculates the cosine of a\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIb\fP Number to take the cosine of\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+cos(a)\&. 
+.RE
+.PP
+
+.SS "double division (double a, double b)"
+
+.PP
+Divides two numbers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP number to be divided\&. 
+.br
+\fIb\fP number to divide by\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the result of a divided by b\&. 
+.RE
+.PP
+
+.SS "double factorial (unsigned int b)"
+
+.PP
+Calculates the factorial of a number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP Number to take the factorial of\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+(a)! 
+.RE
+.PP
+
+.SS "double integer_power (double a, int b)"
+
+.PP
+Calculates base to the integer power exp\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbase\fP Base of the power\&. 
+.br
+\fIexp\fP Exponent of the power\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the result of a to the power b\&. 
+.RE
+.PP
+
+.SS "double product (double a, double b)"
+
+.PP
+Calculates the product of two numbers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a factor\&. 
+.br
+\fIb\fP another factor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the result of a times b\&. 
+.RE
+.PP
+
+.SS "double sin (double a)"
+
+.PP
+Calculates the sine of a\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP Number to take the sine of\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+sin(a)\&. 
+.RE
+.PP
+
+.SS "double substraction (double a, double b)"
+
+.PP
+Substracts two numbers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP number to substract from\&. 
+.br
+\fIb\fP number to substract\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+result of a minus b\&. 
+.RE
+.PP
+
+.SS "double sum (double a, double b)"
+
+.PP
+Adds two numbers together\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP first number to be added\&. 
+.br
+\fIb\fP second number to be added\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the sum of both numbers a and b\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Calculator from the source code\&.

@@ -1,11 +1,53 @@
+/*****************************************************************************
+  @file     operations.c
+  @brief    Mathematical functions (.c)
+  @author   Grupo 7
+ ******************************************************************************/
+
+
+/************************
+ * INCLUDE HEADER FILES *
+ ************************/
 #include "operations.h"
 #include <stdio.h>
 
 
-static double grad_to_rad(double a);
+
+/******************************************
+ * CONSTANT AND MACRO DEFS USING #DEFINE  *
+ ******************************************/
+/// The number of terms to approximate to when using Taylor expansion
+#define TAYLOR_TERMS 30 
+
+
+
+/*******************************************************************
+ * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE *
+ *******************************************************************/
+/**
+ * @brief Converts number in degrees to radians
+ * @param deg number in degrees to convert
+ * @return The number converted to radians
+ */ 
+static double deg_to_rad(double deg);
+
+
+/**
+ * @brief Converts number in degrees to equivalent in first cycle
+ * @param deg number in degrees to convert
+ * @return The number in [0, 360]
+ */ 
+static double deg_to_first_cycle(double deg);
+
+
+/******************************************
+ ******************************************
+ **     GLOBAL FUNCTION DEFINITIONS      **
+ ******************************************
+ ******************************************/
 
 double sum(double a, double b){
-    return a+b;	
+    return a+b;
 }
 
 double substraction(double a, double b){
@@ -20,24 +62,26 @@ double product(double a, double b){
     return a*b;
 }
 
-double integer_power(double a, int b){
+double integer_power(double base, int exp){
     int i;
     double ans = 1;
-    for (i=0; i<b; i++){
-        ans *= a;
+    int mod_exp = exp >= 0 ? exp : -exp;
+    for (i=0; i<mod_exp; i++){
+        ans *= base;       // Multiplies the base by itself exp times
+    }
+    if(exp < 0) {
+        ans = 1 / ans;
     }
     return ans;
 }
 
-#define N_TERM 30
 double sin(double a){
     double ans = 0, termino = 0;
-    double rad = grad_to_rad(a);
+    double radian_num = deg_to_rad(deg_to_first_cycle(a));
     int i;
-    for (i=0; i<N_TERM; i++) {
-        int exp = 2*i + 1;                            //esto calcula el exponente y el argumento del factorial
-        int sign = i%2 == 0 ? 1 : -1;
-        termino = sign * integer_power(rad, exp) / factorial(exp);     //calcula el valor absoluto de cada termino
+    for (i=0; i<TAYLOR_TERMS; i++) {    // sin(a) = sum((-1)^n * a^(2n+1)/((2n+1)!))
+        int sign = i%2 == 0 ? 1 : -1;   // (-1)^n
+        termino = sign * integer_power(radian_num, 2*i + 1) / factorial(2*i + 1);
         ans += termino;
     }
     return ans;
@@ -45,32 +89,40 @@ double sin(double a){
 
 double cos(double a){
     double ans = 0, termino = 0;
-    double rad = grad_to_rad(a);
+    double radian_num = deg_to_rad(deg_to_first_cycle(a));
+    printf("Se calculara %f", radian_num);
     int i;
-    for (i=0; i<N_TERM; i++) {
-        int exp = 2*i;                            //esto calcula el exponente y el argumento del factorial
-        int sign = i%2 == 0 ? 1 : -1;
-        termino = sign * integer_power(rad, exp) / factorial(exp);     //calcula el valor absoluto de cada termino
+    for (i=0; i<TAYLOR_TERMS; i++) {    // sin(a) = sum((-1)^n * a^(2n+1)/((2n+1)!))
+        int sign = i%2 == 0 ? 1 : -1;   // (-1)^n
+        termino = sign * integer_power(radian_num, 2*i) / factorial(2*i);     //calcula el valor absoluto de cada termino
         ans += termino;
     }
     return ans;
 }
 
 double factorial(unsigned int a){
-    double ans = 1;                                      //comienza ans en 1 por si quiere calcular 0!
+    double ans = 1;
     int term = a;
-    
-    if(a < 0) {
-        return 0.0/0.0;
-    }
 
-    while (term > 1){                                //evita mutiplicar por cero y se detiene en term == 1
-        ans = ans * (term);                           //actualiza el valor de ans
-        term--;                                       //pasa al siguiente factor del factorial
+    while (term > 1){       // avoids multiplying by 0 and stops when term == 1
+        ans = ans * (term);
+        term--;
     }
     return ans;
 }
 
-static double grad_to_rad(double a) {
-    return a*2.0*PI/360.0;
+
+
+/******************************************
+ ******************************************
+ **      LOCAL FUNCTION DEFINITIONS      **
+ ******************************************
+ ******************************************/
+static double deg_to_rad(double deg) {
+    return deg*2.0*PI/360.0;
+}
+
+static double deg_to_first_cycle(double deg) {
+    // Reduces the angle by the max amount of cycles
+    return deg - 360.0*((long long int)(deg / 360.0)); 
 }

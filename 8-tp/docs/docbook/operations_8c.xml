@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_operations_8c" xml:lang="en-US">
+<title>operations.c File Reference</title>
+<indexterm><primary>operations.c</primary></indexterm>
+<programlisting>#include &quot;operations.h&quot;
+#include &lt;stdio.h&gt;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_operations_8c_1a63353134e11696b5574869e3df0a0f89">TAYLOR_TERMS</link>   30</para>
+
+<para>The number of terms to approximate to when using Taylor expansion. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>double <link linkend="_operations_8c_1aa696b61cebd54eea6ae72f2da02ed1d5">sum</link> (double a, double b)</para>
+
+<para>Adds two numbers together. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1a1755e84ac77d088cbdf6625193039b4e">substraction</link> (double a, double b)</para>
+
+<para>Substracts two numbers. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1a5eb1fb5a402a348e8c431bd811653a34">division</link> (double a, double b)</para>
+
+<para>Divides two numbers. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1aff47c73e752280f9873b8fe428ca55a8">product</link> (double a, double b)</para>
+
+<para>Calculates the product of two numbers. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4">integer_power</link> (double base, int exp)</para>
+
+<para>Calculates base to the integer power exp. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1a3be967db2043b681fb909184816a2531">sin</link> (double a)</para>
+
+<para>Calculates the sine of a. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f">cos</link> (double a)</para>
+
+<para>Calculates the cosine of a. </para>
+</listitem>
+            <listitem><para>double <link linkend="_operations_8c_1ac97d6387086b6fd0b299393d23da9e64">factorial</link> (unsigned int a)</para>
+
+<para>Calculates the factorial of a number. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_operations_8c_1a63353134e11696b5574869e3df0a0f89"/>    <section>
+    <title>TAYLOR_TERMS</title>
+<indexterm><primary>TAYLOR_TERMS</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>TAYLOR_TERMS</secondary></indexterm>
+<para><computeroutput>#define TAYLOR_TERMS   30</computeroutput></para><para>
+
+<para>The number of terms to approximate to when using Taylor expansion. </para>
+</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f"/>    <section>
+    <title>cos()</title>
+<indexterm><primary>cos</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>cos</secondary></indexterm>
+<para><computeroutput>double cos (double a)</computeroutput></para><para>
+
+<para>Calculates the cosine of a. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>Number to take the cosine of. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>cos(a). </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1a5eb1fb5a402a348e8c431bd811653a34"/>    <section>
+    <title>division()</title>
+<indexterm><primary>division</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>division</secondary></indexterm>
+<para><computeroutput>double division (double a, double b)</computeroutput></para><para>
+
+<para>Divides two numbers. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>number to be divided. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>number to divide by. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the result of a divided by b. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1ac97d6387086b6fd0b299393d23da9e64"/>    <section>
+    <title>factorial()</title>
+<indexterm><primary>factorial</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>factorial</secondary></indexterm>
+<para><computeroutput>double factorial (unsigned int b)</computeroutput></para><para>
+
+<para>Calculates the factorial of a number. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Number to take the factorial of. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>(a)! </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4"/>    <section>
+    <title>integer_power()</title>
+<indexterm><primary>integer_power</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>integer_power</secondary></indexterm>
+<para><computeroutput>double integer_power (double a, int b)</computeroutput></para><para>
+
+<para>Calculates base to the integer power exp. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>base</entry>
+                                <entry>
+<para>Base of the power. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>exp</entry>
+                                <entry>
+<para>Exponent of the power. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the result of a to the power b. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1aff47c73e752280f9873b8fe428ca55a8"/>    <section>
+    <title>product()</title>
+<indexterm><primary>product</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>product</secondary></indexterm>
+<para><computeroutput>double product (double a, double b)</computeroutput></para><para>
+
+<para>Calculates the product of two numbers. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>a factor. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>another factor. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the result of a times b. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1a3be967db2043b681fb909184816a2531"/>    <section>
+    <title>sin()</title>
+<indexterm><primary>sin</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>sin</secondary></indexterm>
+<para><computeroutput>double sin (double a)</computeroutput></para><para>
+
+<para>Calculates the sine of a. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Number to take the sine of. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>sin(a). </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1a1755e84ac77d088cbdf6625193039b4e"/>    <section>
+    <title>substraction()</title>
+<indexterm><primary>substraction</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>substraction</secondary></indexterm>
+<para><computeroutput>double substraction (double a, double b)</computeroutput></para><para>
+
+<para>Substracts two numbers. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>number to substract from. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>number to substract. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>result of a minus b. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_operations_8c_1aa696b61cebd54eea6ae72f2da02ed1d5"/>    <section>
+    <title>sum()</title>
+<indexterm><primary>sum</primary><secondary>operations.c</secondary></indexterm>
+<indexterm><primary>operations.c</primary><secondary>sum</secondary></indexterm>
+<para><computeroutput>double sum (double a, double b)</computeroutput></para><para>
+
+<para>Adds two numbers together. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>first number to be added. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>second number to be added. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>the sum of both numbers a and b. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

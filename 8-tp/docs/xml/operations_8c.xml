@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="operations_8c" kind="file" language="C++">
+    <compoundname>operations.c</compoundname>
+    <includes refid="operations_8h" local="yes">operations.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>operations.c</label>
+        <link refid="operations_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>operations.h</label>
+        <link refid="operations_8h"/>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="operations_8c_1a63353134e11696b5574869e3df0a0f89" prot="public" static="no">
+        <name>TAYLOR_TERMS</name>
+        <initializer>30</initializer>
+        <briefdescription>
+<para>The number of terms to approximate to when using Taylor expansion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="20" column="9" bodyfile="operations.c" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="operations_8c_1af0366b84aa0c8db18a5214dfb2fbc3ad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double deg_to_rad</definition>
+        <argsstring>(double deg)</argsstring>
+        <name>deg_to_rad</name>
+        <param>
+          <type>double</type>
+          <declname>deg</declname>
+        </param>
+        <briefdescription>
+<para>Converts number in degrees to radians. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number in degrees to convert </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number converted to radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="121" column="15" bodyfile="operations.c" bodystart="121" bodyend="123" declfile="operations.c" declline="32" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a4af89ba3fc48eadef360df9bfa233991" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double deg_to_first_cycle</definition>
+        <argsstring>(double deg)</argsstring>
+        <name>deg_to_first_cycle</name>
+        <param>
+          <type>double</type>
+          <declname>deg</declname>
+        </param>
+        <briefdescription>
+<para>Converts number in degrees to equivalent in first cycle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number in degrees to convert </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number in [0, 360] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="125" column="15" bodyfile="operations.c" bodystart="125" bodyend="128" declfile="operations.c" declline="40" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1aa696b61cebd54eea6ae72f2da02ed1d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sum</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>sum</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Adds two numbers together. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first number to be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>second number to be added. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the sum of both numbers a and b. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="49" column="8" bodyfile="operations.c" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a1755e84ac77d088cbdf6625193039b4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double substraction</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>substraction</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Substracts two numbers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number to substract from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number to substract. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>result of a minus b. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="53" column="8" bodyfile="operations.c" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a5eb1fb5a402a348e8c431bd811653a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double division</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>division</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Divides two numbers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number to be divided. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number to divide by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of a divided by b. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="57" column="8" bodyfile="operations.c" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1aff47c73e752280f9873b8fe428ca55a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double product</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>product</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the product of two numbers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a factor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>another factor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of a times b. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="61" column="8" bodyfile="operations.c" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double integer_power</definition>
+        <argsstring>(double base, int exp)</argsstring>
+        <name>integer_power</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+          <defname>base</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+          <defname>exp</defname>
+        </param>
+        <briefdescription>
+<para>Calculates base to the integer power exp. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>base</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Base of the power. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>exp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Exponent of the power. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the result of a to the power b. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="65" column="8" bodyfile="operations.c" bodystart="65" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a3be967db2043b681fb909184816a2531" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sin</definition>
+        <argsstring>(double a)</argsstring>
+        <name>sin</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the sine of a. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number to take the sine of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sin(a). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="78" column="8" bodyfile="operations.c" bodystart="78" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double cos</definition>
+        <argsstring>(double a)</argsstring>
+        <name>cos</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the cosine of a. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number to take the cosine of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cos(a). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="90" column="8" bodyfile="operations.c" bodystart="90" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double factorial</definition>
+        <argsstring>(unsigned int a)</argsstring>
+        <name>factorial</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>b</declname>
+          <defname>a</defname>
+        </param>
+        <briefdescription>
+<para>Calculates the factorial of a number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number to take the factorial of. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>(a)! </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="operations.c" line="103" column="8" bodyfile="operations.c" bodystart="103" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*****************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>@file<sp/><sp/><sp/><sp/><sp/>operations.c</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>@brief<sp/><sp/><sp/><sp/>Mathematical<sp/>functions<sp/>(.c)</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>@author<sp/><sp/><sp/>Grupo<sp/>7</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/************************</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>INCLUDE<sp/>HEADER<sp/>FILES<sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="operations_8h" kindref="compound">operations.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>CONSTANT<sp/>AND<sp/>MACRO<sp/>DEFS<sp/>USING<sp/>#DEFINE<sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>******************************************/</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor">#define<sp/>TAYLOR_TERMS<sp/>30<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>FUNCTION<sp/>PROTOTYPES<sp/>FOR<sp/>PRIVATE<sp/>FUNCTIONS<sp/>WITH<sp/>FILE<sp/>LEVEL<sp/>SCOPE<sp/>*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*******************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_rad(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_first_cycle(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/>GLOBAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1aa696b61cebd54eea6ae72f2da02ed1d5" kindref="member">sum</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a+b;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a1755e84ac77d088cbdf6625193039b4e" kindref="member">substraction</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a-b;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a5eb1fb5a402a348e8c431bd811653a34" kindref="member">division</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a/b;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1aff47c73e752280f9873b8fe428ca55a8" kindref="member">product</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b){</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a*b;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>base,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>exp){</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mod_exp<sp/>=<sp/>exp<sp/>&gt;=<sp/>0<sp/>?<sp/>exp<sp/>:<sp/>-exp;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;mod_exp;<sp/>i++){</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>*=<sp/>base;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Multiplies<sp/>the<sp/>base<sp/>by<sp/>itself<sp/>exp<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(exp<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>=<sp/>1<sp/>/<sp/>ans;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a3be967db2043b681fb909184816a2531" kindref="member">sin</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>0,<sp/>termino<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radian_num<sp/>=<sp/>deg_to_rad(deg_to_first_cycle(a));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="operations_8c_1a63353134e11696b5574869e3df0a0f89" kindref="member">TAYLOR_TERMS</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sin(a)<sp/>=<sp/>sum((-1)^n<sp/>*<sp/>a^(2n+1)/((2n+1)!))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign<sp/>=<sp/>i%2<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>-1;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(-1)^n</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termino<sp/>=<sp/>sign<sp/>*<sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(radian_num,<sp/>2*i<sp/>+<sp/>1)<sp/>/<sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(2*i<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>+=<sp/>termino;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f" kindref="member">cos</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>0,<sp/>termino<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radian_num<sp/>=<sp/>deg_to_rad(deg_to_first_cycle(a));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Se<sp/>calculara<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>radian_num);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="operations_8c_1a63353134e11696b5574869e3df0a0f89" kindref="member">TAYLOR_TERMS</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sin(a)<sp/>=<sp/>sum((-1)^n<sp/>*<sp/>a^(2n+1)/((2n+1)!))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign<sp/>=<sp/>i%2<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>-1;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(-1)^n</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termino<sp/>=<sp/>sign<sp/>*<sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(radian_num,<sp/>2*i)<sp/>/<sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(2*i);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//calcula<sp/>el<sp/>valor<sp/>absoluto<sp/>de<sp/>cada<sp/>termino</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>+=<sp/>termino;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>term<sp/>=<sp/>a;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(term<sp/>&gt;<sp/>1){<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>avoids<sp/>multiplying<sp/>by<sp/>0<sp/>and<sp/>stops<sp/>when<sp/>term<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>=<sp/>ans<sp/>*<sp/>(term);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>term--;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/><sp/>LOCAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_rad(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg*2.0*<ref refid="operations_8h_1a598a3330b3c21701223ee0ca14316eca" kindref="member">PI</ref>/360.0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_first_cycle(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reduces<sp/>the<sp/>angle<sp/>by<sp/>the<sp/>max<sp/>amount<sp/>of<sp/>cycles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg<sp/>-<sp/>360.0*((</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>int)(deg<sp/>/<sp/>360.0));<sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="operations.c"/>
+  </compounddef>
+</doxygen>

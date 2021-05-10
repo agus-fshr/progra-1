@@ -1,0 +1,198 @@
+\hypertarget{operations_8c}{}\doxysection{operations.\+c File Reference}
+\label{operations_8c}\index{operations.c@{operations.c}}
+{\ttfamily \#include \char`\"{}operations.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{operations_8c_a63353134e11696b5574869e3df0a0f89}{TAYLOR\+\_\+\+TERMS}}~30
+\begin{DoxyCompactList}\small\item\em The number of terms to approximate to when using Taylor expansion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{operations_8c_aa696b61cebd54eea6ae72f2da02ed1d5}{sum}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Adds two numbers together. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_a1755e84ac77d088cbdf6625193039b4e}{substraction}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Substracts two numbers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_a5eb1fb5a402a348e8c431bd811653a34}{division}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Divides two numbers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_aff47c73e752280f9873b8fe428ca55a8}{product}} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Calculates the product of two numbers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_a6826b74edd12867f0ddd9e85f0e686f4}{integer\+\_\+power}} (double base, int exp)
+\begin{DoxyCompactList}\small\item\em Calculates base to the integer power exp. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_a3be967db2043b681fb909184816a2531}{sin}} (double a)
+\begin{DoxyCompactList}\small\item\em Calculates the sine of a. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_a7a7d08a90f118f85aae24f1ed5a2b04f}{cos}} (double a)
+\begin{DoxyCompactList}\small\item\em Calculates the cosine of a. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{operations_8c_ac97d6387086b6fd0b299393d23da9e64}{factorial}} (unsigned int a)
+\begin{DoxyCompactList}\small\item\em Calculates the factorial of a number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{operations_8c_a63353134e11696b5574869e3df0a0f89}\label{operations_8c_a63353134e11696b5574869e3df0a0f89}} 
+\index{operations.c@{operations.c}!TAYLOR\_TERMS@{TAYLOR\_TERMS}}
+\index{TAYLOR\_TERMS@{TAYLOR\_TERMS}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{TAYLOR\_TERMS}{TAYLOR\_TERMS}}
+{\footnotesize\ttfamily \#define TAYLOR\+\_\+\+TERMS~30}
+
+
+
+The number of terms to approximate to when using Taylor expansion. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{operations_8c_a7a7d08a90f118f85aae24f1ed5a2b04f}\label{operations_8c_a7a7d08a90f118f85aae24f1ed5a2b04f}} 
+\index{operations.c@{operations.c}!cos@{cos}}
+\index{cos@{cos}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{cos()}{cos()}}
+{\footnotesize\ttfamily double cos (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})}
+
+
+
+Calculates the cosine of a. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Number to take the cosine of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cos(a). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_a5eb1fb5a402a348e8c431bd811653a34}\label{operations_8c_a5eb1fb5a402a348e8c431bd811653a34}} 
+\index{operations.c@{operations.c}!division@{division}}
+\index{division@{division}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{division()}{division()}}
+{\footnotesize\ttfamily double division (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Divides two numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & number to be divided. \\
+\hline
+{\em b} & number to divide by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result of a divided by b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_ac97d6387086b6fd0b299393d23da9e64}\label{operations_8c_ac97d6387086b6fd0b299393d23da9e64}} 
+\index{operations.c@{operations.c}!factorial@{factorial}}
+\index{factorial@{factorial}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{factorial()}{factorial()}}
+{\footnotesize\ttfamily double factorial (\begin{DoxyParamCaption}\item[{unsigned int}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates the factorial of a number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Number to take the factorial of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(a)! 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_a6826b74edd12867f0ddd9e85f0e686f4}\label{operations_8c_a6826b74edd12867f0ddd9e85f0e686f4}} 
+\index{operations.c@{operations.c}!integer\_power@{integer\_power}}
+\index{integer\_power@{integer\_power}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{integer\_power()}{integer\_power()}}
+{\footnotesize\ttfamily double integer\+\_\+power (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates base to the integer power exp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & Base of the power. \\
+\hline
+{\em exp} & Exponent of the power. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result of a to the power b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_aff47c73e752280f9873b8fe428ca55a8}\label{operations_8c_aff47c73e752280f9873b8fe428ca55a8}} 
+\index{operations.c@{operations.c}!product@{product}}
+\index{product@{product}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{product()}{product()}}
+{\footnotesize\ttfamily double product (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates the product of two numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & a factor. \\
+\hline
+{\em b} & another factor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the result of a times b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_a3be967db2043b681fb909184816a2531}\label{operations_8c_a3be967db2043b681fb909184816a2531}} 
+\index{operations.c@{operations.c}!sin@{sin}}
+\index{sin@{sin}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{sin()}{sin()}}
+{\footnotesize\ttfamily double sin (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})}
+
+
+
+Calculates the sine of a. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Number to take the sine of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sin(a). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_a1755e84ac77d088cbdf6625193039b4e}\label{operations_8c_a1755e84ac77d088cbdf6625193039b4e}} 
+\index{operations.c@{operations.c}!substraction@{substraction}}
+\index{substraction@{substraction}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{substraction()}{substraction()}}
+{\footnotesize\ttfamily double substraction (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Substracts two numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & number to substract from. \\
+\hline
+{\em b} & number to substract. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result of a minus b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{operations_8c_aa696b61cebd54eea6ae72f2da02ed1d5}\label{operations_8c_aa696b61cebd54eea6ae72f2da02ed1d5}} 
+\index{operations.c@{operations.c}!sum@{sum}}
+\index{sum@{sum}!operations.c@{operations.c}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily double sum (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+
+
+Adds two numbers together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first number to be added. \\
+\hline
+{\em b} & second number to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the sum of both numbers a and b. 
+\end{DoxyReturn}

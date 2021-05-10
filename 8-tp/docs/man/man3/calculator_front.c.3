@@ -1,0 +1,133 @@
+.TH "calculator_front.c" 3 "Mon May 10 2021" "Calculator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+calculator_front.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'calculator_front\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIS_NUM\fP(c)   (((c) >= '0') && ((c) <= '9'))"
+.br
+.ti -1c
+.RI "#define \fBASCII_TO_NUM\fP(c)   ((c) \- '0')"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBparse_input\fP (double *op1, double *op2, char *operator)"
+.br
+.RI "Reads two operands and an operator from stdin\&. "
+.ti -1c
+.RI "void \fBprint_calculator_tips\fP (void)"
+.br
+.RI "Prints tips for calculator use\&. "
+.ti -1c
+.RI "void \fBprint_operators\fP (char \fBoperators\fP[], int op_num)"
+.br
+.RI "Prints available operators\&. "
+.ti -1c
+.RI "void \fBprint_operation_result\fP (double op1, double op2, char operation, double result)"
+.br
+.RI "Prints the expression to resolve and the result\&. "
+.ti -1c
+.RI "void \fBclear_screen\fP (void)"
+.br
+.RI "Clears terminal in an OS-specific basis\&. "
+.ti -1c
+.RI "void \fBflush_stdin\fP (char limit)"
+.br
+.RI "Flushes the stdin buffer\&. Takes characters from stdin until limit is found\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ASCII_TO_NUM(c)   ((c) \- '0')"
+
+.SS "#define IS_NUM(c)   (((c) >= '0') && ((c) <= '9'))"
+
+.SH "Function Documentation"
+.PP 
+.SS "void clear_screen (void)"
+
+.PP
+Clears terminal in an OS-specific basis\&. 
+.SS "void flush_stdin (char limit)"
+
+.PP
+Flushes the stdin buffer\&. Takes characters from stdin until limit is found\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP Character that indicates where to stop flushing 
+.RE
+.PP
+
+.SS "int parse_input (double * op1, double * op2, char * operator)"
+
+.PP
+Reads two operands and an operator from stdin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIop1\fP Pointer to the variable that stores the first operand 
+.br
+\fIop2\fP Pointer to the variable that stores the second operand 
+.br
+\fIoperator\fP Pointer to the variable that stores the operator char representation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 if there was an error, 1 otherwise\&. 
+.RE
+.PP
+
+.SS "void print_calculator_tips (void)"
+
+.PP
+Prints tips for calculator use\&. 
+.SS "void print_operation_result (double op1, double op2, char operation, double result)"
+
+.PP
+Prints the expression to resolve and the result\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIop1\fP Left operand 
+.br
+\fIop2\fP Right operand 
+.br
+\fIoperation\fP Char representing operation 
+.br
+\fIresult\fP The operation result 
+.RE
+.PP
+
+.SS "void print_operators (char operators[], int op_num)"
+
+.PP
+Prints available operators\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIoperators\fP Array containing every operator-representing char 
+.br
+\fIop_num\fP Number of operators 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Calculator from the source code\&.

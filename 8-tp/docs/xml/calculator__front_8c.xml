@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="calculator__front_8c" kind="file" language="C++">
+    <compoundname>calculator_front.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="calculator__front_8h" local="yes">calculator_front.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>calculator_front.c</label>
+        <link refid="calculator__front_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>calculator_front.h</label>
+        <link refid="calculator__front_8h"/>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="calculator__front_8c_1a977faf512b3cce7ff1253ea51dfd7d81" prot="public" static="no">
+        <name>IS_NUM</name>
+        <param><defname>c</defname></param>
+        <initializer>(((c) &gt;= &apos;0&apos;) &amp;&amp; ((c) &lt;= &apos;9&apos;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="18" column="9" bodyfile="calculator_front.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="calculator__front_8c_1ad2976e6305281f5aadf27d4356a397b6" prot="public" static="no">
+        <name>ASCII_TO_NUM</name>
+        <param><defname>c</defname></param>
+        <initializer>((c) - &apos;0&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="19" column="9" bodyfile="calculator_front.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="calculator__front_8c_1a7bb718ca187303875a4669e9dda50ab7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double read_number_stdin</definition>
+        <argsstring>(int *error)</argsstring>
+        <name>read_number_stdin</name>
+        <param>
+          <type>int *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Reads a number from stdin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to int variable storing error code </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The read number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="121" column="15" bodyfile="calculator_front.c" bodystart="121" bodyend="163" declfile="calculator_front.c" declline="30" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1a5bb0a1040b612efad2163e7f35d2554a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>static double divide_by_10_n_times</definition>
+        <argsstring>(int num, int times)</argsstring>
+        <name>divide_by_10_n_times</name>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <briefdescription>
+<para>Divides a number a certain amount of times. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number to divide </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>times</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The times to divide by 10 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number divided </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="165" column="15" bodyfile="calculator_front.c" bodystart="165" bodyend="172" declfile="calculator_front.c" declline="39" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1a943559f6db96f9f604d44e1e47f58c67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int parse_input</definition>
+        <argsstring>(double *op1, double *op2, char *operator)</argsstring>
+        <name>parse_input</name>
+        <param>
+          <type>double *</type>
+          <declname>op1</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>op2</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>operator</declname>
+        </param>
+        <briefdescription>
+<para>Reads two operands and an operator from stdin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>op1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the first operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the second operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the operator char representation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if there was an error, 1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="48" column="5" bodyfile="calculator_front.c" bodystart="48" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1a3518f70aefc3425321fb11a873583483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_calculator_tips</definition>
+        <argsstring>(void)</argsstring>
+        <name>print_calculator_tips</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Prints tips for calculator use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="71" column="6" bodyfile="calculator_front.c" bodystart="71" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1a0787877a67777cda173b9fc2766ac65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_operators</definition>
+        <argsstring>(char operators[], int op_num)</argsstring>
+        <name>print_operators</name>
+        <param>
+          <type>char</type>
+          <declname>operators</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>op_num</declname>
+        </param>
+        <briefdescription>
+<para>Prints available operators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operators</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array containing every operator-representing char </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of operators </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="84" column="6" bodyfile="calculator_front.c" bodystart="84" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1ad43229862c96d5558c5a6a30df5a3fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_operation_result</definition>
+        <argsstring>(double op1, double op2, char operation, double result)</argsstring>
+        <name>print_operation_result</name>
+        <param>
+          <type>double</type>
+          <declname>op1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>op2</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Prints the expression to resolve and the result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>op1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char representing operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation result </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="93" column="6" bodyfile="calculator_front.c" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1abc40cd622f423abf44084c8f8595f57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear_screen</definition>
+        <argsstring>(void)</argsstring>
+        <name>clear_screen</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clears terminal in an OS-specific basis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="97" column="6" bodyfile="calculator_front.c" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8c_1ad28147e4bdcc806db622550f264e57d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flush_stdin</definition>
+        <argsstring>(char limit)</argsstring>
+        <name>flush_stdin</name>
+        <param>
+          <type>char</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+<para>Flushes the stdin buffer. Takes characters from stdin until limit is found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character that indicates where to stop flushing </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.c" line="101" column="6" bodyfile="calculator_front.c" bodystart="101" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*****************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>@file<sp/><sp/><sp/><sp/><sp/>calculator_front.c</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>@brief<sp/><sp/><sp/><sp/>Front-end<sp/>of<sp/>the<sp/>calculator<sp/>(.c)</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>@author<sp/><sp/><sp/>Grupo<sp/>7</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/************************</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>INCLUDE<sp/>HEADER<sp/>FILES<sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="calculator__front_8h" kindref="compound">calculator_front.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>CONSTANT<sp/>AND<sp/>MACRO<sp/>DEFINITIONS<sp/>USING<sp/>#DEFINE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>IS_NUM(c)<sp/>(((c)<sp/>&gt;=<sp/>&apos;0&apos;)<sp/>&amp;&amp;<sp/>((c)<sp/>&lt;=<sp/>&apos;9&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASCII_TO_NUM(c)<sp/>((c)<sp/>-<sp/>&apos;0&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>FUNCTION<sp/>PROTOTYPES<sp/>FOR<sp/>PRIVATE<sp/>FUNCTIONS<sp/>WITH<sp/>FILE<sp/>LEVEL<sp/>SCOPE<sp/>*</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*******************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>read_number_stdin(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*error);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>divide_by_10_n_times(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>times);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/>GLOBAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1a943559f6db96f9f604d44e1e47f58c67" kindref="member">parse_input</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*op1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*op2,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">operator</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>error<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>=<sp/><ref refid="calculator__front_8h_1a0742eaeef55ee5d7c250920d24c44f2c" kindref="member">OPERATOR_NOT_FOUND</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>*op1<sp/>=<sp/>read_number_stdin(&amp;error);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reads<sp/>the<sp/>first<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(error)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>something<sp/>went<sp/>wrong</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="calculator__front_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>emtpies<sp/>stdin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">((c<sp/>=<sp/>getchar())<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>{}<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ignores<sp/>trailing<sp/>spaces<sp/>on<sp/>the<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>=<sp/>c;<sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>first<sp/>char<sp/>found<sp/>after<sp/>the<sp/>spaces<sp/>is<sp/>the<sp/>operator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>*op2<sp/>=<sp/>read_number_stdin(&amp;error);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reads<sp/>the<sp/>second<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(error)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>something<sp/>went<sp/>wrong</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>without<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1a3518f70aefc3425321fb11a873583483" kindref="member">print_calculator_tips</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Tips<sp/>de<sp/>uso:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Es<sp/>obligatorio<sp/>un<sp/>espacio<sp/>de<sp/>cada<sp/>lado<sp/>del<sp/>operador,<sp/>de<sp/>lo<sp/>contrario<sp/>el<sp/>comportamiento<sp/>es<sp/>indefinido.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Solo<sp/>es<sp/>obligatorio<sp/>el<sp/>primer<sp/>operando,<sp/>el<sp/>segundo,<sp/>si<sp/>se<sp/>omite,<sp/>se<sp/>asume<sp/>0.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Los<sp/>operadores<sp/>trigonometricos<sp/>operan<sp/>en<sp/>grados,<sp/>no<sp/>radianes.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Para<sp/>los<sp/>operadores<sp/>de<sp/>un<sp/>solo<sp/>parametro,<sp/>debe<sp/>ingresar<sp/>por<sp/>lo<sp/>menos<sp/>el<sp/>izquierdo.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-La<sp/>calculadora<sp/>truncara<sp/>a<sp/>enteros<sp/>todos<sp/>los<sp/>valores<sp/>que<sp/>no<sp/>deberian<sp/>ser<sp/>decimales\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t\t(por<sp/>ejemplo,<sp/>los<sp/>exponentes).\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Si<sp/>recibe<sp/>el<sp/>valor<sp/>-1.#IND00,<sp/>se<sp/>intento<sp/>realizar<sp/>una<sp/>operacion<sp/>con<sp/>valores<sp/>absurdos.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t-Si<sp/>recibe<sp/>el<sp/>valor<sp/>-1.#INF00,<sp/>se<sp/>provoco<sp/>una<sp/>indeterminacion<sp/>tendiente<sp/>a<sp/>inf,\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\t\tquizas<sp/>dividiendo<sp/>por<sp/>0,<sp/>o<sp/>provocando<sp/>un<sp/>numero<sp/>demasiado<sp/>grande.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1a0787877a67777cda173b9fc2766ac65d" kindref="member">print_operators</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>op_num)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Los<sp/>operadores<sp/>disponibles<sp/>son:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>op_num;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/>%c&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[i]);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>putchar(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1ad43229862c96d5558c5a6a30df5a3fbd" kindref="member">print_operation_result</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>op1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>op2,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>operation,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>result)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%f<sp/>%c<sp/>%f<sp/>=<sp/>%f\n&quot;</highlight><highlight class="normal">,<sp/>op1,<sp/>operation,<sp/>op2,<sp/>result);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>system(</highlight><highlight class="stringliteral">&quot;cls<sp/>||<sp/>clear&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8c_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>limit)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Until<sp/>it<sp/>gets<sp/>to<sp/>the<sp/>desired<sp/>char,<sp/>empties<sp/>stdin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">((c=getchar())<sp/>!=<sp/>limit)<sp/>{}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/><sp/>LOCAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/>Notes<sp/>about<sp/>the<sp/>implementation:</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/>This<sp/>functions<sp/>reads<sp/>chars<sp/>from<sp/>stdin<sp/>with<sp/>the<sp/>objective</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>of<sp/>parsing<sp/>a<sp/>number,<sp/>considering<sp/>negatives<sp/>and<sp/>decimals.</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>Also,<sp/>it<sp/>throws<sp/>away<sp/>any<sp/>left<sp/>padding<sp/>with<sp/>spaces.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>read_number_stdin(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*error)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>number<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>is_decimal<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>decimal_counter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>is_negative<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>char_counter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>*error<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>by<sp/>default,<sp/>there<sp/>is<sp/>no<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Continues<sp/>reading<sp/>chars<sp/>until<sp/>a<sp/>space<sp/>(after<sp/>the<sp/>initial<sp/>padding)<sp/>or<sp/>a<sp/>&apos;\n&apos;<sp/>are<sp/>found</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">((((c<sp/>=<sp/>getchar())<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(char_counter<sp/>==<sp/>0))<sp/>&amp;&amp;<sp/>c<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>char_counter++;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>char_counter<sp/>==<sp/>1)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>char_counter--;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ignores<sp/>left<sp/>padding<sp/>spaces</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;-&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>char_counter<sp/>==<sp/>1)<sp/>{<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_negative<sp/>=<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Handles<sp/>sign<sp/>if<sp/>there<sp/>is<sp/>a<sp/>minus<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="calculator__front_8c_1a977faf512b3cce7ff1253ea51dfd7d81" kindref="member">IS_NUM</ref>(c))<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>char<sp/>is<sp/>a<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(is_decimal<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number<sp/>*=<sp/>10.0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>it&apos;s<sp/>not<sp/>decimal,<sp/>adds<sp/>the<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>10<sp/>times<sp/>the<sp/>prev<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number<sp/>+=<sp/><ref refid="calculator__front_8c_1ad2976e6305281f5aadf27d4356a397b6" kindref="member">ASCII_TO_NUM</ref>(c);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>it&apos;s<sp/>decimal,<sp/>adds<sp/>the<sp/>number<sp/>adjusted<sp/>to<sp/>the<sp/>next</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>decimal<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number<sp/>+=<sp/>divide_by_10_n_times(<ref refid="calculator__front_8c_1ad2976e6305281f5aadf27d4356a397b6" kindref="member">ASCII_TO_NUM</ref>(c),<sp/>decimal_counter++);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;.&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>is_decimal<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>is_decimal<sp/>=<sp/>1;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>the<sp/>read<sp/>char<sp/>is<sp/>&apos;.&apos;<sp/>for<sp/>the<sp/>first<sp/>time,<sp/>the<sp/>next<sp/>are<sp/>decimals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>anything<sp/>else<sp/>was<sp/>input,<sp/>there<sp/>is<sp/>an<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*error<sp/>=<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>anyway,<sp/>it<sp/>will<sp/>continue<sp/>reading<sp/>until<sp/>&apos;<sp/>&apos;<sp/>or<sp/>&apos;\n&apos;<sp/>is<sp/>reached</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(is_negative)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number<sp/>*=<sp/>-1;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>number;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>divide_by_10_n_times(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>times)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a5eb1fb5a402a348e8c431bd811653a34" kindref="member">division</ref><sp/>=<sp/>num;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>starting<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>times;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="operations_8c_1a5eb1fb5a402a348e8c431bd811653a34" kindref="member">division</ref><sp/>/=<sp/>10.0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>divides<sp/>by<sp/>10<sp/>&apos;times&apos;<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a5eb1fb5a402a348e8c431bd811653a34" kindref="member">division</ref>;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="calculator_front.c"/>
+  </compounddef>
+</doxygen>

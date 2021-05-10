@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8c" xml:lang="en-US">
+<title>main.c File Reference</title>
+<indexterm><primary>main.c</primary></indexterm>
+<programlisting>#include &lt;stdio.h&gt;
+#include &quot;operations.h&quot;
+#include &quot;calculator_front.h&quot;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_main_8c_1a30892ce590446910ea3159e79f2f31f3">MAX_OPERATORS</link>   8</para>
+
+<para>Number of operators. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a55ac6ef9c85525970be8095f53bb61e1">EXIT_CHAR</link>   &apos;q&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1ad953081808cd2157c3e3c2154c0028d0">HELP_CHAR</link>   &apos;?&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a92ab67a2bd99b3a1f840258f0e39d6cc">SUM_CHAR</link>   &apos;+&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1ad076594cac1704aa54d7dec4ae0cdfa0">SUBS_CHAR</link>   &apos;-&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a439522f32e6ae47ed931006e870ae829">DIV_CHAR</link>   &apos;/&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a199270bd107c27fb585c3d1dc8bcd0eb">PROD_CHAR</link>   &apos;*&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1ac8bbff2acc59ee28d07e64115067653f">POW_CHAR</link>   &apos;^&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1ade3b7e0f1dfb9ff2a924b311e81c3978">FACT_CHAR</link>   &apos;!&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a81468e975b731555b779e56ffd2ae4a3">SIN_CHAR</link>   &apos;s&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1ae3f20f389ec84487be54dbd4577eff4f">COS_CHAR</link>   &apos;c&apos;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a9df18d35580a7d56e769717cc94bbf11">TAN_CHAR</link>   &apos;t&apos;</para>
+
+<para>unused </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a81054e8cd529a75320b2fa9c55fde6d6">ASIN_CHAR</link>   &apos;a&apos;</para>
+
+<para>unused </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a790b383129074e0e6d5c3a746926873c">ACOS_CHAR</link>   &apos;b&apos;</para>
+
+<para>unused </para>
+</listitem>
+            <listitem><para>#define <link linkend="_main_8c_1a91760d1ccad36dfafd8c2995ccacd7ca">ATAN_CHAR</link>   &apos;d&apos;</para>
+
+<para>unused </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_main_8c_1a8fb26976d3cfd2e8eaeff340ba9a2e46">find_operator</link> (char c)</para>
+
+<para>Finds the index of the operator represented by a char. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a965dd2a0135feedf149965b2fba5f861">add_operation</link> (char operator_char, double(*callback)(double, double))</para>
+
+<para>Adds an operator to the array. </para>
+</listitem>
+            <listitem><para>double <link linkend="_main_8c_1ac785bbcb0a916d38d0eea3cd64b9d174">integer_power_wrapper</link> (double a, double b)</para>
+
+<para>Wraps power function due to formatting. </para>
+</listitem>
+            <listitem><para>double <link linkend="_main_8c_1aa738137b9ad5c17ecb204845fc2c591f">factorial_wrapper</link> (double a, double b)</para>
+
+<para>Wraps factorial function due to formatting. </para>
+</listitem>
+            <listitem><para>double <link linkend="_main_8c_1ae6271594ff3d328bc3eaca1d1dacbd8c">sin_wrapper</link> (double a, double b)</para>
+
+<para>Wraps sin function due to formatting. </para>
+</listitem>
+            <listitem><para>double <link linkend="_main_8c_1a56e3f777c97a79830170044350559f69">cos_wrapper</link> (double a, double b)</para>
+
+<para>Wraps cos function due to formatting. </para>
+</listitem>
+            <listitem><para>int <link linkend="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe">main</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>double(* <link linkend="_main_8c_1a5278fef9d11d8adad50c93146ae9312b">actions</link> [<link linkend="_main_8c_1a30892ce590446910ea3159e79f2f31f3">MAX_OPERATORS</link>])(double, double)</para>
+</listitem>
+            <listitem><para>char <link linkend="_main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43">operators</link> [<link linkend="_main_8c_1a30892ce590446910ea3159e79f2f31f3">MAX_OPERATORS</link>]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_main_8c_1a790b383129074e0e6d5c3a746926873c"/>    <section>
+    <title>ACOS_CHAR</title>
+<indexterm><primary>ACOS_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ACOS_CHAR</secondary></indexterm>
+<para><computeroutput>#define ACOS_CHAR   &apos;b&apos;</computeroutput></para><para>
+
+<para>unused </para>
+</para>
+    </section><anchor xml:id="_main_8c_1a81054e8cd529a75320b2fa9c55fde6d6"/>    <section>
+    <title>ASIN_CHAR</title>
+<indexterm><primary>ASIN_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ASIN_CHAR</secondary></indexterm>
+<para><computeroutput>#define ASIN_CHAR   &apos;a&apos;</computeroutput></para><para>
+
+<para>unused </para>
+</para>
+    </section><anchor xml:id="_main_8c_1a91760d1ccad36dfafd8c2995ccacd7ca"/>    <section>
+    <title>ATAN_CHAR</title>
+<indexterm><primary>ATAN_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>ATAN_CHAR</secondary></indexterm>
+<para><computeroutput>#define ATAN_CHAR   &apos;d&apos;</computeroutput></para><para>
+
+<para>unused </para>
+</para>
+    </section><anchor xml:id="_main_8c_1ae3f20f389ec84487be54dbd4577eff4f"/>    <section>
+    <title>COS_CHAR</title>
+<indexterm><primary>COS_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>COS_CHAR</secondary></indexterm>
+<para><computeroutput>#define COS_CHAR   &apos;c&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a439522f32e6ae47ed931006e870ae829"/>    <section>
+    <title>DIV_CHAR</title>
+<indexterm><primary>DIV_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>DIV_CHAR</secondary></indexterm>
+<para><computeroutput>#define DIV_CHAR   &apos;/&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a55ac6ef9c85525970be8095f53bb61e1"/>    <section>
+    <title>EXIT_CHAR</title>
+<indexterm><primary>EXIT_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>EXIT_CHAR</secondary></indexterm>
+<para><computeroutput>#define EXIT_CHAR   &apos;q&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1ade3b7e0f1dfb9ff2a924b311e81c3978"/>    <section>
+    <title>FACT_CHAR</title>
+<indexterm><primary>FACT_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>FACT_CHAR</secondary></indexterm>
+<para><computeroutput>#define FACT_CHAR   &apos;!&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1ad953081808cd2157c3e3c2154c0028d0"/>    <section>
+    <title>HELP_CHAR</title>
+<indexterm><primary>HELP_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>HELP_CHAR</secondary></indexterm>
+<para><computeroutput>#define HELP_CHAR   &apos;?&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a30892ce590446910ea3159e79f2f31f3"/>    <section>
+    <title>MAX_OPERATORS</title>
+<indexterm><primary>MAX_OPERATORS</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>MAX_OPERATORS</secondary></indexterm>
+<para><computeroutput>#define MAX_OPERATORS   8</computeroutput></para><para>
+
+<para>Number of operators. </para>
+</para>
+    </section><anchor xml:id="_main_8c_1ac8bbff2acc59ee28d07e64115067653f"/>    <section>
+    <title>POW_CHAR</title>
+<indexterm><primary>POW_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>POW_CHAR</secondary></indexterm>
+<para><computeroutput>#define POW_CHAR   &apos;^&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a199270bd107c27fb585c3d1dc8bcd0eb"/>    <section>
+    <title>PROD_CHAR</title>
+<indexterm><primary>PROD_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>PROD_CHAR</secondary></indexterm>
+<para><computeroutput>#define PROD_CHAR   &apos;*&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a81468e975b731555b779e56ffd2ae4a3"/>    <section>
+    <title>SIN_CHAR</title>
+<indexterm><primary>SIN_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>SIN_CHAR</secondary></indexterm>
+<para><computeroutput>#define SIN_CHAR   &apos;s&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1ad076594cac1704aa54d7dec4ae0cdfa0"/>    <section>
+    <title>SUBS_CHAR</title>
+<indexterm><primary>SUBS_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>SUBS_CHAR</secondary></indexterm>
+<para><computeroutput>#define SUBS_CHAR   &apos;-&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a92ab67a2bd99b3a1f840258f0e39d6cc"/>    <section>
+    <title>SUM_CHAR</title>
+<indexterm><primary>SUM_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>SUM_CHAR</secondary></indexterm>
+<para><computeroutput>#define SUM_CHAR   &apos;+&apos;</computeroutput></para>    </section><anchor xml:id="_main_8c_1a9df18d35580a7d56e769717cc94bbf11"/>    <section>
+    <title>TAN_CHAR</title>
+<indexterm><primary>TAN_CHAR</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>TAN_CHAR</secondary></indexterm>
+<para><computeroutput>#define TAN_CHAR   &apos;t&apos;</computeroutput></para><para>
+
+<para>unused </para>
+</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8c_1a965dd2a0135feedf149965b2fba5f861"/>    <section>
+    <title>add_operation()</title>
+<indexterm><primary>add_operation</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>add_operation</secondary></indexterm>
+<para><computeroutput>int add_operation (char operator_char, double(*)(double, double) callback)</computeroutput></para><para>
+
+<para>Adds an operator to the array. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>operator_char</entry>
+                                <entry>
+<para>The char represeting the operation </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>callback</entry>
+                                <entry>
+<para>The function to associate to the operator </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>1 if succesful, 0 otherwise </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_main_8c_1a56e3f777c97a79830170044350559f69"/>    <section>
+    <title>cos_wrapper()</title>
+<indexterm><primary>cos_wrapper</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>cos_wrapper</secondary></indexterm>
+<para><computeroutput>double cos_wrapper (double a, double b)</computeroutput></para><para>
+
+<para>Wraps cos function due to formatting. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Left operand (to calc cos of) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>Right operand (nothing) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Result of cos(a) </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_main_8c_1aa738137b9ad5c17ecb204845fc2c591f"/>    <section>
+    <title>factorial_wrapper()</title>
+<indexterm><primary>factorial_wrapper</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>factorial_wrapper</secondary></indexterm>
+<para><computeroutput>double factorial_wrapper (double a, double b)</computeroutput></para><para>
+
+<para>Wraps factorial function due to formatting. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Left operand (to take the factorial of) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>Right operand (nothing) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Result of a! </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_main_8c_1a8fb26976d3cfd2e8eaeff340ba9a2e46"/>    <section>
+    <title>find_operator()</title>
+<indexterm><primary>find_operator</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>find_operator</secondary></indexterm>
+<para><computeroutput>int find_operator (char c)</computeroutput></para><para>
+
+<para>Finds the index of the operator represented by a char. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>c</entry>
+                                <entry>
+<para>The identifier of the operator to search for </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The operation index </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_main_8c_1ac785bbcb0a916d38d0eea3cd64b9d174"/>    <section>
+    <title>integer_power_wrapper()</title>
+<indexterm><primary>integer_power_wrapper</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>integer_power_wrapper</secondary></indexterm>
+<para><computeroutput>double integer_power_wrapper (double a, double b)</computeroutput></para><para>
+
+<para>Wraps power function due to formatting. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Left operand (base) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>Right operand (exponent) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Result of a^b </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_main_8c_1a840291bc02cba5474a4cb46a9b9566fe"/>    <section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (void )</computeroutput></para>    </section><anchor xml:id="_main_8c_1ae6271594ff3d328bc3eaca1d1dacbd8c"/>    <section>
+    <title>sin_wrapper()</title>
+<indexterm><primary>sin_wrapper</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>sin_wrapper</secondary></indexterm>
+<para><computeroutput>double sin_wrapper (double a, double b)</computeroutput></para><para>
+
+<para>Wraps sin function due to formatting. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para>Left operand (to calc sin of) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para>Right operand (nothing) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Result of sin(a) </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_main_8c_1a5278fef9d11d8adad50c93146ae9312b"/>    <section>
+    <title>actions</title>
+<indexterm><primary>actions</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>actions</secondary></indexterm>
+<para><computeroutput>double(* actions[<link linkend="_main_8c_1a30892ce590446910ea3159e79f2f31f3">MAX_OPERATORS</link>])(double, double) (double , double )</computeroutput></para>    </section><anchor xml:id="_main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43"/>    <section>
+    <title>operators</title>
+<indexterm><primary>operators</primary><secondary>main.c</secondary></indexterm>
+<indexterm><primary>main.c</primary><secondary>operators</secondary></indexterm>
+<para><computeroutput>char operators[<link linkend="_main_8c_1a30892ce590446910ea3159e79f2f31f3">MAX_OPERATORS</link>]</computeroutput></para></section>
+</section>
+</section>

@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['parse_5finput_65',['parse_input',['../calculator__front_8c.html#a943559f6db96f9f604d44e1e47f58c67',1,'parse_input(double *op1, double *op2, char *operator):&#160;calculator_front.c'],['../calculator__front_8h.html#a943559f6db96f9f604d44e1e47f58c67',1,'parse_input(double *op1, double *op2, char *operator):&#160;calculator_front.c']]],
+  ['print_5fcalculator_5ftips_66',['print_calculator_tips',['../calculator__front_8c.html#a3518f70aefc3425321fb11a873583483',1,'print_calculator_tips(void):&#160;calculator_front.c'],['../calculator__front_8h.html#a3518f70aefc3425321fb11a873583483',1,'print_calculator_tips(void):&#160;calculator_front.c']]],
+  ['print_5foperation_5fresult_67',['print_operation_result',['../calculator__front_8c.html#ad43229862c96d5558c5a6a30df5a3fbd',1,'print_operation_result(double op1, double op2, char operation, double result):&#160;calculator_front.c'],['../calculator__front_8h.html#ad43229862c96d5558c5a6a30df5a3fbd',1,'print_operation_result(double op1, double op2, char operation, double result):&#160;calculator_front.c']]],
+  ['print_5foperators_68',['print_operators',['../calculator__front_8c.html#a0787877a67777cda173b9fc2766ac65d',1,'print_operators(char operators[], int op_num):&#160;calculator_front.c'],['../calculator__front_8h.html#a0787877a67777cda173b9fc2766ac65d',1,'print_operators(char operators[], int op_num):&#160;calculator_front.c']]],
+  ['product_69',['product',['../operations_8c.html#aff47c73e752280f9873b8fe428ca55a8',1,'product(double a, double b):&#160;operations.c'],['../operations_8h.html#aff47c73e752280f9873b8fe428ca55a8',1,'product(double a, double b):&#160;operations.c']]]
+];

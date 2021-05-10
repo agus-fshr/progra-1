@@ -1,0 +1,140 @@
+\hypertarget{calculator__front_8c}{}\doxysection{calculator\+\_\+front.\+c File Reference}
+\label{calculator__front_8c}\index{calculator\_front.c@{calculator\_front.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}calculator\+\_\+front.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{calculator__front_8c_a977faf512b3cce7ff1253ea51dfd7d81}{IS\+\_\+\+NUM}}(c)~(((c) $>$= \textquotesingle{}0\textquotesingle{}) \&\& ((c) $<$= \textquotesingle{}9\textquotesingle{}))
+\item 
+\#define \mbox{\hyperlink{calculator__front_8c_ad2976e6305281f5aadf27d4356a397b6}{ASCII\+\_\+\+TO\+\_\+\+NUM}}(c)~((c) -\/ \textquotesingle{}0\textquotesingle{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{calculator__front_8c_a943559f6db96f9f604d44e1e47f58c67}{parse\+\_\+input}} (double $\ast$op1, double $\ast$op2, char $\ast$operator)
+\begin{DoxyCompactList}\small\item\em Reads two operands and an operator from stdin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{calculator__front_8c_a3518f70aefc3425321fb11a873583483}{print\+\_\+calculator\+\_\+tips}} (void)
+\begin{DoxyCompactList}\small\item\em Prints tips for calculator use. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{calculator__front_8c_a0787877a67777cda173b9fc2766ac65d}{print\+\_\+operators}} (char \mbox{\hyperlink{main_8c_a72b1e1e4e69b91f15c2d5b9b09aedb43}{operators}}\mbox{[}$\,$\mbox{]}, int op\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Prints available operators. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{calculator__front_8c_ad43229862c96d5558c5a6a30df5a3fbd}{print\+\_\+operation\+\_\+result}} (double op1, double op2, char operation, double result)
+\begin{DoxyCompactList}\small\item\em Prints the expression to resolve and the result. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{calculator__front_8c_abc40cd622f423abf44084c8f8595f57f}{clear\+\_\+screen}} (void)
+\begin{DoxyCompactList}\small\item\em Clears terminal in an OS-\/specific basis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{calculator__front_8c_ad28147e4bdcc806db622550f264e57d5}{flush\+\_\+stdin}} (char limit)
+\begin{DoxyCompactList}\small\item\em Flushes the stdin buffer. Takes characters from stdin until limit is found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{calculator__front_8c_ad2976e6305281f5aadf27d4356a397b6}\label{calculator__front_8c_ad2976e6305281f5aadf27d4356a397b6}} 
+\index{calculator\_front.c@{calculator\_front.c}!ASCII\_TO\_NUM@{ASCII\_TO\_NUM}}
+\index{ASCII\_TO\_NUM@{ASCII\_TO\_NUM}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{ASCII\_TO\_NUM}{ASCII\_TO\_NUM}}
+{\footnotesize\ttfamily \#define ASCII\+\_\+\+TO\+\_\+\+NUM(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~((c) -\/ \textquotesingle{}0\textquotesingle{})}
+
+\mbox{\Hypertarget{calculator__front_8c_a977faf512b3cce7ff1253ea51dfd7d81}\label{calculator__front_8c_a977faf512b3cce7ff1253ea51dfd7d81}} 
+\index{calculator\_front.c@{calculator\_front.c}!IS\_NUM@{IS\_NUM}}
+\index{IS\_NUM@{IS\_NUM}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{IS\_NUM}{IS\_NUM}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+NUM(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~(((c) $>$= \textquotesingle{}0\textquotesingle{}) \&\& ((c) $<$= \textquotesingle{}9\textquotesingle{}))}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{calculator__front_8c_abc40cd622f423abf44084c8f8595f57f}\label{calculator__front_8c_abc40cd622f423abf44084c8f8595f57f}} 
+\index{calculator\_front.c@{calculator\_front.c}!clear\_screen@{clear\_screen}}
+\index{clear\_screen@{clear\_screen}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{clear\_screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void clear\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clears terminal in an OS-\/specific basis. 
+
+\mbox{\Hypertarget{calculator__front_8c_ad28147e4bdcc806db622550f264e57d5}\label{calculator__front_8c_ad28147e4bdcc806db622550f264e57d5}} 
+\index{calculator\_front.c@{calculator\_front.c}!flush\_stdin@{flush\_stdin}}
+\index{flush\_stdin@{flush\_stdin}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{flush\_stdin()}{flush\_stdin()}}
+{\footnotesize\ttfamily void flush\+\_\+stdin (\begin{DoxyParamCaption}\item[{char}]{limit }\end{DoxyParamCaption})}
+
+
+
+Flushes the stdin buffer. Takes characters from stdin until limit is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & Character that indicates where to stop flushing \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{calculator__front_8c_a943559f6db96f9f604d44e1e47f58c67}\label{calculator__front_8c_a943559f6db96f9f604d44e1e47f58c67}} 
+\index{calculator\_front.c@{calculator\_front.c}!parse\_input@{parse\_input}}
+\index{parse\_input@{parse\_input}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{parse\_input()}{parse\_input()}}
+{\footnotesize\ttfamily int parse\+\_\+input (\begin{DoxyParamCaption}\item[{double $\ast$}]{op1,  }\item[{double $\ast$}]{op2,  }\item[{char $\ast$}]{operator }\end{DoxyParamCaption})}
+
+
+
+Reads two operands and an operator from stdin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op1} & Pointer to the variable that stores the first operand \\
+\hline
+{\em op2} & Pointer to the variable that stores the second operand \\
+\hline
+{\em operator} & Pointer to the variable that stores the operator char representation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if there was an error, 1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{calculator__front_8c_a3518f70aefc3425321fb11a873583483}\label{calculator__front_8c_a3518f70aefc3425321fb11a873583483}} 
+\index{calculator\_front.c@{calculator\_front.c}!print\_calculator\_tips@{print\_calculator\_tips}}
+\index{print\_calculator\_tips@{print\_calculator\_tips}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{print\_calculator\_tips()}{print\_calculator\_tips()}}
+{\footnotesize\ttfamily void print\+\_\+calculator\+\_\+tips (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Prints tips for calculator use. 
+
+\mbox{\Hypertarget{calculator__front_8c_ad43229862c96d5558c5a6a30df5a3fbd}\label{calculator__front_8c_ad43229862c96d5558c5a6a30df5a3fbd}} 
+\index{calculator\_front.c@{calculator\_front.c}!print\_operation\_result@{print\_operation\_result}}
+\index{print\_operation\_result@{print\_operation\_result}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{print\_operation\_result()}{print\_operation\_result()}}
+{\footnotesize\ttfamily void print\+\_\+operation\+\_\+result (\begin{DoxyParamCaption}\item[{double}]{op1,  }\item[{double}]{op2,  }\item[{char}]{operation,  }\item[{double}]{result }\end{DoxyParamCaption})}
+
+
+
+Prints the expression to resolve and the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op1} & Left operand \\
+\hline
+{\em op2} & Right operand \\
+\hline
+{\em operation} & Char representing operation \\
+\hline
+{\em result} & The operation result \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{calculator__front_8c_a0787877a67777cda173b9fc2766ac65d}\label{calculator__front_8c_a0787877a67777cda173b9fc2766ac65d}} 
+\index{calculator\_front.c@{calculator\_front.c}!print\_operators@{print\_operators}}
+\index{print\_operators@{print\_operators}!calculator\_front.c@{calculator\_front.c}}
+\doxysubsubsection{\texorpdfstring{print\_operators()}{print\_operators()}}
+{\footnotesize\ttfamily void print\+\_\+operators (\begin{DoxyParamCaption}\item[{char}]{operators\mbox{[}$\,$\mbox{]},  }\item[{int}]{op\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Prints available operators. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em operators} & Array containing every operator-\/representing char \\
+\hline
+{\em op\+\_\+num} & Number of operators \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,199 @@
+\begin{theindex}
+
+  \item {ACOS\_CHAR}
+    \subitem {main.c}, \hyperpage{9}
+  \item {actions}
+    \subitem {main.c}, \hyperpage{14}
+  \item {add\_operation}
+    \subitem {main.c}, \hyperpage{11}
+  \item {ASCII\_TO\_NUM}
+    \subitem {calculator\_front.c}, \hyperpage{3}
+  \item {ASIN\_CHAR}
+    \subitem {main.c}, \hyperpage{9}
+  \item {ATAN\_CHAR}
+    \subitem {main.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {calculator\_front.c}, \hyperpage{3}
+    \subitem {ASCII\_TO\_NUM}, \hyperpage{3}
+    \subitem {clear\_screen}, \hyperpage{4}
+    \subitem {flush\_stdin}, \hyperpage{4}
+    \subitem {IS\_NUM}, \hyperpage{4}
+    \subitem {parse\_input}, \hyperpage{4}
+    \subitem {print\_calculator\_tips}, \hyperpage{5}
+    \subitem {print\_operation\_result}, \hyperpage{5}
+    \subitem {print\_operators}, \hyperpage{5}
+  \item {calculator\_front.h}, \hyperpage{6}
+    \subitem {clear\_screen}, \hyperpage{6}
+    \subitem {flush\_stdin}, \hyperpage{6}
+    \subitem {OPERATOR\_NOT\_FOUND}, \hyperpage{6}
+    \subitem {parse\_input}, \hyperpage{7}
+    \subitem {print\_calculator\_tips}, \hyperpage{7}
+    \subitem {print\_operation\_result}, \hyperpage{7}
+    \subitem {print\_operators}, \hyperpage{8}
+  \item {clear\_screen}
+    \subitem {calculator\_front.c}, \hyperpage{4}
+    \subitem {calculator\_front.h}, \hyperpage{6}
+  \item {cos}
+    \subitem {operations.c}, \hyperpage{15}
+    \subitem {operations.h}, \hyperpage{19}
+  \item {COS\_CHAR}
+    \subitem {main.c}, \hyperpage{9}
+  \item {cos\_wrapper}
+    \subitem {main.c}, \hyperpage{12}
+
+  \indexspace
+
+  \item {DIV\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+  \item {division}
+    \subitem {operations.c}, \hyperpage{15}
+    \subitem {operations.h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {EXIT\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {FACT\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+  \item {factorial}
+    \subitem {operations.c}, \hyperpage{16}
+    \subitem {operations.h}, \hyperpage{19}
+  \item {factorial\_wrapper}
+    \subitem {main.c}, \hyperpage{12}
+  \item {find\_operator}
+    \subitem {main.c}, \hyperpage{12}
+  \item {flush\_stdin}
+    \subitem {calculator\_front.c}, \hyperpage{4}
+    \subitem {calculator\_front.h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {HELP\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {integer\_power}
+    \subitem {operations.c}, \hyperpage{16}
+    \subitem {operations.h}, \hyperpage{21}
+  \item {integer\_power\_wrapper}
+    \subitem {main.c}, \hyperpage{13}
+  \item {IS\_NUM}
+    \subitem {calculator\_front.c}, \hyperpage{4}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{13}
+  \item {main.c}, \hyperpage{8}
+    \subitem {ACOS\_CHAR}, \hyperpage{9}
+    \subitem {actions}, \hyperpage{14}
+    \subitem {add\_operation}, \hyperpage{11}
+    \subitem {ASIN\_CHAR}, \hyperpage{9}
+    \subitem {ATAN\_CHAR}, \hyperpage{9}
+    \subitem {COS\_CHAR}, \hyperpage{9}
+    \subitem {cos\_wrapper}, \hyperpage{12}
+    \subitem {DIV\_CHAR}, \hyperpage{10}
+    \subitem {EXIT\_CHAR}, \hyperpage{10}
+    \subitem {FACT\_CHAR}, \hyperpage{10}
+    \subitem {factorial\_wrapper}, \hyperpage{12}
+    \subitem {find\_operator}, \hyperpage{12}
+    \subitem {HELP\_CHAR}, \hyperpage{10}
+    \subitem {integer\_power\_wrapper}, \hyperpage{13}
+    \subitem {main}, \hyperpage{13}
+    \subitem {MAX\_OPERATORS}, \hyperpage{10}
+    \subitem {operators}, \hyperpage{14}
+    \subitem {POW\_CHAR}, \hyperpage{10}
+    \subitem {PROD\_CHAR}, \hyperpage{10}
+    \subitem {SIN\_CHAR}, \hyperpage{11}
+    \subitem {sin\_wrapper}, \hyperpage{13}
+    \subitem {SUBS\_CHAR}, \hyperpage{11}
+    \subitem {SUM\_CHAR}, \hyperpage{11}
+    \subitem {TAN\_CHAR}, \hyperpage{11}
+  \item {MAX\_OPERATORS}
+    \subitem {main.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {operations.c}, \hyperpage{14}
+    \subitem {cos}, \hyperpage{15}
+    \subitem {division}, \hyperpage{15}
+    \subitem {factorial}, \hyperpage{16}
+    \subitem {integer\_power}, \hyperpage{16}
+    \subitem {product}, \hyperpage{16}
+    \subitem {sin}, \hyperpage{17}
+    \subitem {substraction}, \hyperpage{17}
+    \subitem {sum}, \hyperpage{17}
+    \subitem {TAYLOR\_TERMS}, \hyperpage{15}
+  \item {operations.h}, \hyperpage{18}
+    \subitem {cos}, \hyperpage{19}
+    \subitem {division}, \hyperpage{19}
+    \subitem {factorial}, \hyperpage{19}
+    \subitem {integer\_power}, \hyperpage{21}
+    \subitem {PI}, \hyperpage{18}
+    \subitem {product}, \hyperpage{21}
+    \subitem {sin}, \hyperpage{21}
+    \subitem {substraction}, \hyperpage{22}
+    \subitem {sum}, \hyperpage{22}
+  \item {OPERATOR\_NOT\_FOUND}
+    \subitem {calculator\_front.h}, \hyperpage{6}
+  \item {operators}
+    \subitem {main.c}, \hyperpage{14}
+
+  \indexspace
+
+  \item {parse\_input}
+    \subitem {calculator\_front.c}, \hyperpage{4}
+    \subitem {calculator\_front.h}, \hyperpage{7}
+  \item {PI}
+    \subitem {operations.h}, \hyperpage{18}
+  \item {POW\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+  \item {print\_calculator\_tips}
+    \subitem {calculator\_front.c}, \hyperpage{5}
+    \subitem {calculator\_front.h}, \hyperpage{7}
+  \item {print\_operation\_result}
+    \subitem {calculator\_front.c}, \hyperpage{5}
+    \subitem {calculator\_front.h}, \hyperpage{7}
+  \item {print\_operators}
+    \subitem {calculator\_front.c}, \hyperpage{5}
+    \subitem {calculator\_front.h}, \hyperpage{8}
+  \item {PROD\_CHAR}
+    \subitem {main.c}, \hyperpage{10}
+  \item {product}
+    \subitem {operations.c}, \hyperpage{16}
+    \subitem {operations.h}, \hyperpage{21}
+
+  \indexspace
+
+  \item {sin}
+    \subitem {operations.c}, \hyperpage{17}
+    \subitem {operations.h}, \hyperpage{21}
+  \item {SIN\_CHAR}
+    \subitem {main.c}, \hyperpage{11}
+  \item {sin\_wrapper}
+    \subitem {main.c}, \hyperpage{13}
+  \item {SUBS\_CHAR}
+    \subitem {main.c}, \hyperpage{11}
+  \item {substraction}
+    \subitem {operations.c}, \hyperpage{17}
+    \subitem {operations.h}, \hyperpage{22}
+  \item {sum}
+    \subitem {operations.c}, \hyperpage{17}
+    \subitem {operations.h}, \hyperpage{22}
+  \item {SUM\_CHAR}
+    \subitem {main.c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {TAN\_CHAR}
+    \subitem {main.c}, \hyperpage{11}
+  \item {TAYLOR\_TERMS}
+    \subitem {operations.c}, \hyperpage{15}
+
+\end{theindex}

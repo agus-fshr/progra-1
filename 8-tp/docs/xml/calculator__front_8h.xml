@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="calculator__front_8h" kind="file" language="C++">
+    <compoundname>calculator_front.h</compoundname>
+    <includedby refid="calculator__front_8c" local="yes">calculator_front.c</includedby>
+    <includedby refid="main_8c" local="yes">main.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>calculator_front.c</label>
+        <link refid="calculator__front_8c"/>
+      </node>
+      <node id="1">
+        <label>calculator_front.h</label>
+        <link refid="calculator__front_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="calculator__front_8h_1a0742eaeef55ee5d7c250920d24c44f2c" prot="public" static="no">
+        <name>OPERATOR_NOT_FOUND</name>
+        <initializer>-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="14" column="9" bodyfile="calculator_front.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="calculator__front_8h_1a943559f6db96f9f604d44e1e47f58c67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int parse_input</definition>
+        <argsstring>(double *op1, double *op2, char *operator)</argsstring>
+        <name>parse_input</name>
+        <param>
+          <type>double *</type>
+          <declname>op1</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>op2</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>operator</declname>
+        </param>
+        <briefdescription>
+<para>Reads two operands and an operator from stdin. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>op1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the first operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the second operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that stores the operator char representation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if there was an error, 1 otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="28" column="5" bodyfile="calculator_front.c" bodystart="48" bodyend="69" declfile="calculator_front.h" declline="28" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8h_1a3518f70aefc3425321fb11a873583483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_calculator_tips</definition>
+        <argsstring>(void)</argsstring>
+        <name>print_calculator_tips</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Prints tips for calculator use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="34" column="6" bodyfile="calculator_front.c" bodystart="71" bodyend="82" declfile="calculator_front.h" declline="34" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8h_1a0787877a67777cda173b9fc2766ac65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_operators</definition>
+        <argsstring>(char operators[], int op_num)</argsstring>
+        <name>print_operators</name>
+        <param>
+          <type>char</type>
+          <declname>operators</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>op_num</declname>
+        </param>
+        <briefdescription>
+<para>Prints available operators. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>operators</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array containing every operator-representing char </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of operators </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="42" column="6" bodyfile="calculator_front.c" bodystart="84" bodyend="91" declfile="calculator_front.h" declline="42" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8h_1ad43229862c96d5558c5a6a30df5a3fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_operation_result</definition>
+        <argsstring>(double op1, double op2, char operation, double result)</argsstring>
+        <name>print_operation_result</name>
+        <param>
+          <type>double</type>
+          <declname>op1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>op2</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>operation</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Prints the expression to resolve and the result. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>op1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Left operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>op2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Right operand </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>operation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char representing operation </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation result </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="52" column="6" bodyfile="calculator_front.c" bodystart="93" bodyend="95" declfile="calculator_front.h" declline="52" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8h_1abc40cd622f423abf44084c8f8595f57f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear_screen</definition>
+        <argsstring>(void)</argsstring>
+        <name>clear_screen</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Clears terminal in an OS-specific basis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="58" column="6" bodyfile="calculator_front.c" bodystart="97" bodyend="99" declfile="calculator_front.h" declline="58" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="calculator__front_8h_1ad28147e4bdcc806db622550f264e57d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void flush_stdin</definition>
+        <argsstring>(char limit)</argsstring>
+        <name>flush_stdin</name>
+        <param>
+          <type>char</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+<para>Flushes the stdin buffer. Takes characters from stdin until limit is found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Character that indicates where to stop flushing </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="calculator_front.h" line="65" column="6" bodyfile="calculator_front.c" bodystart="101" bodyend="105" declfile="calculator_front.h" declline="65" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*****************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>@file<sp/><sp/><sp/><sp/><sp/>calculator_front.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>@brief<sp/><sp/><sp/><sp/>Front-end<sp/>of<sp/>the<sp/>calculator<sp/>(.h)</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>@author<sp/><sp/><sp/>Grupo<sp/>7</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CALCULATOR_INPUT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CALCULATOR_INPUT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>CONSTANT<sp/>AND<sp/>MACRO<sp/>DEFS<sp/>USING<sp/>#DEFINE<sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="calculator__front_8h_1a0742eaeef55ee5d7c250920d24c44f2c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OPERATOR_NOT_FOUND<sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*****************************************</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>FUNCTION<sp/>PROTOTYPES<sp/>WITH<sp/>GLOBAL<sp/>SCOPE<sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*****************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1a943559f6db96f9f604d44e1e47f58c67" kindref="member">parse_input</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*op1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*op2,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">operator</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1a3518f70aefc3425321fb11a873583483" kindref="member">print_calculator_tips</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1a0787877a67777cda173b9fc2766ac65d" kindref="member">print_operators</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>op_num);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1ad43229862c96d5558c5a6a30df5a3fbd" kindref="member">print_operation_result</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>op1,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>op2,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>operation,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>result);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1ad28147e4bdcc806db622550f264e57d5" kindref="member">flush_stdin</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>limit);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="calculator_front.h"/>
+  </compounddef>
+</doxygen>
