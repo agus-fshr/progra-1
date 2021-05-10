@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.c" line="121" column="15" bodyfile="operations.c" bodystart="121" bodyend="123" declfile="operations.c" declline="32" declcolumn="15"/>
+        <location file="operations.c" line="120" column="15" bodyfile="operations.c" bodystart="120" bodyend="122" declfile="operations.c" declline="32" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="operations_8c_1a4af89ba3fc48eadef360df9bfa233991" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.c" line="125" column="15" bodyfile="operations.c" bodystart="125" bodyend="128" declfile="operations.c" declline="40" declcolumn="15"/>
+        <location file="operations.c" line="124" column="15" bodyfile="operations.c" bodystart="124" bodyend="127" declfile="operations.c" declline="40" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="operations_8c_1aa696b61cebd54eea6ae72f2da02ed1d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -366,7 +366,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.c" line="90" column="8" bodyfile="operations.c" bodystart="90" bodyend="101"/>
+        <location file="operations.c" line="90" column="8" bodyfile="operations.c" bodystart="90" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.c" line="103" column="8" bodyfile="operations.c" bodystart="103" bodyend="112"/>
+        <location file="operations.c" line="102" column="8" bodyfile="operations.c" bodystart="102" bodyend="111"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -486,42 +486,41 @@
 <codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f" kindref="member">cos</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>0,<sp/>termino<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radian_num<sp/>=<sp/>deg_to_rad(deg_to_first_cycle(a));</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Se<sp/>calculara<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>radian_num);</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="operations_8c_1a63353134e11696b5574869e3df0a0f89" kindref="member">TAYLOR_TERMS</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sin(a)<sp/>=<sp/>sum((-1)^n<sp/>*<sp/>a^(2n+1)/((2n+1)!))</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign<sp/>=<sp/>i%2<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>-1;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(-1)^n</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termino<sp/>=<sp/>sign<sp/>*<sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(radian_num,<sp/>2*i)<sp/>/<sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(2*i);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//calcula<sp/>el<sp/>valor<sp/>absoluto<sp/>de<sp/>cada<sp/>termino</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>+=<sp/>termino;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>term<sp/>=<sp/>a;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(term<sp/>&gt;<sp/>1){<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>avoids<sp/>multiplying<sp/>by<sp/>0<sp/>and<sp/>stops<sp/>when<sp/>term<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>=<sp/>ans<sp/>*<sp/>(term);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>term--;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="operations_8c_1a63353134e11696b5574869e3df0a0f89" kindref="member">TAYLOR_TERMS</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sin(a)<sp/>=<sp/>sum((-1)^n<sp/>*<sp/>a^(2n+1)/((2n+1)!))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign<sp/>=<sp/>i%2<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>-1;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(-1)^n</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termino<sp/>=<sp/>sign<sp/>*<sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(radian_num,<sp/>2*i)<sp/>/<sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(2*i);<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//calcula<sp/>el<sp/>valor<sp/>absoluto<sp/>de<sp/>cada<sp/>termino</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>+=<sp/>termino;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>a){</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>term<sp/>=<sp/>a;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(term<sp/>&gt;<sp/>1){<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>avoids<sp/>multiplying<sp/>by<sp/>0<sp/>and<sp/>stops<sp/>when<sp/>term<sp/>==<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ans<sp/>=<sp/>ans<sp/>*<sp/>(term);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>term--;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ans;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight></codeline>
 <codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
-<codeline lineno="117"><highlight class="comment"><sp/>******************************************</highlight></codeline>
-<codeline lineno="118"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/><sp/>LOCAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
-<codeline lineno="119"><highlight class="comment"><sp/>******************************************</highlight></codeline>
-<codeline lineno="120"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_rad(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg*2.0*<ref refid="operations_8h_1a598a3330b3c21701223ee0ca14316eca" kindref="member">PI</ref>/360.0;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_first_cycle(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reduces<sp/>the<sp/>angle<sp/>by<sp/>the<sp/>max<sp/>amount<sp/>of<sp/>cycles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg<sp/>-<sp/>360.0*((</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>int)(deg<sp/>/<sp/>360.0));<sp/></highlight></codeline>
-<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/******************************************</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>**<sp/><sp/><sp/><sp/><sp/><sp/>LOCAL<sp/>FUNCTION<sp/>DEFINITIONS<sp/><sp/><sp/><sp/><sp/><sp/>**</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>******************************************</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>******************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_rad(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg*2.0*<ref refid="operations_8h_1a598a3330b3c21701223ee0ca14316eca" kindref="member">PI</ref>/360.0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg_to_first_cycle(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>deg)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reduces<sp/>the<sp/>angle<sp/>by<sp/>the<sp/>max<sp/>amount<sp/>of<sp/>cycles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>deg<sp/>-<sp/>360.0*((</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>int)(deg<sp/>/<sp/>360.0));<sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="operations.c"/>
   </compounddef>

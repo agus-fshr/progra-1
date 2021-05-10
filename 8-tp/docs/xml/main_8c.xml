@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="201" column="5" bodyfile="main.c" bodystart="201" bodyend="209" declfile="main.c" declline="74" declcolumn="5"/>
+        <location file="main.c" line="200" column="5" bodyfile="main.c" bodystart="200" bodyend="208" declfile="main.c" declline="74" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1a965dd2a0135feedf149965b2fba5f861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -299,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="189" column="5" bodyfile="main.c" bodystart="189" bodyend="199" declfile="main.c" declline="83" declcolumn="5"/>
+        <location file="main.c" line="188" column="5" bodyfile="main.c" bodystart="188" bodyend="198" declfile="main.c" declline="83" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1ac785bbcb0a916d38d0eea3cd64b9d174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -341,7 +341,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="211" column="8" bodyfile="main.c" bodystart="211" bodyend="213" declfile="main.c" declline="92" declcolumn="8"/>
+        <location file="main.c" line="210" column="8" bodyfile="main.c" bodystart="210" bodyend="212" declfile="main.c" declline="92" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1aa738137b9ad5c17ecb204845fc2c591f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -383,7 +383,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="215" column="8" bodyfile="main.c" bodystart="215" bodyend="220" declfile="main.c" declline="101" declcolumn="8"/>
+        <location file="main.c" line="214" column="8" bodyfile="main.c" bodystart="214" bodyend="219" declfile="main.c" declline="101" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1ae6271594ff3d328bc3eaca1d1dacbd8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -425,7 +425,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="222" column="8" bodyfile="main.c" bodystart="222" bodyend="224" declfile="main.c" declline="110" declcolumn="8"/>
+        <location file="main.c" line="221" column="8" bodyfile="main.c" bodystart="221" bodyend="223" declfile="main.c" declline="110" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1a56e3f777c97a79830170044350559f69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -467,7 +467,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="226" column="8" bodyfile="main.c" bodystart="226" bodyend="228" declfile="main.c" declline="119" declcolumn="8"/>
+        <location file="main.c" line="225" column="8" bodyfile="main.c" bodystart="225" bodyend="227" declfile="main.c" declline="119" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="main_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -483,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="main.c" line="132" column="5" bodyfile="main.c" bodystart="132" bodyend="186"/>
+        <location file="main.c" line="132" column="5" bodyfile="main.c" bodystart="132" bodyend="185"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -630,60 +630,59 @@
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!exit)<sp/>{</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="main_8c_1a5278fef9d11d8adad50c93146ae9312b" kindref="member">actions</ref>[operation_index](op1,<sp/>op2);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;=<sp/>%.10g\n&quot;</highlight><highlight class="normal">,<sp/>result);</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//print_operation_result(op1,<sp/>op2,<sp/>operators[operation_index],<sp/>result);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>valid_input<sp/>=<sp/>0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Takes<sp/>next<sp/>input</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="calculator__front_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Hasta<sp/>la<sp/>proxima!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;=<sp/>%.10g\n&quot;</highlight><highlight class="normal">,<sp/>result);<sp/></highlight><highlight class="comment">//<sp/>Uses<sp/>exponent<sp/>notation<sp/>when<sp/>convenient</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>valid_input<sp/>=<sp/>0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Takes<sp/>next<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="calculator__front_8c_1abc40cd622f423abf44084c8f8595f57f" kindref="member">clear_screen</ref>();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Hasta<sp/>la<sp/>proxima!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a965dd2a0135feedf149965b2fba5f861" kindref="member">add_operation</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>operator_char,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>(*callback)<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)){</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="main_8c_1a30892ce590446910ea3159e79f2f31f3" kindref="member">MAX_OPERATORS</ref>;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="main_8c_1a5278fef9d11d8adad50c93146ae9312b" kindref="member">actions</ref>[i]<sp/>==<sp/>NULL)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Empty<sp/>space<sp/>found!</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="main_8c_1a5278fef9d11d8adad50c93146ae9312b" kindref="member">actions</ref>[i]<sp/>=<sp/>callback;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>action</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[i]<sp/>=<sp/>operator_char;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>operator<sp/>char</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>without<sp/>error</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>empty<sp/>space<sp/>found,<sp/>return<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a8fb26976d3cfd2e8eaeff340ba9a2e46" kindref="member">find_operator</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="main_8c_1a30892ce590446910ea3159e79f2f31f3" kindref="member">MAX_OPERATORS</ref>;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[i])<sp/>{<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Operator<sp/>matches<sp/>char</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>index</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1a0742eaeef55ee5d7c250920d24c44f2c" kindref="member">OPERATOR_NOT_FOUND</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"></highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ac785bbcb0a916d38d0eea3cd64b9d174" kindref="member">integer_power_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(a,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>b);</highlight></codeline>
-<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1aa738137b9ad5c17ecb204845fc2c591f" kindref="member">factorial_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(a<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>a);</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0/0.0;<sp/></highlight><highlight class="comment">//<sp/>If<sp/>input<sp/>is<sp/>invalid,<sp/>returns<sp/>NaN</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ae6271594ff3d328bc3eaca1d1dacbd8c" kindref="member">sin_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a3be967db2043b681fb909184816a2531" kindref="member">sin</ref>(a);</highlight></codeline>
-<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"></highlight></codeline>
-<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a56e3f777c97a79830170044350559f69" kindref="member">cos_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f" kindref="member">cos</ref>(a);</highlight></codeline>
-<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a965dd2a0135feedf149965b2fba5f861" kindref="member">add_operation</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>operator_char,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>(*callback)<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="main_8c_1a30892ce590446910ea3159e79f2f31f3" kindref="member">MAX_OPERATORS</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="main_8c_1a5278fef9d11d8adad50c93146ae9312b" kindref="member">actions</ref>[i]<sp/>==<sp/>NULL)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Empty<sp/>space<sp/>found!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="main_8c_1a5278fef9d11d8adad50c93146ae9312b" kindref="member">actions</ref>[i]<sp/>=<sp/>callback;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>action</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[i]<sp/>=<sp/>operator_char;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>operator<sp/>char</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>without<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>empty<sp/>space<sp/>found,<sp/>return<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a8fb26976d3cfd2e8eaeff340ba9a2e46" kindref="member">find_operator</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="main_8c_1a30892ce590446910ea3159e79f2f31f3" kindref="member">MAX_OPERATORS</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(c<sp/>==<sp/><ref refid="main_8c_1a72b1e1e4e69b91f15c2d5b9b09aedb43" kindref="member">operators</ref>[i])<sp/>{<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Operator<sp/>matches<sp/>char</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>return<sp/>index</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="calculator__front_8h_1a0742eaeef55ee5d7c250920d24c44f2c" kindref="member">OPERATOR_NOT_FOUND</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>with<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ac785bbcb0a916d38d0eea3cd64b9d174" kindref="member">integer_power_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a6826b74edd12867f0ddd9e85f0e686f4" kindref="member">integer_power</ref>(a,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>b);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1aa738137b9ad5c17ecb204845fc2c591f" kindref="member">factorial_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(a<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1ac97d6387086b6fd0b299393d23da9e64" kindref="member">factorial</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<sp/>a);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0/0.0;<sp/></highlight><highlight class="comment">//<sp/>If<sp/>input<sp/>is<sp/>invalid,<sp/>returns<sp/>NaN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1ae6271594ff3d328bc3eaca1d1dacbd8c" kindref="member">sin_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a3be967db2043b681fb909184816a2531" kindref="member">sin</ref>(a);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8c_1a56e3f777c97a79830170044350559f69" kindref="member">cos_wrapper</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="operations_8c_1a7a7d08a90f118f85aae24f1ed5a2b04f" kindref="member">cos</ref>(a);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="main.c"/>
   </compounddef>

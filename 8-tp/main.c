@@ -172,8 +172,7 @@ int main(void) {
         }
         if(!exit) {
             double result = actions[operation_index](op1, op2);
-            printf("= %.10g\n", result);
-            //print_operation_result(op1, op2, operators[operation_index], result);
+            printf("= %.10g\n", result); // Uses exponent notation when convenient
             valid_input = 0;    // Takes next input
         }
     }

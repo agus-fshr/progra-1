@@ -304,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.h" line="72" column="8" bodyfile="operations.c" bodystart="90" bodyend="101" declfile="operations.h" declline="72" declcolumn="8"/>
+        <location file="operations.h" line="72" column="8" bodyfile="operations.c" bodystart="90" bodyend="100" declfile="operations.h" declline="72" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="operations_8h_1a50dc6b4d257d704c737844d667ef07ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -334,7 +334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="operations.h" line="79" column="8" bodyfile="operations.c" bodystart="103" bodyend="112" declfile="operations.h" declline="79" declcolumn="8"/>
+        <location file="operations.h" line="79" column="8" bodyfile="operations.c" bodystart="102" bodyend="111" declfile="operations.h" declline="79" declcolumn="8"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
