@@ -90,7 +90,6 @@ double sin(double a){
 double cos(double a){
     double ans = 0, termino = 0;
     double radian_num = deg_to_rad(deg_to_first_cycle(a));
-    printf("Se calculara %f", radian_num);
     int i;
     for (i=0; i<TAYLOR_TERMS; i++) {    // sin(a) = sum((-1)^n * a^(2n+1)/((2n+1)!))
         int sign = i%2 == 0 ? 1 : -1;   // (-1)^n
