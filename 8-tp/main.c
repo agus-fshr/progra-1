@@ -1,3 +1,30 @@
+/******************************************************************************
+  @file     main.c
+  @brief    Implements a calculator
+  @author   Grupo 7
+ ******************************************************************************/
+
+/*
+ *  TP8 - Ejercicio 5 - Grupo 7 (FISHER, MARTINEZ TANOIRA, SBRUZZI, OMS)
+ *
+ *  Consigna:
+ *      Implementar una calculadora simple, a la que se le puedan ir agregando nuevas funciones. 
+ *      Se generarán dos arreglos (globales): uno contendrá operandos, 
+ *      y el otro punteros a la función que debe realizar ese operando, que se completarán de manera dinámica 
+ *      al inicializarse el programa.Se le solicitará al usuario que ingrese la cuenta que desea realizar, 
+ *      de la forma xxxx operador yyyy (ejemplo: 5 + 3)Finalmente deberá mostrar el resultado obtenido.
+ *      La calculadora debe implementar como mínimo: suma, resta, multiplicación, división 
+ *      y potenciación(puede implementarse solo para exponentes enteros).
+ *
+ *  Implementación:
+ *      1) Se implementan las funciones suma, resta, division, multiplicacion,
+ *          factorial, coseno, seno.
+ *      2) Para las funciones matemáticas de un solo parámetro, se utiliza únicamente
+ *          el primero (de la izquierda).
+ *      3) Se permite calcular indefinidamente hasta ingresar una secuencia de escape
+ *      4) El programa propone ayudas cuando hay problemas en la entrada.
+ */
+
 #include<stdio.h>
 #include "operations.h"
 #include "calculator_front.h"
@@ -18,19 +45,6 @@ double cos_wrapper(double a, double b);
 double (*actions[MAX_OPERATORS]) (double, double);
 char operators[MAX_OPERATORS];
 
-/*
- * MENSAJE FUTURO:
- * Decidir qué hacer con las funciones que toman un solo
- * parámetro: hacer la adaptación a (double, double) en el main o
- * en el módulo operations?
- * Opinión de juan: va en el main pq el módulo operations solo tiene que
- * tener operaciones matemáticas para ser del todo MoDUlAr.
- * 
- * MENSAJE FUTURO V2:
- * Con lo que solo toma enteros, qué se hace ante la falta de respeto
- * de que se presente un NUMERO CON COMA. A la hoguera? Mje de error?
- * Redondeo discretito?
- */
 
 int main(void) {
     printf("Buenas!\n");
