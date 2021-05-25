@@ -4,12 +4,14 @@
 #include "gpio_emul.h"
 
 #define MSK_BYTE 0xFF
-#define T_CODE 1
-#define C_CODE 2
-#define S_CODE 3
-#define Q_CODE 4
-#define CHAR_LED_ON "🛑"
-#define CHAR_LED_OFF "  "
+#define CHAR_PORTA_SET  's'
+#define CHAR_PORTA_CLR  'c'
+#define CHAR_PORTA_TOG  't'
+#define CHAR_EXIT       'q'
+#define CHAR_LED_ON     "🛑"
+#define CHAR_LED_OFF    "  "
+#define IS_ASCII_NUM(c) ((c) >= '0' || (c) <= '7')
+#define ASCII_NUM_INT(c) ((c) - '0')
 
 void flush_stdin(char limit);
 void dec2bin(unsigned int dec);
@@ -24,20 +26,20 @@ int main() {
     while ((c = getchar()) != 'q'){
 
         // Temporary output
-        if (c == 't') {
+        if (c == CHAR_PORTA_TOG) {
             mask_toggle(PORTA, MSK_BYTE);
         }
-        else if (c == 'c') {
+        else if (c == CHAR_PORTA_CLR) {
             mask_off(PORTA, MSK_BYTE);
         }
-        else if (c == 's') {
+        else if (c == CHAR_PORTA_SET) {
             mask_on(PORTA, MSK_BYTE);
         }
-        else if (c == 'q') {
+        else if (c == CHAR_EXIT) {
             break;
         }
-        else if(c >= '0' || c <= '7') {
-            bit_set(PORTA, c - '0');
+        else if(IS_ASCII_NUM(c)) {
+            bit_set(PORTA, ASCII_NUM_INT(c));
         }
         else {
             printf("Sorry, I didn't recognize that input.\n");
