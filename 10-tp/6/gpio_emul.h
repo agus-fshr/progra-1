@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef GPIO_EMUL_H
+#define GPIO_EMUL_H
+
 #include <stdint.h>
 
 /****************************
@@ -31,13 +32,69 @@
 /****************************
 *          PROTYPES         *
 ****************************/
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void bit_set(uint8_t port_id, uint8_t bit);
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void bit_clr(uint8_t port_id, uint8_t bit);
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 uint8_t bit_get(uint8_t port_id, uint8_t bit);
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void bit_toggle(uint8_t port_id, uint8_t bit);
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void mask_on(uint8_t port_id, uint16_t mask); 
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void mask_off(uint8_t port_id, uint16_t mask); 
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void mask_toggle(uint8_t port_id, uint16_t mask); 
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
 void get_port(uint8_t port_id);
-// static int getNum(char *p_port, int port_len);
-// static double power(double x, int exp);
+
+/**
+ * @brief
+ * @param
+ * @return
+ */
+uint16_t get_data(uint8_t port_id);
+
+
+#endif
