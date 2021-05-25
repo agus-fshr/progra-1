@@ -25,9 +25,7 @@ int main() {
 
         // Temporary output
         if (c == 't') {
-            for (int i=0; i<8; i++) {
-                bit_toggle(PORTA, i);
-            }
+            mask_toggle(PORTA, MSK_BYTE);
         }
         else if (c == 'c') {
             mask_off(PORTA, MSK_BYTE);
