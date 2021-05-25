@@ -56,22 +56,22 @@ static port_t port;
 static uint8_t port_size;
 static void *p_port;
 
-int main(void){
-    mask_off(PORTD, 0xFFFF);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
-    mask_toggle(PORTD, 0xABCD);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
-    mask_off(PORTD, 0x00FF);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
-    bit_set(PORTD, 1);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
-    mask_off(PORTB, 0xFF);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
-    mask_off(PORTA, 0xFF);
-    printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+// int main(void){
+//     mask_off(PORTD, 0xFFFF);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+//     mask_toggle(PORTD, 0xABCD);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+//     mask_off(PORTD, 0x00FF);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+//     bit_set(PORTD, 1);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+//     mask_off(PORTB, 0xFF);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
+//     mask_off(PORTA, 0xFF);
+//     printf("%x %x %x\n",port.port_A, port.port_B, port.port_D);
     
-    return 0;
-}
+//     return 0;
+// }
 
 /****************************
 *         FUNCTIONS         *
@@ -142,6 +142,9 @@ void mask_toggle(uint8_t port_id, uint16_t mask){
     }
 }
 
+uint8_t get_data() {
+    
+}
 
 // assuming little-endian
 void get_port(uint8_t port_id){
