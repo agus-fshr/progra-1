@@ -8,8 +8,8 @@
 #define C_CODE 2
 #define S_CODE 3
 #define Q_CODE 4
-#define CHAR_LED_ON 'w'
-#define CHAR_LED_OFF 'u'
+#define CHAR_LED_ON "🛑"
+#define CHAR_LED_OFF "  "
 
 void flush_stdin(char limit);
 void dec2bin(unsigned int dec);
@@ -63,7 +63,7 @@ void dec2bin(unsigned int dec) {
     for(i = 7; i >= 0; i--) {
         putchar('|');
         putchar(' ');
-        putchar(((dec >> i) & 0x1) ? CHAR_LED_ON : CHAR_LED_OFF);
+        printf("%s",((dec >> i) & 0x1) ? CHAR_LED_ON : CHAR_LED_OFF);
         putchar(' ');
     }
 }
@@ -74,13 +74,13 @@ void clear_screen(void) {
 
 void print_porta_data() {
     printf("\tPORTA data: \n\n");
-    printf("\t  7   6   5   4   3   2   1   0  \n");
-    printf("\t---------------------------------\n");
+    printf("\t   7   6    5    4    3    2    1    0  \n");
+    printf("\t-----------------------------------------\n");
     putchar('\t');
     dec2bin(get_data(PORTA));
     putchar('|');
     putchar('\n');
-    printf("\t---------------------------------\n");
+    printf("\t-----------------------------------------\n");
     printf("\n\n\tInput 's' to set all PORTA bits, 'c' to clear all PORTA bits,\n");
     printf("\t't' to toggle all PORTA bits, any numbers to set the corresponding bit,\n");
     printf("\tor 'q' to exit: ");
