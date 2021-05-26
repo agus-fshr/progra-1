@@ -14,6 +14,12 @@
  * TYPEDEFS *
  ***********/
 
+/**
+ * @union port_t
+ * @var port_D 2 byte port data
+ * @var port_A higher half of PORTD
+ * @var port_B lower half of PORTD
+ */
 typedef union port{
     struct {
         uint8_t port_B;
