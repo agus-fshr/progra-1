@@ -1,7 +1,21 @@
+/************************************************************
+  @file     main.c
+  @brief    Source file to manipulate LED array using  PORTA
+  @author   Grupo 7 Inc.
+ ***********************************************************/
+
+
+/**********************
+* INCLUDE HEADER FILES
+**********************/
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include "gpio_emul.h"
+
+/***********************************************
+* CONSTANT AND MACRO DEFINITIONS USING #DEFINE
+***********************************************/
 
 #define MSK_BYTE 0xFF
 #define CHAR_PORTA_SET  's'
@@ -18,14 +32,20 @@
 #endif
 #define CHAR_LED_OFF    "  "
 
+
+/*********************
+* FUNCTION PROTOTYPES
+*********************/
 void flush_stdin(char limit);
 void dec2bin(unsigned int dec);
 void print_porta_data(void);
 void clear_screen(void);
 
+/**************
+ *    MAIN    *
+ *************/
 int main() {
     char c;
-    
     clear_screen();
     print_porta_data();
     while ((c = getchar()) != 'q'){
@@ -61,9 +81,14 @@ int main() {
     return 0;
 }
 
+
+
+/************************
+ * FUNCTION DEFINITIONS *
+ ***********************/
+
 /**
  * @brief Clears stdin until the limit char is found.
- * 
  * @param limit char to clear until
  */
 void flush_stdin(char limit) {
@@ -75,7 +100,6 @@ void flush_stdin(char limit) {
  * @brief Converts from decimal to binary using
  * the LED_ON and LED_OFF characters and prints it 
  * with purely aesthetic separators.
- *
  * @param dec decimal number to be converted
  */
 void dec2bin(unsigned int dec) {
@@ -90,7 +114,6 @@ void dec2bin(unsigned int dec) {
 
 /**
  * @brief Clears the terminal
- * 
  */
 void clear_screen(void) {
     system("CLS || clear");

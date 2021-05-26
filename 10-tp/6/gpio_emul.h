@@ -1,5 +1,15 @@
+/***********************************************
+  @file     gpio_emul.h
+  @brief    Header file for gpio_emul module
+  @author   Grupo 7 Inc.
+ **********************************************/
+
 #ifndef GPIO_EMUL_H
 #define GPIO_EMUL_H
+
+/**************************
+ *  INCLUDE HEADER FILES  *
+ *************************/
 
 #include <stdint.h>
 
@@ -34,65 +44,59 @@
 ****************************/
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Sets a bit of the desired port
+ * @param port_id Port to manipulate
+ * @param bit Bit to set
  */
 void bit_set(uint8_t port_id, uint8_t bit);
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Clears a bit of the desired port
+ * @param port_id Port to manipulate
+ * @param bit Bit to clear
  */
 void bit_clr(uint8_t port_id, uint8_t bit);
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Reads a bit from the desired port
+ * @param port_id Port to read
+ * @param bit Bit to read
+ * @return State of the read bit
  */
 uint8_t bit_get(uint8_t port_id, uint8_t bit);
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Toggles a bit of the desired port
+ * @param port_id Port to manipulate
+ * @param bit Bit to toggle
  */
 void bit_toggle(uint8_t port_id, uint8_t bit);
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Sets all the set bits of the mask in a port
+ * @param port_id Port to manipulate
+ * @param mask Mask to apply
  */
 void mask_on(uint8_t port_id, uint16_t mask); 
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Clears all the set bits of the mask in a port
+ * @param port_id Port to manipulate
+ * @param mask Mask to apply
  */
 void mask_off(uint8_t port_id, uint16_t mask); 
 
 /**
- * @brief
- * @param
- * @return
+ * @brief Toggles all the set bits of the mask in a port
+ * @param port_id Port to manipulate
+ * @param mask Mask to apply
  */
 void mask_toggle(uint8_t port_id, uint16_t mask); 
 
 /**
- * @brief
- * @param
- * @return
- */
-void get_port(uint8_t port_id);
-
-/**
- * @brief
- * @param
- * @return
+ * @brief Reads entire port data
+ * @param port_id Port to read
+ * @return Port state
  */
 uint16_t get_data(uint8_t port_id);
 
