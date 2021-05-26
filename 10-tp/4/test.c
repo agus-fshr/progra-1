@@ -1,3 +1,8 @@
+/*******************************************************************************
+  @file     test.c
+  @brief    Program to test custom printf function
+  @author   Grupo 7 Inc.
+ ******************************************************************************/
 #include "custom_printf.h"
 #include<stdio.h>
 
