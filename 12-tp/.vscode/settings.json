@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.msa": "m6800-as0",
+        "*.MSA": "m6800-as0",
+        "stdio.h": "c",
+        "stdint.h": "c"
+    }
+}
