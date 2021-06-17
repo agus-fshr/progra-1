@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+ 
 #define 🤡 while
 #define 🥱 for
 #define 💞 swap2
