@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define BIT_0_PIN 2
+#define BIT_0_PIN 17
 #define BIT_1_PIN 4
 #define BIT_2_PIN 18
 #define BIT_3_PIN 23
