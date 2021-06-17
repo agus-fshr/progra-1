@@ -15,3 +15,5 @@ process1.o: process1.h process1.c
 
 process2.o: process2.h process2.c list.h
 	gcc -c process2.c -o process2.o
+clean: 
+	rm *.o
