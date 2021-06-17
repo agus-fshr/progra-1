@@ -66,14 +66,14 @@ int write_gpio_status(int pin, int status) {
 
 int print_port(uint8_t data) {
 	int acum = 0;
-	acum += write_gpio_status(BIT_0_PIN, (data >> 0) && 1);
-	acum += write_gpio_status(BIT_1_PIN, (data >> 1) && 1);
-	acum += write_gpio_status(BIT_2_PIN, (data >> 2) && 1);
-	acum += write_gpio_status(BIT_3_PIN, (data >> 3) && 1);
-	acum += write_gpio_status(BIT_4_PIN, (data >> 4) && 1);
-	acum += write_gpio_status(BIT_5_PIN, (data >> 5) && 1);
-	acum += write_gpio_status(BIT_6_PIN, (data >> 6) && 1);
-	acum += write_gpio_status(BIT_7_PIN, (data >> 7) && 1);
+	acum += write_gpio_status(BIT_0_PIN, (data >> 0) & 1);
+	acum += write_gpio_status(BIT_1_PIN, (data >> 1) & 1);
+	acum += write_gpio_status(BIT_2_PIN, (data >> 2) & 1);
+	acum += write_gpio_status(BIT_3_PIN, (data >> 3) & 1);
+	acum += write_gpio_status(BIT_4_PIN, (data >> 4) & 1);
+	acum += write_gpio_status(BIT_5_PIN, (data >> 5) & 1);
+	acum += write_gpio_status(BIT_6_PIN, (data >> 6) & 1);
+	acum += write_gpio_status(BIT_7_PIN, (data >> 7) & 1);
 	return acum;
 }
 
