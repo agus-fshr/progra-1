@@ -1,0 +1,70 @@
+Drivers User Space
+------------------------------
+
+ring0: hardware
+ring1: kernel
+ring2: user service
+ring3: user processes
+
+En el BIOS esta el codigo necesario para que el OS pueda acceder a los servicios.
+
+El JUMP TABLE tiene una lista de direcciones donde se encuentra el codigo de 
+servicios en la BIOS. Es el puente entre el OS ya la BIOS para solicitar servicios.
+
+Kernel Space:
+	todo lo que sea acceso directo al hardware. impedir que el usuario acceda a recursos
+	de cualquier forma
+
+User Space:
+	aplicaciones del usuario que deberan estar controladas para evitar hacer dano al
+	OS u otras aplicaciones (ring3)
+
+System Calls:
+	Cada sistema operativo tiene su API mediante un conjunto de funciones llamadas
+	system calls. Es como la JUMP TABLE de los OS. Son una serie de rutinas que permiten
+	acceder a distintos servicios.
+
+Device Drivers:
+	El acceso a dispositivos se da a traves de Device Drivers. Estos permiten que el
+	kernel interactue con el hardware mediande el uso de una Driver API.
+
+	module_init()
+	open
+	read
+	write
+	release
+	module_exit()
+
+SYSFS_GPIO (General Purpose I/O) /sys/class/gpio
+
+Aqui reside una carpeta export, unexport y todos los pines como archivos.
+active_low --> controla polaridad del pin
+
+echo "17" > /sys/class/gpio/export          //exporto pin17 a user space
+echo "out" > /sys/class/gpio/export         //fijo pin17 como salida
+echo "1" > /sys/class/gpio/gpio17/value     //pin17 en 1
+cat /sys/class/gpio/gpio17/value            //leo pin17
+echo "0" > /sys/class/gpio/gpio17/value     //pin17 en 0
+echo "17" > /sys/class/gpio/unexport        //devuelvo pin17 a kernel space
+
+pin tiene direction y value
+
+Funciones de glibc vs wrappers de system calls
+
+	fopen (glibc)      VS            open (API)
+	universal
+	es de C                          wrapper
+	buffered i/o                     no buffereada
+	rapida (no ks switch)            lenta (us/ks switch)
+	portable                         no portable
+	filepointer                      file descriptor
+
+	si se usa fopen() hay que recordar hacer fflush() o fclose()
+
+
+
+
+
+
+
+

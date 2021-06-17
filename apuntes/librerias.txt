@@ -1,0 +1,123 @@
+Librerias Estandar
+------------------------------------
+
+Las librerias estandar estan en todas las plataformas con el mismo prototipo y la 
+misma funcionalidad. Las no estandar o externas no necesariamente funcionan en todas
+las plataformas.
+
+Comunes:
+------------------------------------
+	C89/C90
+	 - math.h
+	 - string.h
+	 - time.h
+
+	 C99
+	 - stdint.h
+
+	 C11
+	 - threads.h
+
+Archivos: (stdio.h)
+-----------------------------------
+	En C un archivo es simplemente un flujo secuencial de bytes
+	C no le impone un formato o estructura a los archivos
+	Toda operacion de entrada y salida se realiza emdiante un flujo de datos
+
+	fopen():
+		FILE * pFile; //pFile es un handler o puntero al archivo
+		pFIle = fopen("myfile", "w");
+
+		opciones:
+			w --> write (crea uno nuevo)
+			r --> read
+			a --> append
+			w/r/a + --> update
+
+		si no puede abrir un archivo, el handler devuelve un puntero a NULL, se puede
+		chequear haciendo pFile != NULL
+		
+	fclose():
+		al terminar de usar el archivo hay que hacer fclose(pFile);
+		para liberarlo
+
+		ATENCION: nada se escribe hasta que se ejecute el fclose o hasta que se
+		corra fflush
+
+	fprintf():
+		printf() para escribir a archivos
+		fprintf(pFile, "text");
+
+	fgetc():
+		hace lo mismo que un getchar() pero para un archivo
+		fgetc(pFile);
+
+	fgets():
+		fgets(char * str, int num, FILE * stream);
+		
+		str --> puntero a arreglo de chars donde copiar la string
+		num --> numero de caracteres a copiar incluyendo el NULL terminador
+		stream --> handler
+
+		lee un renglon o hasta num elementos
+
+	CUANDO SE LEE, EL PUNTERO FILE * AVANZA.
+	
+
+Memoria Dinamica:
+----------------------------------
+
+	Se compone de 4 partes.
+		- Segmento de Codigo:
+			donde se encuentra el programa compilado (suele ser read-only)
+		- Sector de datos:
+			donde se encuentran las variables globales y estaticas
+		- Stack:
+			donde se encuentran los parametros de las funciones, variables locales,
+			informacion adicional de funciones
+		- Heap:
+			donde se colocan las variables alocadas de manera dinamica
+
+	Heap
+		El heap no se maneja de manera automatica. El usuario mismo es responsable de
+		alocarla y de liberarla.  No tiene restricciones de tamano. Es mas lenta
+		de leer y escribir. Las variables creadas en el heap son accesibles desde
+		cualquier parte del programa. 
+
+		Para crear un heap de N bytes, el programa busca N bytes libres consecutivos.
+		Puede o no hallarlos.
+
+	malloc():
+		void * malloc(size_t size);
+
+		Devuelve un puntero al comienzo del heap de tamano size bytes.
+
+	free():
+		free(pToHeap);
+
+	calloc():
+		pide el numero de elementos y el tamano de elementos :/
+
+	realloc():
+		si se quiere cambiar el tamano. reserva nueva memoria.
+
+Numeros Aleatorios: (stdlib.h)
+--------------------------------
+
+	rand():
+		Devuelve un valor aleatorio desde cero hasta RAND_MAX.
+		Si se quiere modificar aun mas se puede hacer
+
+		rand() % 100; //entre 0 y 99
+		rand() % 100 + 1; //entre 1 y 100
+		rand() % 30 + 1985; //entre 1985 y 2014
+
+		rand() % intervalo + valor_base; //entre valor_base y valor_base+intervalo
+
+
+		Para seedear rand hay que hacer srand()
+
+		srand(unsigned int seed);
+		una vez al comienzo del programa
+
+		pro tip: srand(time(NULL)); (time.h)
