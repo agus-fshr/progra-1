@@ -15,7 +15,6 @@
 ## Level design
 
 ### Mapa
-![Ah bueno][imagenes/layout_ledmatrix.png "Ah bueno"]
 - Rojo: zona segura
 - Violeta: spawn rana
 - Verde: spawn mobs

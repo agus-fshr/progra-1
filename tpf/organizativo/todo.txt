@@ -1,0 +1,32 @@
+Disclaimer: estas son ideas de juan, nada definitivo, puede haber formas diferentes de implementar
+pero se entiende qué es lo que me parece fundamental.
+
+Hay un "seleccionador de engine"
+Lo que sea que almacena el mapa se la pasa a este "seleccionador", las animaciones también
+
+Hay un archivo que implementa las animaciones y renderizado para allegro en pc
+Hay un archivo que implementa las animaciones y renderizado para led matrix en pc
+
+la idea final es que en el main ponele que te morís entonces llamás
+
+    run_death_animation();
+
+Esto es para evitar tener un run_death_animation_allegro() y un run_death_animation_led() y no tener que hacer algo tipo
+
+#IFDEF USE_ALLEGRO
+    run_death_animation_allegro()
+#ELSEIFDEF(??) USE_LED
+    run_death_animation_led()
+
+Esa función, está adentro del "seleccionador". Al comienzo del programa, se le indica
+al seleccionador si tiene que usar la matriz de leds o el display de allegro (o ambos?)
+
+Una estructura de archivos así como intenté hacer en /objects estaría buena, pero tiene que ser lo suficientemente
+prolija como para que no sea contraproducente. Empecé a tener problemas de """herencias""" de cosas por darle muchas vueltas
+
+Input del usuario: how, why, where
+Ni idea cómo se maneja esto. Si sé lo siguiente:
+El input no se puede tomar de manera bloqueante porque se tiene que
+refrescar contínuamente el mapa por el movimiento de las cosas.
+
+Otra cosa necesaria: un timer para los ticks de juego. Allegro tiene, si no se puede hacer algo por threading.
