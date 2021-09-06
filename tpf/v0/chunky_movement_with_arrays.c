@@ -19,6 +19,11 @@ int main()
 {
 	srand(time(NULL));    //seed para rand
 
+	typedef struct cars_t {
+		float x;
+		float y;
+	} cars_t;
+
     must_init(al_init(), "allegro");
     must_init(al_install_keyboard(), "keyboard");
 
@@ -48,11 +53,23 @@ int main()
     bool redraw = true;
     ALLEGRO_EVENT event;
 
-    float x, y, a, b;                                                  //posiciones iniciales
+    float x, y;                                                  //posiciones iniciales
     x = 0;
-    y = 0;
-    a = 0;
-    b = RANDOM_VERT_SPAWN;
+    y = 480;
+
+	cars_t abc = {
+		x = 0,
+		y = RANDOM_VERT_SPAWN,
+	};
+
+	cars_t def = {
+		x = 0,
+		y = RANDOM_VERT_SPAWN,
+	};
+
+	#define CAR_LANES 2
+
+    cars_t cars[CAR_LANES] = {abc, def};
 
 
     #define KEY_SEEN     1
@@ -60,7 +77,6 @@ int main()
 
     unsigned char key[ALLEGRO_KEY_MAX];
     memset(key, 0, sizeof(key));
-
 
     al_start_timer(timer);
     while(1)
@@ -100,8 +116,11 @@ int main()
             al_clear_to_color(al_map_rgb(0, 0, 0));
             al_draw_textf(font, al_map_rgb(255, 255, 255), 0, 0, 0, "X: %.1f Y: %.1f", x, y);
             al_draw_filled_rectangle(x, y, x + 60, y + 60, al_map_rgb(255, 0, 0));          //bichito bueno
-            al_draw_filled_rectangle(a, b, a+60, b+60, al_map_rgb(0, 0, 255));              //bichito malo
-			a++;                                                                            //update pos en x
+
+            for (int i=0; i<CAR_LANES; i++){
+            	al_draw_filled_rectangle(cars[i].x, cars[i].y, cars[i].x+60, cars[i].y+60, al_map_rgb(0, 0, 255));              //bichito malo
+				(cars[i].x)++;
+			}                                                                            //update pos en x
 
             al_flip_display();
 
