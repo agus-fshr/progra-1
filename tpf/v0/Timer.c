@@ -60,7 +60,8 @@ int main(void) {
 	return 0;
 }
 /*
-* al_get_time te dice cuantos segundos pasaron desde que se inicializo en timer
+* al_get_time te dice cuantos segundos pasaron desde que se inicializo en timer (deveulve el float)
+* al_get_time_counter lo mismo pero deveulve int
 */
 
 
