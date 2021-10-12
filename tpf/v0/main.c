@@ -18,6 +18,8 @@
 
 uint8_t exists_smthng(laneptr_t lane, uint16_t x);
 void must_init(bool test, const char *description);
+int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem);
+int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem);
 
 
 int main()
@@ -29,7 +31,8 @@ int main()
     level->lanes[5]->type = MOB_CAR;
     level->lanes[5]->speed_ticks = 5;
     level->lanes[5]->delta = 5;
-    level->lanes[5]->last_position = 0;
+    level->lanes[5]->step = 0;
+    level->lanes[5]->x0 = 0;
     level->lanes[5]->mob_length = 2;
     level->frog->position.x = 0;
     level->frog->position.y = 0;
@@ -81,13 +84,18 @@ int main()
                 // once again, no game logic. fishy? maybe.
                 for(i = 0; i < LEVEL_HEIGHT; i++) {
                     laneptr_t lane = level->lanes[i];
+                    Lane_tick(lane);
+                    lane->x0 = lane->step * POSITION_STEP;
+                    /*
                     if(lane->speed_ticks != 0){
                         if(!(ticks % lane->speed_ticks))
-                            lane->last_position += POSITION_STEP;
+                            lane->x0 += POSITION_STEP;
                         if(!(ticks % (lane->speed_ticks*lane->delta*STEPS_PER_BLOCK)))
-                            lane->last_position = 0;
+                            lane->x0 = 0;
                     }
+                    */
                 }
+                //printf("%d %d %d\n\r", level->lanes[5]->step, level->lanes[5]->x0, level->lanes[5]->ticks);
                 ticks++;
                 redraw = true;
                 break;
@@ -121,19 +129,22 @@ int main()
         {
             al_clear_to_color(al_map_rgb(100, 100, 255));
             //al_draw_textf(font, al_map_rgb(255, 255, 255), 0, 0, 0, "X: %.1f Y: %.1f", x, y);
-            uint16_t i, p;
+            int16_t i, p;
             for(i = 0; i < LEVEL_HEIGHT; i++) {
                 laneptr_t lane = level->lanes[i];
                 
-                if(lane->delta != 0) {
-                    for(p = 0; p < LEVEL_WIDTH / lane->delta; p++) {
+                if(lane->delta != 0 && i==5) {
+                    //printf("MALO: %d %d %d\n\r", -1, Lane_get_elem_x(lane, -1), Lane_get_elem_x_end(lane, -1));
+                    //printf("MALO2: %d %d\n\r", lane->x0, -1*lane->delta*BLOCK_WIDTH);
+                    for(p = -1; p < LEVEL_WIDTH / lane->delta + 1; p++) {
+                        printf("%d %d %d %d\n\r", i, p, Lane_get_elem_x(lane, p) < 0 ? 0 : Lane_get_elem_x(lane, p), Lane_get_elem_x_end(lane, p) < 0 ? 0 : Lane_get_elem_x_end(lane, p));
+                        
                         al_draw_filled_rectangle(
-                                lane->last_position + p*lane->delta*BLOCK_WIDTH,
+                                Lane_get_elem_x(lane, p) < 0 ? 0 : Lane_get_elem_x(lane, p),
                                 i*BLOCK_HEIGHT,
-                                lane->last_position + (p * lane->delta + lane->mob_length)*BLOCK_WIDTH,
+                                Lane_get_elem_x_end(lane, p) < 0 ? 0 : Lane_get_elem_x_end(lane, p),
                                 (1 + i)*BLOCK_HEIGHT,
                                 al_map_rgb(255, 0, 0)); 
-                        
                     }
                 }
                 
@@ -158,14 +169,14 @@ int main()
             al_draw_filled_rectangle(frogx*BLOCK_WIDTH, frogy*BLOCK_WIDTH, (frogx + 1)*BLOCK_WIDTH, (frogy + 1)*BLOCK_HEIGHT, 
                                     al_map_rgb(0, 255, 0));
             
-            if(Level_check_collisions(level)){
-                //printf("COLISION\n\r");
-                level = 1/0;
-            }
 
 
             al_flip_display();
 
+            if(Level_check_collisions(level)){
+                //printf("COLISION\n\r");
+                level = 1/0;
+            }
             redraw = false;
         }
     }
@@ -183,4 +194,13 @@ void must_init(bool test, const char *description) {
 
     printf("couldn't initialize %s\n", description);
     exit(1);
+}
+
+
+int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {
+    return lane->x0 + elem*lane->delta*BLOCK_WIDTH;
+}
+
+int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem) {
+    return lane->x0 + (elem * lane->delta + lane->mob_length)*BLOCK_WIDTH;
 }

@@ -7,13 +7,16 @@ typedef enum {MOB_CAR = 1, MOB_LOG, MOB_FINISH} mobtype_t;
 
 typedef struct {
     mobtype_t type;
-    uint8_t respawn_ticks;
-    uint16_t last_position;
+    uint8_t ticks;
+    uint16_t step;
+    uint16_t x0;
     uint8_t speed_ticks;
     uint8_t delta;
     uint8_t mob_length;
 } lane_t;
 
 typedef lane_t * laneptr_t; 
+
+void Lane_tick(laneptr_t lane);
 
 #endif

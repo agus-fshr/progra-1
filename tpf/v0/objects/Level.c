@@ -33,7 +33,8 @@ uint8_t Level_init(levelptr_t level) {
         
         level->lanes[i]->speed_ticks = 100;
         level->lanes[i]->delta = 100;
-        level->lanes[i]->last_position = 100;
+        level->lanes[i]->step = 100;
+        level->lanes[i]->x0 = 100;
         level->lanes[i]->mob_length = 1;
 
     }
@@ -85,17 +86,17 @@ uint8_t Level_delete(levelptr_t level) {
 }
 
 uint8_t Level_check_collisions(levelptr_t level) {
-    uint8_t frog_x = level->frog->position.x;
-    uint8_t frog_y = level->frog->position.y;
-    uint8_t i = 0, p = 0; // iterator
+    int16_t frog_x = level->frog->position.x;
+    int16_t frog_y = level->frog->position.y;
+    int8_t i = 0, p = 0; // iterator
     laneptr_t lane = level->lanes[frog_y];
 
     if(lane->delta != 0) {   
-        for(p = 0; p < LEVEL_WIDTH / lane->delta; p++) {    
+        for(p = -1; p < LEVEL_WIDTH / lane->delta + 1; p++) {    
             if(
-                (frog_x + 1) > (lane->last_position/60+p*lane->delta)
+                (frog_x + 1) > (lane->x0/60+p*lane->delta)
                 &&
-                (frog_x - 1) < (lane->last_position/60+lane->mob_length+p*lane->delta)
+                (frog_x - 1) < (lane->x0/60+lane->mob_length+p*lane->delta)
             ) {
                 //printf("%d %d %d\n\r",frog_x, lane->last_position/60+p*lane->delta, lane->last_position/60+lane->mob_length+p*lane->delta);
                 return 1;
