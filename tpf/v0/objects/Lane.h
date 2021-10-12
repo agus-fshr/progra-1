@@ -7,10 +7,10 @@ typedef enum {MOB_CAR = 1, MOB_LOG, MOB_FINISH} mobtype_t;
 
 typedef struct {
     mobtype_t type;
-    uint8_t ticks;
+    uint16_t ticks;
     uint16_t step;
     uint16_t x0;
-    uint8_t speed_ticks;
+    int8_t speed_ticks;
     uint8_t delta;
     uint8_t mob_length;
 } lane_t;

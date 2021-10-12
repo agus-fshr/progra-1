@@ -34,6 +34,21 @@ int main()
     level->lanes[5]->step = 0;
     level->lanes[5]->x0 = 0;
     level->lanes[5]->mob_length = 2;
+
+    level->lanes[3]->type = MOB_CAR;
+    level->lanes[3]->speed_ticks = -2;
+    level->lanes[3]->delta = 5;
+    level->lanes[3]->step = 0;
+    level->lanes[3]->x0 = 0;
+    level->lanes[3]->mob_length = 3;
+    
+    level->lanes[8]->type = MOB_CAR;
+    level->lanes[8]->speed_ticks = -1;
+    level->lanes[8]->delta = 5;
+    level->lanes[8]->step = 0;
+    level->lanes[8]->x0 = 0;
+    level->lanes[8]->mob_length = 1;
+
     level->frog->position.x = 0;
     level->frog->position.y = 0;
 
@@ -72,8 +87,8 @@ int main()
 
     unsigned char key[ALLEGRO_KEY_MAX];
     memset(key, 0, sizeof(key));
-    uint64_t ticks = 0;
     al_start_timer(timer);
+
     while(1)
     {
         al_wait_for_event(queue, &event);
@@ -81,22 +96,11 @@ int main()
         switch(event.type)
         {
             case ALLEGRO_EVENT_TIMER:
-                // once again, no game logic. fishy? maybe.
                 for(i = 0; i < LEVEL_HEIGHT; i++) {
                     laneptr_t lane = level->lanes[i];
                     Lane_tick(lane);
                     lane->x0 = lane->step * POSITION_STEP;
-                    /*
-                    if(lane->speed_ticks != 0){
-                        if(!(ticks % lane->speed_ticks))
-                            lane->x0 += POSITION_STEP;
-                        if(!(ticks % (lane->speed_ticks*lane->delta*STEPS_PER_BLOCK)))
-                            lane->x0 = 0;
-                    }
-                    */
                 }
-                //printf("%d %d %d\n\r", level->lanes[5]->step, level->lanes[5]->x0, level->lanes[5]->ticks);
-                ticks++;
                 redraw = true;
                 break;
         
@@ -105,13 +109,13 @@ int main()
                     if(level->frog->position.y >= 1)
                         level->frog->position.y -= 1;
                 if(event.keyboard.keycode == ALLEGRO_KEY_DOWN)
-                    if(level->frog->position.y < LEVEL_HEIGHT)
+                    if(level->frog->position.y < LEVEL_HEIGHT-1)
                         level->frog->position.y += 1;
                 if(event.keyboard.keycode == ALLEGRO_KEY_LEFT)
                     if(level->frog->position.x >= 1)
                         level->frog->position.x -= 1;
                 if(event.keyboard.keycode == ALLEGRO_KEY_RIGHT)
-                    if(level->frog->position.x < LEVEL_WIDTH)
+                    if(level->frog->position.x < LEVEL_WIDTH-1)
                         level->frog->position.x += 1;
         
                 if(event.keyboard.keycode != ALLEGRO_KEY_ESCAPE)
@@ -133,12 +137,8 @@ int main()
             for(i = 0; i < LEVEL_HEIGHT; i++) {
                 laneptr_t lane = level->lanes[i];
                 
-                if(lane->delta != 0 && i==5) {
-                    //printf("MALO: %d %d %d\n\r", -1, Lane_get_elem_x(lane, -1), Lane_get_elem_x_end(lane, -1));
-                    //printf("MALO2: %d %d\n\r", lane->x0, -1*lane->delta*BLOCK_WIDTH);
+                if(lane->delta != 0) {
                     for(p = -1; p < LEVEL_WIDTH / lane->delta + 1; p++) {
-                        printf("%d %d %d %d\n\r", i, p, Lane_get_elem_x(lane, p) < 0 ? 0 : Lane_get_elem_x(lane, p), Lane_get_elem_x_end(lane, p) < 0 ? 0 : Lane_get_elem_x_end(lane, p));
-                        
                         al_draw_filled_rectangle(
                                 Lane_get_elem_x(lane, p) < 0 ? 0 : Lane_get_elem_x(lane, p),
                                 i*BLOCK_HEIGHT,
@@ -149,30 +149,13 @@ int main()
                 }
                 
             }
-                /*
-                for(p = 0; p < LEVEL_WIDTH; p++) {
-                    if(exists_smthng(level->lanes[i], p))
-                        al_draw_filled_rectangle(p*10, i*10, p*10+60, i*10+60,
-                                                al_map_rgb(255, 0, 0)); 
-                }
-                */
-            
-            /*
-            for (int i=0; i<CAR_LANES; i++){
-            	al_draw_filled_rectangle(cars[i].x, cars[i].y, cars[i].x+60, cars[i].y+60, al_map_rgb(0, 0, 255));              //bichito malo
-				(cars[i].x)++;
-			}                                                                            //update pos en x
-            */
             
             uint64_t frogx = level->frog->position.x;
             uint64_t frogy = level->frog->position.y;
             al_draw_filled_rectangle(frogx*BLOCK_WIDTH, frogy*BLOCK_WIDTH, (frogx + 1)*BLOCK_WIDTH, (frogy + 1)*BLOCK_HEIGHT, 
                                     al_map_rgb(0, 255, 0));
             
-
-
             al_flip_display();
-
             if(Level_check_collisions(level)){
                 //printf("COLISION\n\r");
                 level = 1/0;
