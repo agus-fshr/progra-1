@@ -1,6 +1,7 @@
 #include "Level.h"
 #include<stdint.h>
 #include<stdlib.h>
+#include<stdio.h>
 //#include "Mob.h"
 
 
@@ -8,28 +9,33 @@ uint8_t Level_init(levelptr_t level) {
     uint8_t i = 0, p = 0;
 
     level->number = 0;
-    
     level->lanes = calloc(LEVEL_HEIGHT, sizeof(laneptr_t));
     if(level->lanes == NULL){
-        return 1;
+        return 0;
     }
-
     level->frog = malloc(sizeof(frog_t));
     if(level->frog == NULL) {
         free(level->lanes);
-        return 1;
+        return 0;
     }
 
     for(i = 0; i < LEVEL_HEIGHT; i++) {
         level->lanes[i] = malloc(sizeof(lane_t));
+
         if(level->lanes[i] == NULL){
             while(i >= 0){
                 free(level->lanes[i--]);
             }
             free(level->lanes);
             free(level->frog);
-            return 1;
+            return 0;
         }
+        
+        level->lanes[i]->speed_ticks = 100;
+        level->lanes[i]->delta = 100;
+        level->lanes[i]->last_position = 100;
+        level->lanes[i]->mob_length = 1;
+
     }
     /*
     for(i = 0; i < LVL_FINISHSPOTS; i++) {
@@ -81,16 +87,20 @@ uint8_t Level_delete(levelptr_t level) {
 uint8_t Level_check_collisions(levelptr_t level) {
     uint8_t frog_x = level->frog->position.x;
     uint8_t frog_y = level->frog->position.y;
-    uint8_t i = 0; // iterator
-    
-    laneptr_t moblane = level->lanes[frog_y];
-    
-        /*
-        if(moblane != NULL && frog_x == moblane->x) {
-            return mob->type;
+    uint8_t i = 0, p = 0; // iterator
+    laneptr_t lane = level->lanes[frog_y];
+
+    if(lane->delta != 0) {   
+        for(p = 0; p < LEVEL_WIDTH / lane->delta; p++) {    
+            if(
+                (frog_x + 1) > (lane->last_position/60+p*lane->delta)
+                &&
+                (frog_x - 1) < (lane->last_position/60+lane->mob_length+p*lane->delta)
+            ) {
+                //printf("%d %d %d\n\r",frog_x, lane->last_position/60+p*lane->delta, lane->last_position/60+lane->mob_length+p*lane->delta);
+                return 1;
+            }
         }
-        */
-    
-    
+    }
     return 0;
 }

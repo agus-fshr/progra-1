@@ -11,6 +11,7 @@ typedef struct {
     uint16_t last_position;
     uint8_t speed_ticks;
     uint8_t delta;
+    uint8_t mob_length;
 } lane_t;
 
 typedef lane_t * laneptr_t; 

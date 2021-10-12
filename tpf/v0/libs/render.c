@@ -15,7 +15,7 @@ void render_level(levelptr_t level){
             putchar('X');
         }
     }
-
+/*
     int m;
     for(m = 0; m < level->vehicle_lane_num; m++) {
         int mobx = level->vehicle_lanes[m]->position.x;
@@ -30,7 +30,7 @@ void render_level(levelptr_t level){
         //gotoxy(x,y);
         putchar('E');
     }
-
+*/
     int mobx = level->frog->position.x;
     int moby = level->frog->position.y;
 }
