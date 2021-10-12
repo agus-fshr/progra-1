@@ -1,20 +1,17 @@
-frogger: main.o Frog.o Mob.o Level.o render.o
-	gcc main.o Frog.o Mob.o Level.o render.o -o frogger `pkg-config allegro-5 allegro_font-5 --libs --cflags`
+frogger: main.o Frog.o Level.o Lane.o
+	gcc main.o Frog.o Level.o Lane.o -o frogger `pkg-config allegro-5 allegro_font-5 allegro_primitives-5 --libs --cflags` -g
 
-main.o: main.c objects/Frog.h objects/Level.h libs/render.h
+main.o: main.c objects/Lane.h
 	gcc -c main.c -o main.o
 
 Frog.o: objects/Frog.c objects/Frog.h libs/position.h
 	gcc -c objects/Frog.c -o Frog.o
 
-Mob.o: objects/Mob.c objects/Mob.h libs/position.h
-	gcc -c objects/Mob.c -o Mob.o
+Lane.o: objects/Lane.c objects/Lane.h
+	gcc -c objects/Lane.c -o Lane.o
 
-Level.o: objects/Level.c objects/Level.h libs/position.h objects/Mob.h objects/Frog.h
+Level.o: objects/Level.c objects/Level.h objects/Frog.h objects/Lane.h
 	gcc -c objects/Level.c -o Level.o
-
-render.o: objects/Level.h libs/position.h libs/render.h libs/render.c libs/joydisp/disdrv.o
-	gcc -c libs/render.c -o render.o
 
 clean:
 	rm *.o

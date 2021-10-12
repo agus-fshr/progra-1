@@ -1,8 +1,10 @@
 #include "Frog.h"
 
 
-uint8_t Frog_init(frogptr_t frog) {
+uint8_t Frog_reset(frogptr_t frog) {
     frog->lives = 3;
+    frog->position.x = STARTING_X;
+    frog->position.y = STARTING_Y;
 }
 
 uint8_t Frog_kill(frogptr_t frog) {

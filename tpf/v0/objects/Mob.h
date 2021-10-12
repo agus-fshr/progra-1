@@ -3,11 +3,13 @@
 #include<stdint.h>
 #include"../libs/position.h"
 
+typedef enum {MOB_CAR = 1, MOB_LOG, MOB_FINISH} mobtype_t;
+
 typedef struct {
-    uint8_t type;
+    mobtype_t type;
     uint8_t tickspeed;
     move_t movement;
-    coord_t position;
+    uint8_t x;
 } mob_t;
 
 typedef mob_t * mobptr_t; 
