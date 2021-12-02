@@ -86,20 +86,16 @@ uint8_t Level_delete(levelptr_t level) {
 }
 
 uint8_t Level_check_collisions(levelptr_t level) {
-    int16_t frog_x = level->frog->position.x;
+    int16_t frog_x = level->frog->position.x * 60;
     int16_t frog_y = level->frog->position.y;
     int8_t i = 0, p = 0; // iterator
     laneptr_t lane = level->lanes[frog_y];
-
     if(lane->delta != 0) {   
         for(p = -1; p < LEVEL_WIDTH / lane->delta + 1; p++) {    
-            if(
-                (frog_x + 1) > (lane->x0/60+p*lane->delta)
-                &&
-                (frog_x - 1) < (lane->x0/60+lane->mob_length+p*lane->delta)
-            ) {
-                //printf("%d %d %d\n\r",frog_x, lane->last_position/60+p*lane->delta, lane->last_position/60+lane->mob_length+p*lane->delta);
-                return 1;
+            int16_t A = lane->x0 + p*lane->delta*60;
+            //printf("%d %d %d %d\n\r",frog_x, A, B, cond);
+            if(((frog_x+60) > A) && (frog_x < (A + 60*lane->mob_length))) {
+                return lane->type;
             }
         }
     }
