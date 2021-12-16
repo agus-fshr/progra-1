@@ -1,7 +1,7 @@
 #ifndef __LEDMATRIX_ENGINE_H
 #define __LEDMATRIX_ENGINE_H
 
-#include"RenderEngine.h"
+#include "GameEngine.h"
 #include "../config.h"
 
 #define BLOCK_HEIGHT (1)

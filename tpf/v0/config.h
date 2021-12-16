@@ -3,7 +3,7 @@
 
 #define LEVEL_HEIGHT 16
 #define LEVEL_WIDTH  16
-#define LVL_FINISHSPOTS 5
+#define LVL_FINISHSPOTS 4
 
 #define TIMEBASE (1.0 / 30.0)
 

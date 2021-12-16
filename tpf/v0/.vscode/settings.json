@@ -15,6 +15,7 @@
         "base.h": "c",
         "allegroengine.h": "c",
         "allegro_primitives.h": "c",
-        "allegro_font.h": "c"
+        "allegro_font.h": "c",
+        "level.h": "c"
     }
 }

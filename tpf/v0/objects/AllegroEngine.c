@@ -4,17 +4,18 @@
 static int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem);
 static int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem);
 static void render_map(levelptr_t level);
+static void render_pause(levelptr_t level);
+
 static ALLEGRO_DISPLAY* disp;
 static ALLEGRO_BITMAP* bitmap;
 
-int AllegroEngine_init(ALLEGRO_EVENT_QUEUE *q) {
+int AllegroEngine_init(void *q) {
     al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
     al_set_new_display_option(ALLEGRO_SAMPLES, 8, ALLEGRO_SUGGEST);
     al_set_new_bitmap_flags(ALLEGRO_MIN_LINEAR | ALLEGRO_MAG_LINEAR);
     disp = al_create_display(DISP_WIDTH, DISP_HEIGHT);
-    al_register_event_source(q, al_get_display_event_source(disp));
-
-    return al_init_image_addon();  	  		
+    al_register_event_source((ALLEGRO_EVENT_QUEUE*) q, al_get_display_event_source(disp));
+    return al_init_image_addon();
 }
 
 int AllegroEngine_destroy(){
@@ -25,17 +26,57 @@ int AllegroEngine_destroy(){
 
 void AllegroEngine_render(levelptr_t level) {
     if(level->paused) {
+        render_pause(level);
     } else {
         render_map(level);
     }
 }
 
-void render_pause(levelptr_t level) {
-    al_clear_to_color(al_map_rgb(50, 50, 255));
-}
-// a a
+int AllegroEngine_input(levelptr_t level, void* keycode) {
+    uint8_t keyup =    *((int*) keycode) == ALLEGRO_KEY_UP;
+    uint8_t keydown =  *((int*) keycode) == ALLEGRO_KEY_DOWN;
+    uint8_t keyright = *((int*) keycode) == ALLEGRO_KEY_RIGHT;
+    uint8_t keyleft =  *((int*) keycode) == ALLEGRO_KEY_LEFT;
 
-void render_map(levelptr_t level) {
+    if(keyup) {
+        level->frog->movement = MOVE_UP;
+        if(level->frog->lane >= 1)
+            level->frog->lane -= 1;
+    } else if(keydown) {
+        level->frog->movement = MOVE_DOWN;
+        if(level->frog->lane < LEVEL_HEIGHT-1)
+            level->frog->lane += 1;
+    } else if(keyleft) {
+        level->frog->movement = MOVE_LEFT;
+        if(level->frog->x >= BLOCK_WIDTH)
+            level->frog->x -= BLOCK_WIDTH;
+    }else if(keyright) {
+        level->frog->movement = MOVE_RIGHT;
+        if(level->frog->x < (LEVEL_WIDTH-1)*BLOCK_WIDTH)
+            level->frog->x += BLOCK_WIDTH;
+    }
+
+    if(keydown || keyup || keyleft || keyright) {
+        sound_play(SFX_HOP);
+    }
+
+    if(*((int*) keycode) == ALLEGRO_KEY_P) {
+        level->paused = !level->paused;
+    }
+    
+    if(*((int*) keycode) == ALLEGRO_KEY_ESCAPE)
+        return 1;
+    
+    return 0;
+}
+
+static void render_pause(levelptr_t level) {
+    al_clear_to_color(al_map_rgb(50, 50, 255));
+    al_flip_display();
+}
+
+
+static void render_map(levelptr_t level) {
     al_clear_to_color(al_map_rgb(50, 50, 255));
     int16_t i, p;
     for(i = 0; i < LEVEL_HEIGHT; i++) {
@@ -86,7 +127,7 @@ void render_map(levelptr_t level) {
     al_draw_filled_rectangle(frogx, frogy*BLOCK_WIDTH, frogx + BLOCK_WIDTH, (frogy + 1)*BLOCK_HEIGHT, 
                             al_map_rgb(0, 255, 0));
     laneptr_t finisherlane = level->lanes[0];
-    for(i = 0; i < 5; i++) {
+    for(i = 0; i < LVL_FINISHSPOTS; i++) {
             al_draw_filled_rectangle(
             Lane_get_elem_x(finisherlane, level->finishers[i]),
             0,
@@ -99,10 +140,10 @@ void render_map(levelptr_t level) {
     al_flip_display();
 }
 
-int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {
+static int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {
     return lane->x0 + elem*lane->delta*BLOCK_WIDTH;
 }
 
-int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem) {
+static int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem) {
     return lane->x0 + (elem * lane->delta + lane->mob_length)*BLOCK_WIDTH;
 }
