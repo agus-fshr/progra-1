@@ -1,11 +1,14 @@
 #ifndef RENDER_ENGINE_H
 #define RENDER_ENGINE_H
 #include "Level.h"
+#include <allegro5/allegro5.h>
 
 typedef struct {
-    int (*init)();
-    int (*render)(levelptr_t level);
+    int (*init)(ALLEGRO_EVENT_QUEUE *q);
+    void (*render)(levelptr_t level);
     int (*destroy)();
-} RenderEngine;
+} engine_t;
+
+typedef  engine_t * engineptr_t; 
 
 #endif

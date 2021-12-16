@@ -5,104 +5,77 @@
 #include <allegro5/allegro_primitives.h>
 #include "objects/Lane.h"
 #include "objects/Level.h"
+#include "config.h"
+#include "libs/sound.h"
+#include "objects/RenderEngine.h"
 #include <time.h>
 
-#define RANDOM_VERT_SPAWN (rand()%8)*60
-#define BLOCK_HEIGHT (60)
-#define BLOCK_WIDTH  (60)
-#define DISP_HEIGHT (BLOCK_HEIGHT * LEVEL_HEIGHT)
-#define DISP_WIDTH (BLOCK_WIDTH * LEVEL_WIDTH)
+#ifdef LEDMAT
+    #include "objects/LEDMatrixEngine.h"
+    #define INIT_FUN (LedMat_render)
+    //#define RENDER_FUN (AllegroEngine_render)
+    //#define DESTROY_FUN (AllegroEngine_destroy)
+#else
+    #include "objects/AllegroEngine.h"
+    #define INIT_FUN (AllegroEngine_init)
+    #define RENDER_FUN (AllegroEngine_render)
+    #define DESTROY_FUN (AllegroEngine_destroy)
+#endif
 
-#define POSITION_STEP (10)
-#define STEPS_PER_BLOCK (BLOCK_WIDTH/POSITION_STEP)
-
-uint8_t exists_smthng(laneptr_t lane, uint16_t x);
 void must_init(bool test, const char *description);
-int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem);
-int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem);
-int8_t is_in_array(int8_t *arr, int8_t elem, int8_t len);
-
-
-uint8_t lost = 0;
-uint8_t won = 0;
-int8_t finishers[5] = {-1,-1,-1,-1,-1};
-uint8_t finisher_count = 0;
-
+uint8_t is_in_array(int16_t *arr, int16_t elem, int16_t len);
 
 int main()
 {
+    uint8_t input_cooldown = 0;
+    uint8_t i;
+
+    engineptr_t engine = malloc(sizeof(engineptr_t));
+    engine->render = RENDER_FUN;
+    engine->init = INIT_FUN;
+    engine->destroy = DESTROY_FUN;
+    
+    srand((unsigned int) time(NULL));
+
     levelptr_t level = malloc(sizeof(level_t));
     Level_init(level);
-    uint8_t i;
     
     level->lanes[0]->type = MOB_FINISH;
-    level->lanes[0]->speed_ticks = 0;
     level->lanes[0]->delta = 4;
-    level->lanes[0]->step = 12;
-    level->lanes[0]->x0 = 2;
+    level->lanes[0]->step = 0;
+    level->lanes[0]->x0 = 50;
     level->lanes[0]->mob_length = 1;
-    
-    level->lanes[3]->type = MOB_CAR;
-    level->lanes[3]->speed_ticks = 0;
-    level->lanes[3]->delta = 10;
-    level->lanes[3]->step = 20;
-    level->lanes[3]->x0 = 0;
-    level->lanes[3]->mob_length = 3;
-    /*
-    level->lanes[5]->type = MOB_CAR;
-    level->lanes[5]->speed_ticks = 5;
-    level->lanes[5]->delta = 5;
-    level->lanes[5]->step = 0;
-    level->lanes[5]->x0 = 0;
-    level->lanes[5]->mob_length = 2;
-
-    level->lanes[3]->type = MOB_CAR;
-    level->lanes[3]->speed_ticks = -2;
-    level->lanes[3]->delta = 7;
-    level->lanes[3]->step = 0;
-    level->lanes[3]->x0 = 0;
-    level->lanes[3]->mob_length = 3;
-    
-    level->lanes[8]->type = MOB_CAR;
-    level->lanes[8]->speed_ticks = -1;
-    level->lanes[8]->delta = 5;
-    level->lanes[8]->step = 0;
-    level->lanes[8]->x0 = 0;
-    level->lanes[8]->mob_length = 1;
-    */
-    level->frog->position.x = 16/2;
-    level->frog->position.y = 1;
+    level->number = 0;
+    Level_gen(level);
+ 
+    level->frog->x = 16*60/2;
+    level->frog->lane = 15;
     level->frog->lives = 3;
 
     must_init(al_init(), "allegro");
     must_init(al_install_keyboard(), "keyboard");
 
-    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 30.0);
+    ALLEGRO_TIMER* timer = al_create_timer(TIMEBASE);
     must_init(timer, "timer");
 
     ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
     must_init(queue, "queue");
 
-    al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
-    al_set_new_display_option(ALLEGRO_SAMPLES, 8, ALLEGRO_SUGGEST);
-    al_set_new_bitmap_flags(ALLEGRO_MIN_LINEAR | ALLEGRO_MAG_LINEAR);
-
-    ALLEGRO_DISPLAY* disp = al_create_display(DISP_WIDTH, DISP_HEIGHT);
-    must_init(disp, "display");
 
     ALLEGRO_FONT* font = al_create_builtin_font();
     must_init(font, "font");
 
+    sound_init();
+    engine->init(queue);
+
     must_init(al_init_primitives_addon(), "primitives");
 
     al_register_event_source(queue, al_get_keyboard_event_source());
-    al_register_event_source(queue, al_get_display_event_source(disp));
     al_register_event_source(queue, al_get_timer_event_source(timer));
 
     bool done = false;
     bool redraw = true;
     ALLEGRO_EVENT event;
-
     
     #define KEY_SEEN     1
     #define KEY_RELEASED 2
@@ -110,7 +83,8 @@ int main()
     unsigned char key[ALLEGRO_KEY_MAX];
     memset(key, 0, sizeof(key));
     al_start_timer(timer);
-
+    ALLEGRO_SAMPLE *sample = al_load_sample(sounds[SFX_JINGLE]);
+    al_play_sample(sample, 0.4, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, 0);
     while(1)
     {
         al_wait_for_event(queue, &event);
@@ -118,31 +92,63 @@ int main()
         switch(event.type)
         {
             case ALLEGRO_EVENT_TIMER:
-                for(i = 0; i < LEVEL_HEIGHT; i++) {
-                    laneptr_t lane = level->lanes[i];
-                    Lane_tick(lane);
-                    lane->x0 = lane->step * POSITION_STEP;
+                if(!level->paused) {
+                    for(i = 0; i < LEVEL_HEIGHT; i++) {
+                        Lane_tick(level->lanes[i]);
+                    }
+                    laneptr_t lane = level->lanes[level->frog->lane];
+                    if(lane->type == MOB_LOG) {
+                        int16_t newx = level->frog->x + lane->step;
+                        if((newx > 0) && (newx+60 < BLOCK_WIDTH*LEVEL_WIDTH)) {
+                            if(input_cooldown != 3)
+                                level->frog->x = newx;
+                        }
+                    }
+                    // Si vas y venis en el lugar arriba de un tronco
+                    // te deslizas por una desincronización entre
+                    // el movimiento y el acompañamiento
                 }
+
+                if(input_cooldown > 0) input_cooldown--;
                 redraw = true;
                 break;
         
             case ALLEGRO_EVENT_KEY_DOWN:
-                if(event.keyboard.keycode == ALLEGRO_KEY_UP)
-                    if(level->frog->position.y >= 1)
-                        level->frog->position.y -= 1;
-                if(event.keyboard.keycode == ALLEGRO_KEY_DOWN)
-                    if(level->frog->position.y < LEVEL_HEIGHT-1)
-                        level->frog->position.y += 1;
-                if(event.keyboard.keycode == ALLEGRO_KEY_LEFT)
-                    if(level->frog->position.x >= 1)
-                        level->frog->position.x -= 1;
-                if(event.keyboard.keycode == ALLEGRO_KEY_RIGHT)
-                    if(level->frog->position.x < LEVEL_WIDTH-1)
-                        level->frog->position.x += 1;
-        
+                if(input_cooldown != 0) break;
+                if(event.keyboard.keycode == ALLEGRO_KEY_UP){
+                    level->frog->movement = MOVE_UP;
+                    if(level->frog->lane >= 1)
+                        level->frog->lane -= 1;
+                } else if(event.keyboard.keycode == ALLEGRO_KEY_DOWN){
+                    level->frog->movement = MOVE_DOWN;
+                    if(level->frog->lane < LEVEL_HEIGHT-1)
+                        level->frog->lane += 1;
+                } else if(event.keyboard.keycode == ALLEGRO_KEY_LEFT) {
+                    level->frog->movement = MOVE_LEFT;
+                    if(level->frog->x >= BLOCK_WIDTH)
+                        level->frog->x -= BLOCK_WIDTH;
+                }else if(event.keyboard.keycode == ALLEGRO_KEY_RIGHT) {
+                    level->frog->movement = MOVE_RIGHT;
+                    if(level->frog->x < (LEVEL_WIDTH-1)*BLOCK_WIDTH)
+                        level->frog->x += BLOCK_WIDTH;
+                }
+
+                switch(event.keyboard.keycode) {
+                    case ALLEGRO_KEY_UP:
+                    case ALLEGRO_KEY_DOWN:
+                    case ALLEGRO_KEY_RIGHT:
+                    case ALLEGRO_KEY_LEFT:
+                        sound_play(SFX_HOP);
+                        break;
+                    default: break;
+                }
+                if(event.keyboard.keycode == ALLEGRO_KEY_P) {
+                    level->paused = !level->paused;
+                }
+                input_cooldown = 3; //a
                 if(event.keyboard.keycode != ALLEGRO_KEY_ESCAPE)
                     break;
-        
+
             case ALLEGRO_EVENT_DISPLAY_CLOSE:
                 done = true;
                 break;
@@ -151,80 +157,60 @@ int main()
         if(done)
             break;
     
-        if(redraw && al_is_event_queue_empty(queue))
+        // BUG: si apretas rapido no analiza colisiones
+        if(!done && redraw && al_is_event_queue_empty(queue))
         {
-            al_clear_to_color(al_map_rgb(50, 50, 255));
-            //al_draw_textf(font, al_map_rgb(255, 255, 255), 0, 0, 0, "X: %.1f Y: %.1f", x, y);
-            int16_t i, p;
-            for(i = 0; i < LEVEL_HEIGHT; i++) {
-                laneptr_t lane = level->lanes[i];
-                uint8_t red = 0;
-                uint8_t green = 0;
-                uint8_t blue = 0;
-                if(lane->type == MOB_CAR) {
-                    red = 255;
-                    green = 0;
-                    blue = 0;
-                } else if(lane->type == MOB_FINISH) {
-                    red = 0;
-                    green = 150;
-                    blue = 0;
-                }
-                if(lane->delta != 0) {
-                    for(p = -1; p < LEVEL_WIDTH / lane->delta + 1; p++) {
-                        al_draw_filled_rectangle(
-                                Lane_get_elem_x(lane, p) < 0 ? 0 : Lane_get_elem_x(lane, p),
-                                i*BLOCK_HEIGHT,
-                                Lane_get_elem_x_end(lane, p) < 0 ? 0 : Lane_get_elem_x_end(lane, p),
-                                (1 + i)*BLOCK_HEIGHT,
-                                al_map_rgb(red, green, blue)); 
-                    }
-                }
-                
-            }
-            
-            uint64_t frogx = level->frog->position.x;
-            uint64_t frogy = level->frog->position.y;
-            al_draw_filled_rectangle(frogx*BLOCK_WIDTH, frogy*BLOCK_WIDTH, (frogx + 1)*BLOCK_WIDTH, (frogy + 1)*BLOCK_HEIGHT, 
-                                    al_map_rgb(0, 255, 0));
-            
+            engine->render(level);
+            //printf("%d %d\n", level->lanes[14]->x0, level->lanes[14]->step);
+            printf("%d\n", level->frog->lives);
+            /*
             for(i = 0; i < 5; i++) {
-                al_draw_filled_rectangle(finishers[i]*BLOCK_WIDTH, 0, (finishers[i] + 1)*BLOCK_WIDTH, BLOCK_HEIGHT, 
-                    al_map_rgb(255, 255, 0));
+                printf("%d ", finishers[i]);
+            }
+            printf("\n");
+            */
+
+            uint16_t frogx = level->frog->x;
+            uint16_t frogy = level->frog->lane;
+            uint8_t finish_order;
+            uint8_t collided = Level_check_collisions(level, &finish_order);
+            if(collided && level->lanes[frogy]->type == MOB_CAR) {
+                sound_play(SFX_SQUASH);
+                if(Frog_kill(level->frog) == 0)
+                    done = 1;
+            }
+            if(!collided && level->lanes[frogy]->type == MOB_LOG) {
+                sound_play(SFX_PLUNK);
+                if(Frog_kill(level->frog) == 0)
+                    done = 1;
+            }
+            if(!collided && level->lanes[frogy]->type == MOB_FINISH) {
+                sound_play(SFX_SQUASH);
+                if(Frog_kill(level->frog) == 0)
+                    done = 1;
             }
             
-            al_flip_display();
-            switch(Level_check_collisions(level)){
-                //printf("COLISION\n\r");
-                case MOB_CAR:
-                case MOB_LOG:
-                    lost++;
-                    if(Frog_kill(level->frog) == 0)
-                        done = 1;
-                    break;
-                case MOB_FINISH:
-                    if(is_in_array(finishers, frogx, 5)){
-                        lost++;
+            if(collided && level->lanes[frogy]->type == MOB_FINISH) {
+                if(is_in_array(level->finishers, finish_order, 5)){
                         if(Frog_kill(level->frog) == 0)
                             done = 1;
                     } else{
-                        finishers[finisher_count++] = frogx;
-                        won++;
-                        if(won == 4)
-                            done = 1;
+                        level->finishers[level->finisher_count++] = finish_order;
+                        Frog_reset(level->frog);
+                        level->score += 1;
+                        if(level->finisher_count == 5){
+                            level->score += 5*(level->number + 1);
+                            level->number++;
+                            Level_gen(level);
+                        }
                     }
-                    break;
-                default:
-                    break;
-                level->frog->position.y = 15;
-                printf("Lost: %d \tWon: %d\n", lost, won);
             }
-            redraw = false;
+            redraw = false; // a
         }
     }
 
     al_destroy_font(font);
-    al_destroy_display(disp);
+    engine->destroy();
     al_destroy_timer(timer);
     al_destroy_event_queue(queue);
 
@@ -238,18 +224,10 @@ void must_init(bool test, const char *description) {
     exit(1);
 }
 
-int8_t is_in_array(int8_t *arr, int8_t elem, int8_t len) {
+uint8_t is_in_array(int16_t *arr, int16_t elem, int16_t len) {
     uint8_t i = 0;
     for(i = 0; i < len; i++) {
         if(arr[i] == elem) return 1;
     }
     return 0;
-}
-
-int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {
-    return lane->x0 + elem*lane->delta*BLOCK_WIDTH;
-}
-
-int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem) {
-    return lane->x0 + (elem * lane->delta + lane->mob_length)*BLOCK_WIDTH;
 }

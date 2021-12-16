@@ -5,7 +5,8 @@
 + Arreglos con cada entidad: vehículos, tortugas, troncos, huecos de finalización
 + Variables con número de vidas
 + Necesitamos un timer que haga los ticks de juego
-+ Intentar alguna codificación cavernícola para proteger archivos de guardado? Algún CRC o algo del estilo
++ Intentar alguna codificación cavernícola para proteger archivos de guardado? Algún CRC o algo del estilo.
++ El que escribió lo de arriba es un enfermito
 
 
 ## Input
