@@ -15,7 +15,8 @@ static const char *sounds[] = {
 };
 
 void sound_init(void);
-void sound_play(soundfx_t sfx);
+void sound_play(soundfx_t sfx, float volume, ALLEGRO_PLAYMODE mode, ALLEGRO_SAMPLE_ID* ret_id);
+void sound_destroy(void);
 
 
 #endif

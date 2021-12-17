@@ -1,11 +1,11 @@
 #include <stdio.h>
+#include "config.h"
 #include <stdlib.h>
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_primitives.h>
 #include "objects/Lane.h"
 #include "objects/Level.h"
-#include "config.h"
 #include "libs/sound.h"
 #include "objects/GameEngine.h"
 #include <time.h>
@@ -39,15 +39,19 @@ int main()
 
     srand((unsigned int) time(NULL));
 
-    levelptr_t level = malloc(sizeof(level_t));
-    Level_init(level);
-    
+    engine->level = malloc(sizeof(level_t));
+    Level_init(engine->level);
+    levelptr_t level = engine->level;
+    /*
     level->lanes[0]->type = MOB_FINISH;
     level->lanes[0]->delta = 4;
     level->lanes[0]->step = 0;
     level->lanes[0]->x0 = 50;
     level->lanes[0]->mob_length = 1;
+    */
     Level_reset(level);
+
+    level->lanes[10]->step = -10;
 
     Frog_move(level->frog, SPAWN_X, SPAWN_Y);
     Frog_reset_lives(level->frog);
@@ -66,10 +70,10 @@ int main()
     must_init(font, "font");
 
     sound_init();
-    engine->init(queue);
+    engine->init(engine, queue);
+    initialize_game_status(engine);
 
     must_init(al_init_primitives_addon(), "primitives");
-
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_timer_event_source(timer));
 
@@ -84,16 +88,20 @@ int main()
     memset(key, 0, sizeof(key));
     al_start_timer(timer);
 
-    ALLEGRO_SAMPLE *sample = al_load_sample(sounds[SFX_JINGLE]);
-    al_play_sample(sample, 0.1, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, 0);
+    ALLEGRO_SAMPLE_ID background_music;
 
+    sound_play(SFX_JINGLE, engine->volume, ALLEGRO_PLAYMODE_LOOP, &background_music);
     while(1) {
         al_wait_for_event(queue, &event);
         uint8_t i;
         switch(event.type)
         {
             case ALLEGRO_EVENT_TIMER:
-                if(!level->paused) {
+                if(engine->state == GAME_STA_PLAY) {
+                    if(engine->playstate == PLAY_STA_INIT) {
+                        Level_reset(engine->level);
+                    }
+
                     for(i = 0; i < LEVEL_HEIGHT; i++) {
                         Lane_tick(level->lanes[i]);
                     }
@@ -102,6 +110,9 @@ int main()
                         int16_t newx = level->frog->x + lane->step;
                         if((newx > 0) && (newx+BLOCK_WIDTH < BLOCK_WIDTH*LEVEL_WIDTH)) {
                             level->frog->x = newx;
+                        } else {
+                            if(newx < 0) level->frog->x = 0;
+                            else level->frog->x = (LEVEL_WIDTH - 1)*BLOCK_WIDTH;
                         }
                     }
                     // Si vas y venis en el lugar arriba de un tronco
@@ -109,13 +120,28 @@ int main()
                     // el movimiento y el acompañamiento
                     // SOLUCIONADO: como? No se, pero solucionado
                 }
-
+                
+                process_game_state((engineptr_t) engine, INPUT_NULL);
+                /*
+                if(&background_music) {
+                    ALLEGRO_SAMPLE_INSTANCE* bgmusic_ins = al_lock_sample_id(&background_music);
+                    al_set_sample_instance_gain(bgmusic_ins, engine->volume);
+                    al_unlock_sample_id(&background_music);
+                }
+                */
+                /*
+                printf("GAME %d\tMENU %d\tPAUSE %d\tPLAY %d\tDEATH %d\tEXIT %d\n",
+                    engine->state, engine->menustate, engine->pausestate,
+                    engine->playstate, engine->deathstate,
+                    engine->exitstate);
+                */    
                 redraw = 1;
                 break;
         
             case ALLEGRO_EVENT_KEY_DOWN:
-                done = engine->process_input(level, &event.keyboard.keycode);
+                done = engine->process_input(engine, &event.keyboard.keycode);
                 break;
+
             case ALLEGRO_EVENT_DISPLAY_CLOSE:
                 done = 1;
                 break;
@@ -128,18 +154,20 @@ int main()
         // SOLUCIONADO: no se como tampoco, pero bueno pero es ser de boca
         if(!done && redraw && al_is_event_queue_empty(queue))
         {
-            engine->render(level);
+            engine->render(engine, level);
             //printf("%d\n", level->frog->lives);
-            done = Level_process_collisions(level);
+            //printf("%d\n", level->number);
+            done = Level_process_collisions(level, engine->volume);
             redraw = 0;
         }
     }
 
     al_destroy_font(font);
-    engine->destroy();
+    engine->destroy(engine, NULL);
+    sound_destroy();
     al_destroy_timer(timer);
     al_destroy_event_queue(queue);
-
+    Level_delete(level);
     return 0;
 }
 

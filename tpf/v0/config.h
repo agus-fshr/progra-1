@@ -7,4 +7,6 @@
 
 #define TIMEBASE (1.0 / 30.0)
 
+#define ALLEGRO_UNSTABLE
+
 #endif

@@ -8,6 +8,7 @@
 typedef struct {
     uint8_t lives;
     move_t movement;
+    uint8_t color;
     uint16_t x;
     uint8_t lane;
 } frog_t;
