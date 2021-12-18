@@ -7,6 +7,8 @@ static void render_map(levelptr_t level);
 static void render_pause(engineptr_t eng);
 static void render_menu(engineptr_t eng);
 static void draw_score(uint32_t score);
+static void render_death(engineptr_t eng);
+static void render_street_lanes(levelptr_t level);
 
 static ALLEGRO_DISPLAY* disp;
 static ALLEGRO_BITMAP* bitmap;
@@ -42,6 +44,10 @@ int AllegroEngine_render(engineptr_t eng, void* param) {
         
         case GAME_STA_PAUSE:
             render_pause(eng);
+            break;
+        
+        case GAME_STA_DEATH:
+            render_death(eng);
             break;
     }
     al_flip_display();
@@ -103,8 +109,6 @@ int AllegroEngine_input(engineptr_t eng, void* keycode) {
             key == ALLEGRO_KEY_RIGHT) {
         sound_play(SFX_HOP, eng->volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     }
-
-        
     
     return 0;
 }
@@ -158,61 +162,47 @@ static void render_menu(engineptr_t eng) {
         "HIGH SCORE: IDK lol"
     );
     al_destroy_font(font);
+}
 
-    al_flip_display();
+static void render_death(engineptr_t eng) {
+    al_clear_to_color(al_map_rgb(100, 0, 0));
+
+    ALLEGRO_FONT* font = al_create_builtin_font();
+    al_draw_text(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2 - BLOCK_HEIGHT,
+        ALLEGRO_ALIGN_CENTRE,"U DED");
+
+    al_draw_textf(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2,
+        ALLEGRO_ALIGN_CENTRE,
+        "DEAD MENU\t%c TRY AGAIN\t%c QUIT", 
+        eng->deathstate==DEATH_STA_MENU_OP_1 ? '>' : ' ',
+        eng->deathstate==DEATH_STA_MENU_OP_2 ? '>' : ' '
+    );
+
+    al_draw_text(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2 + BLOCK_HEIGHT,
+        ALLEGRO_ALIGN_CENTRE,
+        "HIGH SCORE: IDK lol"
+    );
+    al_destroy_font(font);
+
 }
 
 
 static void render_map(levelptr_t level) {
     al_clear_to_color(al_map_rgb(80, 80, 255));
     int16_t i=0, p=0, x=0;
-    uint8_t street_orientation = 5;
+    render_street_lanes(level);
     for(i = 0; i < LEVEL_HEIGHT; i++) {
         laneptr_t lane = level->lanes[i];
         uint8_t red = 0;
         uint8_t green = 0;
         uint8_t blue = 0;
-        if(lane->type == MOB_CAR) {
-            for(x=0; x < DISP_WIDTH; x+=BLOCK_WIDTH) {
-                uint8_t flipped = 0;
-                switch(street_orientation) {
-                    case 0:
-                    case 4:
-                        bitmap = al_load_bitmap("sprites/road1_64.png");
-                        break;
-                    
-                    case 1:
-                        bitmap = al_load_bitmap("sprites/road2_64.png");
-                        break;
-
-                    case 2:
-                        bitmap = al_load_bitmap("sprites/road2_64.png");
-                        flipped = ALLEGRO_FLIP_VERTICAL;
-                        break;
-
-                    case 3:
-                    case 5:
-                        bitmap = al_load_bitmap("sprites/road1_64.png");
-                        flipped = ALLEGRO_FLIP_VERTICAL;
-                        break;
-                    
-                    default:
-                        break;
-                }
-                al_draw_bitmap(bitmap, x, i*BLOCK_HEIGHT, flipped);
-                al_destroy_bitmap(bitmap);
-            }
-            street_orientation--;
-            if(street_orientation == -1) street_orientation = 5;
-            /*
-            al_draw_filled_rectangle(
-                0, i*BLOCK_HEIGHT, DISP_WIDTH,
-                (1 + i)*BLOCK_HEIGHT, al_map_rgb(90, 90, 90)); 
-                */
-            red = 255;
-            green = 0;
-            blue = 0;
-        } else if(lane->type == MOB_LOG) {
+        if(lane->type == MOB_LOG) {
             al_draw_filled_rectangle(
                 0, i*BLOCK_HEIGHT, DISP_WIDTH,
                 (1 + i)*BLOCK_HEIGHT, al_map_rgb(50, 50, 255)); 
@@ -365,4 +355,44 @@ static int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {
 
 static int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem) {
     return lane->x0 + (elem * lane->delta + lane->mob_length)*BLOCK_WIDTH;
+}
+
+static void render_street_lanes(levelptr_t level) {
+    int16_t i = 0, x = 0;
+    uint8_t street_orientation = 5;
+    for(i = 0; i < LEVEL_HEIGHT; i++) {
+        laneptr_t lane = level->lanes[i];
+        if(lane->type != MOB_CAR) continue;
+        for(x=0; x < DISP_WIDTH; x+=BLOCK_WIDTH) {
+            uint8_t flipped = 0;
+            switch(street_orientation) {
+                case 0:
+                case 4:
+                    bitmap = al_load_bitmap("sprites/road1_64.png");
+                    break;
+                
+                case 1:
+                    bitmap = al_load_bitmap("sprites/road2_64.png");
+                    break;
+
+                case 2:
+                    bitmap = al_load_bitmap("sprites/road2_64.png");
+                    flipped = ALLEGRO_FLIP_VERTICAL;
+                    break;
+
+                case 3:
+                case 5:
+                    bitmap = al_load_bitmap("sprites/road1_64.png");
+                    flipped = ALLEGRO_FLIP_VERTICAL;
+                    break;
+                
+                default:
+                    break;
+            }
+            al_draw_bitmap(bitmap, x, i*BLOCK_HEIGHT, flipped);
+            al_destroy_bitmap(bitmap);
+        }
+        street_orientation--;
+        if(street_orientation == -1) street_orientation = 5;
+    }
 }

@@ -100,6 +100,8 @@ int main()
                     // te deslizas por una desincronización entre
                     // el movimiento y el acompañamiento
                     // SOLUCIONADO: como? No se, pero solucionado
+                } else if(engine->state == GAME_STA_EXIT) {
+                    done = 1;
                 }
                 
                 process_game_state((engineptr_t) engine, INPUT_NULL);

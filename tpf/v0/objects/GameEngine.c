@@ -24,6 +24,10 @@ void process_game_state(engineptr_t eng, input_t input) {
             process_play_state(eng, input);
             break;
 
+        case GAME_STA_DEATH:
+            process_death_state(eng, input);
+            break;
+
         default:
             break;
     }
@@ -40,7 +44,10 @@ void process_menu_state(engineptr_t eng, input_t input) {
             break;
 
         case INPUT_ENTER:
-            if(eng->menustate == MENU_STA_OP_1)eng->state = GAME_STA_PLAY;
+            if(eng->menustate == MENU_STA_OP_1) {
+                eng->state = GAME_STA_PLAY;
+                eng->playstate = PLAY_STA_INIT;
+            }
             else eng->state = GAME_STA_EXIT;
             break;
             
@@ -90,6 +97,26 @@ void process_pause_state(engineptr_t eng, input_t input) {
 
 void process_death_state(engineptr_t eng, input_t input) {
     
+    switch(input) {
+        case INPUT_UP:
+            if(eng->deathstate == DEATH_STA_MENU_OP_2) eng->deathstate = DEATH_STA_MENU_OP_1;
+            break;
+        
+        case INPUT_DOWN:
+            if(eng->deathstate == DEATH_STA_MENU_OP_1) eng->deathstate = DEATH_STA_MENU_OP_2;
+            break;
+
+        case INPUT_ENTER:
+            if(eng->deathstate == MENU_STA_OP_1) {
+                eng->state = GAME_STA_PLAY;
+                eng->playstate = PLAY_STA_INIT;
+            }
+            else eng->state = GAME_STA_EXIT;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 void process_play_state(engineptr_t eng, input_t input) {
@@ -134,6 +161,10 @@ void process_play_state(engineptr_t eng, input_t input) {
             break;
     }
     if(eng->playstate == PLAY_STA_INIT) eng->playstate = PLAY_STA_1;
+    if(eng->level->frog->lives == 0) {
+        eng->state = GAME_STA_DEATH;
+        eng->deathstate = DEATH_STA_MENU_OP_1;
+    }
 }
 
 void engine_destroy_wrapper(engineptr_t eng) {
