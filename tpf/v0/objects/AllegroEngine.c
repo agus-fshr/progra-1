@@ -4,7 +4,9 @@
 static int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem);
 static int16_t Lane_get_elem_x_end(laneptr_t lane, int8_t elem);
 static void render_map(levelptr_t level);
-static void render_pause(levelptr_t level);
+static void render_pause(engineptr_t eng);
+static void render_menu(engineptr_t eng);
+static void draw_score(uint32_t score);
 
 static ALLEGRO_DISPLAY* disp;
 static ALLEGRO_BITMAP* bitmap;
@@ -13,33 +15,36 @@ int AllegroEngine_init(engineptr_t eng, void* param) {
     al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
     al_set_new_display_option(ALLEGRO_SAMPLES, 8, ALLEGRO_SUGGEST);
     al_set_new_bitmap_flags(ALLEGRO_MIN_LINEAR | ALLEGRO_MAG_LINEAR | ALLEGRO_VIDEO_BITMAP);
+    al_init_ttf_addon();
     disp = al_create_display(DISP_WIDTH, DISP_HEIGHT);
     al_register_event_source((ALLEGRO_EVENT_QUEUE*) param, al_get_display_event_source(disp));
+    Frog_move(eng->level->frog, SPAWN_X, SPAWN_Y);
+    Frog_reset_lives(eng->level->frog);
     return al_init_image_addon();
 }
 
 int AllegroEngine_destroy(engineptr_t eng, void* param){
     //al_destroy_bitmap(bitmap);
     al_destroy_display(disp);
-    Level_delete(eng->level);
     return 0;
 }
 
 int AllegroEngine_render(engineptr_t eng, void* param) {
     switch(eng->state) {
         case GAME_STA_MENU:
-
+            render_menu(eng);
             break;
 
         case GAME_STA_PLAY:
             render_map(eng->level);
+            draw_score(eng->score * 100);
             break;
         
         case GAME_STA_PAUSE:
-            render_pause(eng->level);
+            render_pause(eng);
             break;
-
     }
+    al_flip_display();
     return 0;
 }
 
@@ -96,7 +101,7 @@ int AllegroEngine_input(engineptr_t eng, void* keycode) {
             key == ALLEGRO_KEY_DOWN ||
             key == ALLEGRO_KEY_LEFT || 
             key == ALLEGRO_KEY_RIGHT) {
-        //sound_play(SFX_HOP, eng->volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        sound_play(SFX_HOP, eng->volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     }
 
         
@@ -104,8 +109,40 @@ int AllegroEngine_input(engineptr_t eng, void* keycode) {
     return 0;
 }
 
-static void render_pause(levelptr_t level) {
+static void render_pause(engineptr_t eng) {
     al_clear_to_color(al_map_rgb(50, 50, 255));
+    ALLEGRO_FONT* font = al_create_builtin_font();
+
+    al_draw_textf(font,al_map_rgb(0,0,0), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2,
+        ALLEGRO_ALIGN_CENTRE,
+        "PAUSE MENU\t%c RESUME\t%c RESET\t%c QUIT", 
+        eng->pausestate==PAUSE_STA_OP_1 ? '>' : ' ',
+        eng->pausestate==PAUSE_STA_OP_2 ? '>' : ' ',
+        eng->pausestate==PAUSE_STA_OP_3 ? '>' : ' '
+    );
+
+    al_draw_textf(font,al_map_rgb(0,0,0), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2 + BLOCK_HEIGHT,
+        ALLEGRO_ALIGN_CENTRE,
+        "SCORE: %d", eng->score*100
+    );
+    al_destroy_font(font);
+}
+
+
+static void render_menu(engineptr_t eng) {
+    al_clear_to_color(al_map_rgb(50, 50, 255));
+    
+    ALLEGRO_FONT* font = al_create_builtin_font();
+    al_draw_text(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2,
+        ALLEGRO_ALIGN_CENTRE,"THIS IS FCKING MENU");
+    al_destroy_font(font);
+
     al_flip_display();
 }
 
@@ -279,7 +316,7 @@ static void render_map(levelptr_t level) {
                             */
     al_draw_bitmap(bitmap, frogx, frogy*BLOCK_HEIGHT, 0);
     al_destroy_bitmap(bitmap);
-    
+
     laneptr_t finisherlane = level->lanes[0];
     for(i = 0; i < LVL_FINISHSPOTS; i++) {
         al_draw_filled_rectangle(
@@ -295,8 +332,15 @@ static void render_map(levelptr_t level) {
         al_draw_bitmap(bitmap, (LEVEL_WIDTH-1-i)*BLOCK_WIDTH, (LEVEL_HEIGHT-1)*BLOCK_HEIGHT, 0);
     }
     al_destroy_bitmap(bitmap);
+}
 
-    al_flip_display();
+static void draw_score(uint32_t score) {
+    ALLEGRO_FONT* font = al_create_builtin_font();
+    al_draw_textf(font,al_map_rgb(0,0,0), 
+        BLOCK_WIDTH/2,
+        (LEVEL_HEIGHT-0.5)*BLOCK_HEIGHT,
+        0,"SCORE: %d", score);
+    al_destroy_font(font);
 }
 
 static int16_t Lane_get_elem_x(laneptr_t lane, int8_t elem) {

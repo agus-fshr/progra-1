@@ -136,3 +136,15 @@ void process_play_state(engineptr_t eng, input_t input) {
     if(eng->playstate == PLAY_STA_INIT) eng->playstate = PLAY_STA_1;
 }
 
+void engine_destroy_wrapper(engineptr_t eng) {
+    eng->destroy(eng, NULL);
+    Level_delete(eng->level);
+    free(eng);
+}
+
+void engine_init_wrapper(engineptr_t eng) {
+    initialize_game_status(eng);
+    eng->level = malloc(sizeof(level_t));
+    Level_init(eng->level);
+    Level_reset(eng->level);
+}

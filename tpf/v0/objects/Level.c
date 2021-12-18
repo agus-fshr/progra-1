@@ -63,7 +63,7 @@ uint8_t Level_init(levelptr_t level) {
 uint8_t Level_delete(levelptr_t level) {
     uint8_t i = 0, p = 0;
     
-    for(i = LEVEL_HEIGHT-1; i >= 0; i--) {        
+    for(i = 0; i < LEVEL_HEIGHT; i++) {        
         free(level->lanes[i]);
     }
     free(level->lanes);
@@ -97,11 +97,11 @@ uint8_t Level_process_collisions(levelptr_t level, float volume) {
         }
     }
     if(car_collision) {
-        //sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     } else if(log_collision) {
-        //sound_play(SFX_PLUNK, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        sound_play(SFX_PLUNK, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     } else if(finisher_collision) {
-        //sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     }
     /*
     for(int i = 0; i < LVL_FINISHSPOTS; i++) {
@@ -109,6 +109,7 @@ uint8_t Level_process_collisions(levelptr_t level, float volume) {
     }
     printf("\n");
     */
+   uint8_t sum;
     if(collided && level->lanes[frogy]->type == MOB_FINISH) {
         if(is_in_array(level->finishers, finish_order, LVL_FINISHSPOTS)){
             if(Frog_kill(level->frog) == 0){
@@ -118,17 +119,20 @@ uint8_t Level_process_collisions(levelptr_t level, float volume) {
             }
         } else{
             level->finishers[level->finisher_count++] = finish_order;
-            level->score += 1;
+            //level->score += 1;
+            sum = 1;
             if(level->finisher_count == LVL_FINISHSPOTS){
-                level->score += 5*(level->number + 1);
+                //level->score += 5*(level->number + 1);
+                sum = 5*(level->number + 1);
                 Level_next(level);
             } else {
                 Frog_move(level->frog, SPAWN_X, SPAWN_Y);
             }
-            printf("%d\n", level->score);
+            //printf("%d\n", level->score);
         }
     }
-    return done;
+    //return done;
+    return sum;
 }
 
 void Level_next(levelptr_t level) {

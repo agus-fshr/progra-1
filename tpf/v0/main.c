@@ -40,23 +40,8 @@ int main()
     srand((unsigned int) time(NULL));
 
     must_init(al_init(), "allegro");
-    
-    engine->level = malloc(sizeof(level_t));
-    Level_init(engine->level);
-    levelptr_t level = engine->level;
-    /*
-    level->lanes[0]->type = MOB_FINISH;
-    level->lanes[0]->delta = 4;
-    level->lanes[0]->step = 0;
-    level->lanes[0]->x0 = 50;
-    level->lanes[0]->mob_length = 1;
-    */
-    Level_reset(level);
 
-    level->lanes[10]->step = -10;
 
-    Frog_move(level->frog, SPAWN_X, SPAWN_Y);
-    Frog_reset_lives(level->frog);
 
     must_init(al_install_keyboard(), "keyboard");
 
@@ -66,13 +51,12 @@ int main()
     ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
     must_init(queue, "queue");
 
+    //must_init(font, "font");
 
-    ALLEGRO_FONT* font = al_create_builtin_font();
-    must_init(font, "font");
-
-    //sound_init();
+    sound_init();
+    engine_init_wrapper(engine);
     engine->init(engine, queue);
-    initialize_game_status(engine);
+    levelptr_t level = engine->level;
 
     must_init(al_init_primitives_addon(), "primitives");
     al_register_event_source(queue, al_get_keyboard_event_source());
@@ -82,16 +66,11 @@ int main()
     bool redraw = true;
     ALLEGRO_EVENT event;
     
-    #define KEY_SEEN     1
-    #define KEY_RELEASED 2
-
-    unsigned char key[ALLEGRO_KEY_MAX];
-    memset(key, 0, sizeof(key));
     al_start_timer(timer);
 
     ALLEGRO_SAMPLE_ID background_music;
 
-    //sound_play(SFX_JINGLE, engine->volume, ALLEGRO_PLAYMODE_LOOP, &background_music);
+    sound_play(SFX_JINGLE, engine->volume, ALLEGRO_PLAYMODE_LOOP, &background_music);
     while(1) {
         al_wait_for_event(queue, &event);
         uint8_t i;
@@ -101,6 +80,7 @@ int main()
                 if(engine->state == GAME_STA_PLAY) {
                     if(engine->playstate == PLAY_STA_INIT) {
                         Level_reset(engine->level);
+                        engine->score = 0;
                     }
 
                     for(i = 0; i < LEVEL_HEIGHT; i++) {
@@ -158,17 +138,18 @@ int main()
             engine->render(engine, level);
             //printf("%d\n", level->frog->lives);
             //printf("%d\n", level->number);
-            done = Level_process_collisions(level, engine->volume);
+            /*done = */
+            engine->score += Level_process_collisions(level, engine->volume);
             redraw = 0;
         }
     }
 
-    al_destroy_font(font);
+    //al_destroy_font(font);
     engine->destroy(engine, NULL);
-    //sound_destroy();
+    sound_destroy();
     al_destroy_timer(timer);
     al_destroy_event_queue(queue);
-    Level_delete(level);
+    
     return 0;
 }
 

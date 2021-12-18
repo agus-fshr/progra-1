@@ -12,6 +12,8 @@ void sound_play(soundfx_t sfx, float volume, ALLEGRO_PLAYMODE mode, ALLEGRO_SAMP
     if(sample) {
         al_play_sample(sample, volume, 0.0, 1.0, mode, 0);
     }
+    //al_destroy_sample(sample);
+    // Leak de memoria!
 }
 
 void sound_destroy() {
