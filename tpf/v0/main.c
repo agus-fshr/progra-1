@@ -39,6 +39,8 @@ int main()
 
     srand((unsigned int) time(NULL));
 
+    must_init(al_init(), "allegro");
+    
     engine->level = malloc(sizeof(level_t));
     Level_init(engine->level);
     levelptr_t level = engine->level;
@@ -56,7 +58,6 @@ int main()
     Frog_move(level->frog, SPAWN_X, SPAWN_Y);
     Frog_reset_lives(level->frog);
 
-    must_init(al_init(), "allegro");
     must_init(al_install_keyboard(), "keyboard");
 
     ALLEGRO_TIMER* timer = al_create_timer(TIMEBASE);
@@ -69,7 +70,7 @@ int main()
     ALLEGRO_FONT* font = al_create_builtin_font();
     must_init(font, "font");
 
-    sound_init();
+    //sound_init();
     engine->init(engine, queue);
     initialize_game_status(engine);
 
@@ -90,7 +91,7 @@ int main()
 
     ALLEGRO_SAMPLE_ID background_music;
 
-    sound_play(SFX_JINGLE, engine->volume, ALLEGRO_PLAYMODE_LOOP, &background_music);
+    //sound_play(SFX_JINGLE, engine->volume, ALLEGRO_PLAYMODE_LOOP, &background_music);
     while(1) {
         al_wait_for_event(queue, &event);
         uint8_t i;
@@ -164,7 +165,7 @@ int main()
 
     al_destroy_font(font);
     engine->destroy(engine, NULL);
-    sound_destroy();
+    //sound_destroy();
     al_destroy_timer(timer);
     al_destroy_event_queue(queue);
     Level_delete(level);

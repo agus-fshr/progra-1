@@ -63,12 +63,13 @@ uint8_t Level_init(levelptr_t level) {
 uint8_t Level_delete(levelptr_t level) {
     uint8_t i = 0, p = 0;
     
-    for(i = 0; i < LEVEL_HEIGHT; i++) {        
+    for(i = LEVEL_HEIGHT-1; i >= 0; i--) {        
         free(level->lanes[i]);
     }
     free(level->lanes);
 
-    //free(level->finish_spots);
+    free(level->frog);
+    free(level);
     return 1;
 }
 
@@ -96,11 +97,11 @@ uint8_t Level_process_collisions(levelptr_t level, float volume) {
         }
     }
     if(car_collision) {
-        sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        //sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     } else if(log_collision) {
-        sound_play(SFX_PLUNK, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        //sound_play(SFX_PLUNK, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     } else if(finisher_collision) {
-        sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
+        //sound_play(SFX_SQUASH, volume, ALLEGRO_PLAYMODE_ONCE, NULL);
     }
     /*
     for(int i = 0; i < LVL_FINISHSPOTS; i++) {
