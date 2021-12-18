@@ -134,13 +134,29 @@ static void render_pause(engineptr_t eng) {
 
 
 static void render_menu(engineptr_t eng) {
-    al_clear_to_color(al_map_rgb(50, 50, 255));
-    
+    al_clear_to_color(al_map_rgb(0, 0, 0));
+
     ALLEGRO_FONT* font = al_create_builtin_font();
     al_draw_text(font,al_map_rgb(255,255,255), 
         DISP_WIDTH/2,
+        DISP_HEIGHT/2 - BLOCK_HEIGHT,
+        ALLEGRO_ALIGN_CENTRE,"THIS IS a MENU");
+
+    al_draw_textf(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
         DISP_HEIGHT/2,
-        ALLEGRO_ALIGN_CENTRE,"THIS IS FCKING MENU");
+        ALLEGRO_ALIGN_CENTRE,
+        "MAIN MENU\t%c PLAY\t%c QUIT", 
+        eng->menustate==MENU_STA_OP_1 ? '>' : ' ',
+        eng->menustate==MENU_STA_OP_2 ? '>' : ' '
+    );
+
+    al_draw_text(font,al_map_rgb(255,255,255), 
+        DISP_WIDTH/2,
+        DISP_HEIGHT/2 + BLOCK_HEIGHT,
+        ALLEGRO_ALIGN_CENTRE,
+        "HIGH SCORE: IDK lol"
+    );
     al_destroy_font(font);
 
     al_flip_display();
